@@ -1,0 +1,27 @@
+package com.psi.stock.dto;
+
+import lombok.Data;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.List;
+
+@Data
+public class StockCheckMainDTO implements Serializable {
+
+    private Long id;
+    private String checkNo;
+    private String docName;
+    private String warehouseCode;
+    private String warehouseName;
+    private String checkDate;
+    private BigDecimal totalAmount;
+    private BigDecimal diffAmount;
+    private String remark;
+    private Integer status;
+    private Integer orderStatus;
+    private LocalDateTime createTime;
+    private LocalDateTime updateTime;
+    private List<StockCheckItemDTO> items;
+}

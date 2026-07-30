@@ -1,0 +1,75 @@
+-- 创建数据库
+CREATE DATABASE IF NOT EXISTS psi_message DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- 使用数据库
+USE psi_message;
+
+-- 创建消息记录表
+CREATE TABLE IF NOT EXISTS `mq_message_record` (
+    id bigint NOT NULL AUTO_INCREMENT COMMENT '主键自增ID',
+    message_id varchar(64) NOT NULL COMMENT '全局唯一消息ID，幂等主键',
+    tenant_id varchar(32) DEFAULT '' COMMENT '租户ID',
+    operator_id varchar(32) DEFAULT '' COMMENT '业务操作人ID',
+    source_service varchar(64) NOT NULL COMMENT '生产者微服务名',
+    exchange_name varchar(64) NOT NULL COMMENT '交换机名称',
+    routing_key varchar(64) NOT NULL COMMENT '路由键',
+    event_type varchar(32) NOT NULL COMMENT '业务事件类型',
+    message_body text NOT NULL COMMENT '完整业务消息JSON体',
+    ext_params varchar(1024) DEFAULT '' COMMENT '扩展参数JSON',
+    msg_status tinyint NOT NULL DEFAULT '0' COMMENT '0待发送 1发送成功 2发送失败 3消费成功 4消费失败',
+    send_time bigint NOT NULL COMMENT '消息发送时间戳',
+    consume_time bigint DEFAULT NULL COMMENT '消息消费时间戳',
+    error_msg varchar(2048) DEFAULT '' COMMENT '失败异常信息',
+    create_by varchar(32) DEFAULT '' COMMENT '记录创建人ID',
+    update_by varchar(32) DEFAULT '' COMMENT '记录更新人ID',
+    create_time datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '记录创建时间',
+    update_time datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '记录更新时间',
+    del_flag TINYINT DEFAULT 0 COMMENT '逻辑删除标识 0-未删除 1-已删除',
+    status TINYINT DEFAULT 1 COMMENT '启用状态 0-禁用 1-启用',
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `uk_message_id` (`message_id`),
+    KEY `idx_msg_status` (`msg_status`),
+    KEY `idx_tenant_service` (`tenant_id`,`source_service`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='MQ消息落表记录表';
+
+-- 创建死信表
+CREATE TABLE IF NOT EXISTS msg_dead_letter (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY COMMENT '死信ID',
+    tenant_id BIGINT DEFAULT 0 COMMENT '租户ID',
+    message_id VARCHAR(64) NOT NULL COMMENT '原始消息ID',
+    original_topic VARCHAR(255) NOT NULL COMMENT '原始主题',
+    content TEXT NOT NULL COMMENT '消息内容(JSON格式)',
+    sender VARCHAR(100) COMMENT '发送者',
+    receiver VARCHAR(100) COMMENT '接收者',
+    reason VARCHAR(500) COMMENT '进入死信原因',
+    error_message TEXT COMMENT '错误信息',
+    failed_count INT DEFAULT 0 COMMENT '失败次数',
+    last_failed_time DATETIME COMMENT '最后失败时间',
+    create_by BIGINT COMMENT '创建人ID',
+    create_time DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    update_by BIGINT COMMENT '更新人ID',
+    update_time DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+    del_flag TINYINT DEFAULT 0 COMMENT '逻辑删除标识 0-未删除 1-已删除',
+    status TINYINT DEFAULT 1 COMMENT '启用状态 0-禁用 1-启用'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='死信表';
+
+-- 创建死信待办表
+CREATE TABLE IF NOT EXISTS msg_dead_letter_todo (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY COMMENT '待办ID',
+    tenant_id BIGINT DEFAULT 0 COMMENT '租户ID',
+    dead_letter_id BIGINT NOT NULL COMMENT '死信ID',
+    message_id VARCHAR(64) NOT NULL COMMENT '原始消息ID',
+    handler VARCHAR(100) COMMENT '处理人',
+    process_status TINYINT DEFAULT 0 COMMENT '处理状态 0-待处理 1-处理中 2-已完成 3-忽略',
+    handle_type TINYINT DEFAULT 0 COMMENT '处理方式 0-重试 1-手动处理 2-丢弃',
+    remark VARCHAR(500) COMMENT '处理备注',
+    handle_time DATETIME COMMENT '处理时间',
+    create_by BIGINT COMMENT '创建人ID',
+    create_time DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    update_by BIGINT COMMENT '更新人ID',
+    update_time DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+    del_flag TINYINT DEFAULT 0 COMMENT '逻辑删除标识 0-未删除 1-已删除',
+    status TINYINT DEFAULT 1 COMMENT '启用状态 0-禁用 1-启用'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='死信待办表';
+
+SELECT '数据库和表创建成功!' AS result;

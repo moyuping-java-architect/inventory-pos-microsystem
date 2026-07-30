@@ -1,0 +1,121 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: psi-gateway
+  cloud:
+    gateway:
+      # 路由配置
+      routes:
+        # 系统服务路由
+        - id: psi-system
+          uri: lb://psi-system
+          predicates:
+            - Path=/psi/admin/**
+          filters:
+            - StripPrefix=2
+            - JwtAuthenticationFilter
+
+        # 消息服务路由
+        - id: psi-message
+          uri: lb://psi-message
+          predicates:
+            - Path=/psi/message/**
+          filters:
+            - StripPrefix=2
+            - JwtAuthenticationFilter
+
+        # 商品服务路由
+        - id: psi-goods
+          uri: lb://psi-goods
+          predicates:
+            - Path=/psi/goods/**
+          filters:
+            - StripPrefix=2
+            - JwtAuthenticationFilter
+
+        # 采购服务路由
+        - id: psi-purchase
+          uri: lb://psi-purchase
+          predicates:
+            - Path=/psi/purchase/**
+          filters:
+            - StripPrefix=2
+            - JwtAuthenticationFilter
+
+        # 销售服务路由
+        - id: psi-sale
+          uri: lb://psi-sale
+          predicates:
+            - Path=/psi/sale/**
+          filters:
+            - StripPrefix=2
+            - JwtAuthenticationFilter
+
+        # 财务服务路由
+        - id: psi-finance
+          uri: lb://psi-finance
+          predicates:
+            - Path=/psi/finance/**
+          filters:
+            - StripPrefix=2
+            - JwtAuthenticationFilter
+
+        # 收银服务路由
+        - id: psi-cashier
+          uri: lb://psi-cashier
+          predicates:
+            - Path=/psi/cashier/**
+          filters:
+            - StripPrefix=2
+            - JwtAuthenticationFilter
+
+        # 同步服务路由
+        - id: psi-sync
+          uri: lb://psi-sync
+          predicates:
+            - Path=/psi/sync/**
+          filters:
+            - StripPrefix=2
+            - JwtAuthenticationFilter
+
+        # 工作流服务路由
+        - id: psi-flow
+          uri: lb://psi-flow
+          predicates:
+            - Path=/psi/workflow/**
+          filters:
+            - StripPrefix=2
+            - JwtAuthenticationFilter
+
+        # 库存服务路由
+        - id: psi-stock
+          uri: lb://psi-stock
+          predicates:
+            - Path=/psi/stock/**
+          filters:
+            - StripPrefix=2
+            - JwtAuthenticationFilter
+
+      # 全局过滤器配置
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
+        - RateLimitFilter
+
+  # Nacos 配置
+  config:
+    import:
+      - nacos:psi-gateway.yml?group=DEFAULT_GROUP
+
+# Nacos 服务发现配置
+nacos:
+  discovery:
+    server-addr: localhost:8848
+    namespace: public
+
+# 日志配置
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    com.psi.gateway: DEBUG

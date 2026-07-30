@@ -1,0 +1,535 @@
+x-skywalking-env: &skywalking-env
+  SW_AGENT_COLLECTOR_BACKEND_SERVICES: "skywalking-oap:11800"
+  SW_LOGGING_DIR: "/tmp/skywalking-logs"
+
+services:
+  # ===========================================================
+  # 可观测性中间件（SkyWalking + Elasticsearch 7）
+  # 启动命令：docker compose -f docker-compose-observability.yml up -d
+  # ===========================================================
+
+  # 基础设施
+  mysql:
+    image: mysql:8.0
+    container_name: psi-mysql
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      TZ: Asia/Shanghai
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./docker/mysql-extra-dbs.sql:/docker-entrypoint-initdb.d/extra-dbs.sql
+    command: --default-authentication-plugin=mysql_native_password
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-uroot", "-proot"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+  mysql-init:
+    image: mysql:8.0
+    container_name: psi-mysql-init
+    depends_on:
+      mysql:
+        condition: service_healthy
+    volumes:
+      - ./docker/mysql-extra-dbs.sql:/init.sql
+    entrypoint: ["bash", "-c", "mysql -hmysql -uroot -proot < /init.sql && echo 'extra databases created'"]
+    restart: "no"
+
+  redis:
+    image: redis:7-alpine
+    container_name: psi-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  rabbitmq:
+    image: rabbitmq:3.12-management
+    container_name: psi-rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: admin
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+
+  nacos:
+    image: nacos/nacos-server:v2.3.0
+    container_name: psi-nacos
+    ports:
+      - "8848:8848"
+      - "9848:9848"
+    environment:
+      MODE: standalone
+      PREFER_HOST_MODE: hostname
+      NACOS_AUTH_ENABLE: "false"
+
+  # Java 微服务
+  psi-gateway:
+    build: ./psi-gateway
+    image: psi-gateway:latest
+    container_name: psi-gateway
+    ports:
+      - "8081:8081"
+    environment:
+      SERVICE_NAME: gateway
+      <<: *skywalking-env
+      SW_AGENT_NAME: psi-gateway
+      JAVA_OPTS: "-javaagent:/opt/skywalking/agent/skywalking-agent.jar -Dskywalking.config=/opt/skywalking/agent/config/agent.config -Dskywalking.agent.service_name=psi-gateway -Dskywalking.collector.backend_service=skywalking-oap:11800 -Dskywalking.logging.dir=/tmp/skywalking-logs"
+      SPRING_APPLICATION_JSON: >
+        {"spring.profiles.active":"","spring.config.import":"","spring.cloud.nacos.config.enabled":false,"spring.cloud.nacos.discovery.server-addr":"nacos:8848"}
+    volumes:
+      - ./docker/skywalking/skywalking-agent:/opt/skywalking/agent:ro
+    entrypoint: ["/bin/sh", "-c", "java $$JAVA_OPTS -jar /app/app.jar"]
+    depends_on:
+      - nacos
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8081/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    restart: unless-stopped
+
+  psi-goods:
+    build:
+      context: .
+      dockerfile: ./psi-goods/Dockerfile
+    image: psi-goods:latest
+    container_name: psi-goods
+    ports:
+      - "8082:8082"
+    environment:
+      SERVICE_NAME: goods
+      <<: *skywalking-env
+      SW_AGENT_NAME: psi-goods
+      JAVA_OPTS: "-javaagent:/opt/skywalking/agent/skywalking-agent.jar -Dskywalking.config=/opt/skywalking/agent/config/agent.config -Dskywalking.agent.service_name=psi-goods -Dskywalking.collector.backend_service=skywalking-oap:11800 -Dskywalking.logging.dir=/tmp/skywalking-logs"
+      SPRING_APPLICATION_JSON: >
+        {"spring.datasource.url":"jdbc:mysql://mysql:3306/psi_goods?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai","spring.datasource.username":"root","spring.datasource.password":"root","spring.data.redis.host":"redis","spring.rabbitmq.host":"rabbitmq","spring.rabbitmq.username":"admin","spring.rabbitmq.password":"admin","spring.cloud.nacos.config.enabled":false,"spring.cloud.nacos.discovery.server-addr":"nacos:8848"}
+    volumes:
+      - ./docker/skywalking/skywalking-agent:/opt/skywalking/agent:ro
+    entrypoint: ["/bin/sh", "-c", "java $$JAVA_OPTS -jar /app/app.jar"]
+    depends_on:
+      mysql-init:
+        condition: service_completed_successfully
+      redis:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_started
+      nacos:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8082/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 90s
+    restart: unless-stopped
+
+  psi-sale:
+    build:
+      context: .
+      dockerfile: ./psi-sale/Dockerfile
+    image: psi-sale:latest
+    container_name: psi-sale
+    ports:
+      - "8085:8085"
+    environment:
+      SERVICE_NAME: sale
+      <<: *skywalking-env
+      SW_AGENT_NAME: psi-sale
+      JAVA_OPTS: "-javaagent:/opt/skywalking/agent/skywalking-agent.jar -Dskywalking.config=/opt/skywalking/agent/config/agent.config -Dskywalking.agent.service_name=psi-sale -Dskywalking.collector.backend_service=skywalking-oap:11800 -Dskywalking.logging.dir=/tmp/skywalking-logs"
+      SPRING_APPLICATION_JSON: >
+        {"spring.datasource.url":"jdbc:mysql://mysql:3306/psi_sale?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai","spring.datasource.username":"root","spring.datasource.password":"root","spring.data.redis.host":"redis","spring.rabbitmq.host":"rabbitmq","spring.rabbitmq.username":"admin","spring.rabbitmq.password":"admin","spring.cloud.nacos.config.enabled":false,"spring.cloud.nacos.discovery.server-addr":"nacos:8848","psi.flow.base-url":"http://psi-flow:8089","psi.sync.base-url":"http://psi-sync:8091"}
+    volumes:
+      - ./docker/skywalking/skywalking-agent:/opt/skywalking/agent:ro
+    entrypoint: ["/bin/sh", "-c", "java $$JAVA_OPTS -jar /app/app.jar"]
+    depends_on:
+      mysql-init:
+        condition: service_completed_successfully
+      redis:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_started
+      nacos:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8085/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 90s
+    restart: unless-stopped
+
+  psi-purchase:
+    build: ./psi-purchase
+    image: psi-purchase:latest
+    container_name: psi-purchase
+    ports:
+      - "8090:8090"
+    environment:
+      SERVICE_NAME: purchase
+      <<: *skywalking-env
+      SW_AGENT_NAME: psi-purchase
+      JAVA_OPTS: "-javaagent:/opt/skywalking/agent/skywalking-agent.jar -Dskywalking.config=/opt/skywalking/agent/config/agent.config -Dskywalking.agent.service_name=psi-purchase -Dskywalking.collector.backend_service=skywalking-oap:11800 -Dskywalking.logging.dir=/tmp/skywalking-logs"
+      SPRING_APPLICATION_JSON: >
+        {"spring.datasource.url":"jdbc:mysql://mysql:3306/psi_purchase?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai","spring.datasource.username":"root","spring.datasource.password":"root","spring.data.redis.host":"redis","spring.rabbitmq.host":"rabbitmq","spring.rabbitmq.username":"admin","spring.rabbitmq.password":"admin","spring.cloud.nacos.config.enabled":false,"spring.cloud.nacos.discovery.server-addr":"nacos:8848","psi.flow.base-url":"http://psi-flow:8089","psi.sync.base-url":"http://psi-sync:8091"}
+    volumes:
+      - ./docker/skywalking/skywalking-agent:/opt/skywalking/agent:ro
+    entrypoint: ["/bin/sh", "-c", "java $$JAVA_OPTS -jar /app/app.jar"]
+    depends_on:
+      mysql-init:
+        condition: service_completed_successfully
+      redis:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_started
+      nacos:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8090/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 90s
+    restart: unless-stopped
+
+  psi-stock:
+    build: ./psi-stock
+    image: psi-stock:latest
+    container_name: psi-stock
+    ports:
+      - "8086:8086"
+    environment:
+      SERVICE_NAME: stock
+      <<: *skywalking-env
+      SW_AGENT_NAME: psi-stock
+      JAVA_OPTS: "-javaagent:/opt/skywalking/agent/skywalking-agent.jar -Dskywalking.config=/opt/skywalking/agent/config/agent.config -Dskywalking.agent.service_name=psi-stock -Dskywalking.collector.backend_service=skywalking-oap:11800 -Dskywalking.logging.dir=/tmp/skywalking-logs"
+      SPRING_APPLICATION_JSON: >
+        {"spring.datasource.url":"jdbc:mysql://mysql:3306/psi_stock?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai","spring.datasource.username":"root","spring.datasource.password":"root","spring.data.redis.host":"redis","spring.rabbitmq.host":"rabbitmq","spring.rabbitmq.username":"admin","spring.rabbitmq.password":"admin","spring.cloud.nacos.config.enabled":false,"spring.cloud.nacos.discovery.server-addr":"nacos:8848","psi.stock.base-url":"http://psi-stock-go:8093"}
+    volumes:
+      - ./docker/skywalking/skywalking-agent:/opt/skywalking/agent:ro
+    entrypoint: ["/bin/sh", "-c", "java $$JAVA_OPTS -jar /app/app.jar"]
+    depends_on:
+      mysql-init:
+        condition: service_completed_successfully
+      redis:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_started
+      nacos:
+        condition: service_started
+      psi-stock-go:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8086/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 90s
+    restart: unless-stopped
+
+  psi-stock-go:
+    build: ./psi-stock-go
+    image: psi-stock-go:latest
+    container_name: psi-stock-go
+    ports:
+      - "8093:8093"
+    environment:
+      SERVER_PORT: 8093
+      SERVER_NAME: psi-stock-go
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASSWORD: root
+      DB_NAME: psi_stock
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      REDIS_DB: 0
+      NACOS_HOST: nacos
+      NACOS_PORT: 8848
+    depends_on:
+      - mysql-init
+      - redis
+      - nacos
+
+  psi-finance:
+    build: ./psi-finance
+    image: psi-finance:latest
+    container_name: psi-finance
+    ports:
+      - "8083:8083"
+    environment:
+      SERVICE_NAME: finance
+      <<: *skywalking-env
+      SW_AGENT_NAME: psi-finance
+      JAVA_OPTS: "-javaagent:/opt/skywalking/agent/skywalking-agent.jar -Dskywalking.config=/opt/skywalking/agent/config/agent.config -Dskywalking.agent.service_name=psi-finance -Dskywalking.collector.backend_service=skywalking-oap:11800 -Dskywalking.logging.dir=/tmp/skywalking-logs"
+      SPRING_APPLICATION_JSON: >
+        {"spring.datasource.url":"jdbc:mysql://mysql:3306/finance_db?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai","spring.datasource.username":"root","spring.datasource.password":"root","spring.data.redis.host":"redis","spring.rabbitmq.host":"rabbitmq","spring.rabbitmq.username":"admin","spring.rabbitmq.password":"admin","spring.cloud.nacos.config.enabled":false,"spring.cloud.nacos.discovery.server-addr":"nacos:8848"}
+    volumes:
+      - ./docker/skywalking/skywalking-agent:/opt/skywalking/agent:ro
+    entrypoint: ["/bin/sh", "-c", "java $$JAVA_OPTS -jar /app/app.jar"]
+    depends_on:
+      mysql-init:
+        condition: service_completed_successfully
+      redis:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_started
+      nacos:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8083/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 90s
+    restart: unless-stopped
+
+  psi-flow:
+    build: ./psi-flow
+    image: psi-flow:latest
+    container_name: psi-flow
+    ports:
+      - "8089:8089"
+    environment:
+      SERVICE_NAME: flow
+      <<: *skywalking-env
+      SW_AGENT_NAME: psi-flow
+      JAVA_OPTS: "-javaagent:/opt/skywalking/agent/skywalking-agent.jar -Dskywalking.config=/opt/skywalking/agent/config/agent.config -Dskywalking.agent.service_name=psi-flow -Dskywalking.collector.backend_service=skywalking-oap:11800 -Dskywalking.logging.dir=/tmp/skywalking-logs"
+      SPRING_APPLICATION_JSON: >
+        {"spring.datasource.url":"jdbc:mysql://mysql:3306/psi_flow?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai","spring.datasource.username":"root","spring.datasource.password":"root","spring.data.redis.host":"redis","spring.rabbitmq.host":"rabbitmq","spring.rabbitmq.username":"admin","spring.rabbitmq.password":"admin","spring.cloud.nacos.config.enabled":false,"spring.cloud.nacos.discovery.server-addr":"nacos:8848"}
+    volumes:
+      - ./docker/skywalking/skywalking-agent:/opt/skywalking/agent:ro
+    entrypoint: ["/bin/sh", "-c", "java $$JAVA_OPTS -jar /app/app.jar"]
+    depends_on:
+      mysql-init:
+        condition: service_completed_successfully
+      redis:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_started
+      nacos:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8089/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 90s
+    restart: unless-stopped
+
+  psi-sync:
+    build:
+      context: .
+      dockerfile: ./psi-sync/Dockerfile
+    image: psi-sync:latest
+    container_name: psi-sync
+    ports:
+      - "8091:8091"
+    environment:
+      SERVICE_NAME: sync
+      <<: *skywalking-env
+      SW_AGENT_NAME: psi-sync
+      JAVA_OPTS: "-javaagent:/opt/skywalking/agent/skywalking-agent.jar -Dskywalking.config=/opt/skywalking/agent/config/agent.config -Dskywalking.agent.service_name=psi-sync -Dskywalking.collector.backend_service=skywalking-oap:11800 -Dskywalking.logging.dir=/tmp/skywalking-logs"
+      SPRING_APPLICATION_JSON: >
+        {"spring.datasource.url":"jdbc:mysql://mysql:3306/psi_sync_db?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai","spring.datasource.username":"root","spring.datasource.password":"root","spring.data.redis.host":"redis","spring.rabbitmq.host":"rabbitmq","spring.rabbitmq.username":"admin","spring.rabbitmq.password":"admin","spring.cloud.nacos.config.enabled":false,"spring.cloud.nacos.discovery.server-addr":"nacos:8848"}
+    volumes:
+      - ./docker/skywalking/skywalking-agent:/opt/skywalking/agent:ro
+    entrypoint: ["/bin/sh", "-c", "java $$JAVA_OPTS -jar /app/app.jar"]
+    depends_on:
+      mysql-init:
+        condition: service_completed_successfully
+      redis:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_started
+      nacos:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8091/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 90s
+    restart: unless-stopped
+
+  psi-message:
+    build: ./psi-message
+    image: psi-message:latest
+    container_name: psi-message
+    ports:
+      - "8084:8084"
+    environment:
+      SERVICE_NAME: message
+      <<: *skywalking-env
+      SW_AGENT_NAME: psi-message
+      JAVA_OPTS: "-javaagent:/opt/skywalking/agent/skywalking-agent.jar -Dskywalking.config=/opt/skywalking/agent/config/agent.config -Dskywalking.agent.service_name=psi-message -Dskywalking.collector.backend_service=skywalking-oap:11800 -Dskywalking.logging.dir=/tmp/skywalking-logs"
+      SPRING_APPLICATION_JSON: >
+        {"spring.datasource.url":"jdbc:mysql://mysql:3306/psi_message?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai","spring.datasource.username":"root","spring.datasource.password":"root","spring.data.redis.host":"redis","spring.rabbitmq.host":"rabbitmq","spring.rabbitmq.username":"admin","spring.rabbitmq.password":"admin","spring.cloud.nacos.config.enabled":false,"spring.cloud.nacos.discovery.server-addr":"nacos:8848","spring.flyway.baseline-on-migrate":true}
+    volumes:
+      - ./docker/skywalking/skywalking-agent:/opt/skywalking/agent:ro
+    entrypoint: ["/bin/sh", "-c", "java $$JAVA_OPTS -jar /app/app.jar"]
+    depends_on:
+      mysql-init:
+        condition: service_completed_successfully
+      redis:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_started
+      nacos:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8084/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 90s
+    restart: unless-stopped
+
+  psi-system:
+    build: ./psi-system
+    image: psi-system:latest
+    container_name: psi-system
+    ports:
+      - "8087:8087"
+    environment:
+      SERVICE_NAME: system
+      <<: *skywalking-env
+      SW_AGENT_NAME: psi-system
+      JAVA_OPTS: "-javaagent:/opt/skywalking/agent/skywalking-agent.jar -Dskywalking.config=/opt/skywalking/agent/config/agent.config -Dskywalking.agent.service_name=psi-system -Dskywalking.collector.backend_service=skywalking-oap:11800 -Dskywalking.logging.dir=/tmp/skywalking-logs"
+      SPRING_APPLICATION_JSON: >
+        {"spring.datasource.url":"jdbc:mysql://mysql:3306/erp_system_db?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai","spring.datasource.username":"root","spring.datasource.password":"root","spring.data.redis.host":"redis","spring.rabbitmq.host":"rabbitmq","spring.rabbitmq.username":"admin","spring.rabbitmq.password":"admin","spring.cloud.nacos.config.enabled":false,"spring.cloud.nacos.discovery.server-addr":"nacos:8848","spring.flyway.enabled":false}
+    volumes:
+      - ./docker/skywalking/skywalking-agent:/opt/skywalking/agent:ro
+    entrypoint: ["/bin/sh", "-c", "java $$JAVA_OPTS -jar /app/app.jar"]
+    depends_on:
+      mysql-init:
+        condition: service_completed_successfully
+      redis:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_started
+      nacos:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8087/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 90s
+    restart: unless-stopped
+
+  psi-report:
+    build: ./psi-report
+    image: psi-report:latest
+    container_name: psi-report
+    ports:
+      - "8092:8092"
+    environment:
+      SERVICE_NAME: report
+      <<: *skywalking-env
+      SW_AGENT_NAME: psi-report
+      JAVA_OPTS: "-javaagent:/opt/skywalking/agent/skywalking-agent.jar -Dskywalking.config=/opt/skywalking/agent/config/agent.config -Dskywalking.agent.service_name=psi-report -Dskywalking.collector.backend_service=skywalking-oap:11800 -Dskywalking.logging.dir=/tmp/skywalking-logs"
+      SPRING_APPLICATION_JSON: >
+        {"spring.datasource.url":"jdbc:mysql://mysql:3306/psi_report?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai","spring.datasource.username":"root","spring.datasource.password":"root","spring.data.redis.host":"redis","spring.rabbitmq.host":"rabbitmq","spring.rabbitmq.username":"admin","spring.rabbitmq.password":"admin","spring.cloud.nacos.config.enabled":false,"spring.cloud.nacos.discovery.server-addr":"nacos:8848"}
+    volumes:
+      - ./docker/skywalking/skywalking-agent:/opt/skywalking/agent:ro
+    entrypoint: ["/bin/sh", "-c", "java $$JAVA_OPTS -jar /app/app.jar"]
+    depends_on:
+      mysql-init:
+        condition: service_completed_successfully
+      redis:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_started
+      nacos:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8092/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 90s
+    restart: unless-stopped
+
+  # 进销存前端
+  psi-frontend:
+    build: ./psi-frontend
+    image: psi-frontend:latest
+    container_name: psi-frontend
+    ports:
+      - "8097:80"
+    depends_on:
+      - psi-system
+      - psi-gateway
+    restart: unless-stopped
+
+  # 收银终端（一终端一容器，独立 SQLite 数据目录）
+  psi-cashier-t01:
+    build: ./psi-cashier
+    image: psi-cashier:latest
+    container_name: psi-cashier-t01
+    ports:
+      - "8094:8088"
+    environment:
+      TERMINAL_ID: T01
+      STORE_ID: S001
+      PSI_SYNC_BASE_URL: http://psi-sync:8091
+      PSI_STOCK_BASE_URL: http://psi-stock:8086
+    volumes:
+      - ./psi-cashier/data/t01:/app/data
+    depends_on:
+      - psi-sync
+      - psi-stock
+    restart: unless-stopped
+
+  psi-cashier-t02:
+    image: psi-cashier:latest
+    container_name: psi-cashier-t02
+    ports:
+      - "8095:8088"
+    environment:
+      TERMINAL_ID: T02
+      STORE_ID: S001
+      PSI_SYNC_BASE_URL: http://psi-sync:8091
+      PSI_STOCK_BASE_URL: http://psi-stock:8086
+    volumes:
+      - ./psi-cashier/data/t02:/app/data
+    depends_on:
+      - psi-sync
+      - psi-stock
+    restart: unless-stopped
+
+  psi-cashier-t03:
+    image: psi-cashier:latest
+    container_name: psi-cashier-t03
+    ports:
+      - "8096:8088"
+    environment:
+      TERMINAL_ID: T03
+      STORE_ID: S001
+      PSI_SYNC_BASE_URL: http://psi-sync:8091
+      PSI_STOCK_BASE_URL: http://psi-stock:8086
+    volumes:
+      - ./psi-cashier/data/t03:/app/data
+    depends_on:
+      - psi-sync
+      - psi-stock
+    restart: unless-stopped
+
+volumes:
+  mysql-data:
+  redis-data:
+  rabbitmq-data:

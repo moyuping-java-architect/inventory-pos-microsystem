@@ -1,0 +1,94 @@
+# =====================================================================
+# PSI 可观测性中间件栈 - Apache SkyWalking 10.x
+# =====================================================================
+# 一个中间件搞定 Metrics + Tracing + Logging（APM 三大支柱）
+# 国产 Apache 顶级项目，面试欧洲远程架构师岗强力加分
+# ---------------------------------------------------------------------
+# 端口分配：
+#   9200  - Elasticsearch 7 (SkyWalking 10.x 兼容 ES7)
+#   11800 - SkyWalking OAP gRPC（Agent → OAP）
+#   12800 - SkyWalking OAP REST（UI 查询）
+#   12900 - SkyWalking UI  Web 控制台
+# ---------------------------------------------------------------------
+# 启动：  docker compose -f docker-compose-observability.yml up -d
+# 停止：  docker compose -f docker-compose-observability.yml down
+# 清理：  docker compose -f docker-compose-observability.yml down -v
+# ---------------------------------------------------------------------
+
+services:
+
+  # Elasticsearch 7 —— SkyWalking OAP 存储后端
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.18
+    container_name: psi-elasticsearch
+    ports:
+      - "9200:9200"
+    environment:
+      - discovery.type=single-node
+      - cluster.name=psi-sw-cluster
+      - node.name=psi-sw-node
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - xpack.security.enabled=false
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - es-data:/usr/share/elasticsearch/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -s http://localhost:9200/_cluster/health | grep -E 'green|yellow' || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 40s
+    networks:
+      - psi-obs
+
+  # SkyWalking OAP —— 接收/分析/存储 Trace
+  skywalking-oap:
+    image: apache/skywalking-oap-server:10.1.0
+    container_name: psi-skywalking-oap
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+    ports:
+      - "11800:11800"   # gRPC，Agent 上报入口
+      - "12800:12800"   # HTTP，UI 查询入口
+    environment:
+      SW_STORAGE_MODULE: storage-elasticsearch7
+      SW_STORAGE_ES_CLUSTER_NODES: elasticsearch:9200
+      SW_STORAGE_ES_USER: ""
+      SW_STORAGE_ES_PASSWORD: ""
+      JAVA_OPTS: "-Xms512m -Xmx512m"
+      SW_CORE_GRPC_PORT: 11800
+      SW_CORE_REST_PORT: 12800
+      SW_RECEIVER_LOGGING_ENABLED: "true"
+      SW_SELF_OBSERVABILITY_ANALYZER: "false"
+      SW_TELEMETRY: "prometheus"
+    networks:
+      - psi-obs
+      - default
+
+  # SkyWalking UI —— 浏览器可视化
+  skywalking-ui:
+    image: apache/skywalking-ui:10.1.0
+    container_name: psi-skywalking-ui
+    depends_on:
+      - skywalking-oap
+    ports:
+      - "12900:8080"
+    environment:
+      SW_OAP_ADDRESS: http://skywalking-oap:12800
+      SW_SERVER_PORT: 8080
+    networks:
+      - psi-obs
+      - default
+
+volumes:
+  es-data:
+    driver: local
+
+networks:
+  psi-obs:
+    driver: bridge

@@ -1,0 +1,303 @@
+# =====================================================================
+# PSI 超轻量版部署 - 适用于小客户/低配置服务器（2-4GB 内存）
+# =====================================================================
+# 优化措施：
+#   1. 去掉 Nacos：Gateway 直连微服务（http://服务名:端口）
+#   2. 去掉 RabbitMQ：同步调用替代（小业务量无影响）
+#   3. 去掉 SkyWalking：按需开启（默认不启动，省 800MB）
+#   4. 精简微服务：只保留 4 个核心（system/goods/sale/stock）
+#   5. JVM 深度优化：小堆 + SerialGC + 压缩指针
+#
+# 预计内存占用：约 1.5-2 GB
+#   MySQL:    ~300MB
+#   Redis:    ~50MB
+#   Gateway:  ~200MB
+#   System:   ~200MB
+#   Goods:    ~200MB
+#   Sale:     ~200MB
+#   Stock:    ~200MB
+#   ------------------
+#   合计:     ~1350MB
+#
+# 启动命令：
+#   docker compose -f docker-compose-lite.yml up -d
+# =====================================================================
+
+services:
+
+  # ===========================================================
+  # 基础设施（2个）
+  # ===========================================================
+
+  mysql:
+    image: mysql:8.0
+    container_name: psi-mysql
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      TZ: Asia/Shanghai
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./docker/mysql-extra-dbs.sql:/docker-entrypoint-initdb.d/extra-dbs.sql
+    command: --default-authentication-plugin=mysql_native_password --innodb-buffer-pool-size=128M
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-uroot", "-proot"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+    restart: unless-stopped
+
+  mysql-init:
+    image: mysql:8.0
+    container_name: psi-mysql-init
+    depends_on:
+      mysql:
+        condition: service_healthy
+    volumes:
+      - ./docker/mysql-extra-dbs.sql:/init.sql
+    entrypoint: ["bash", "-c", "mysql -hmysql -uroot -proot < /init.sql && echo 'extra databases created'"]
+    restart: "no"
+
+  redis:
+    image: redis:7-alpine
+    container_name: psi-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    command: redis-server --maxmemory 64mb --maxmemory-policy allkeys-lru
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  # ===========================================================
+  # 核心微服务（5个）- JVM 深度优化
+  # ===========================================================
+
+  psi-gateway:
+    build: ./psi-gateway
+    image: psi-gateway:latest
+    container_name: psi-gateway
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_PROFILES_ACTIVE: lite
+      SPRING_CLOUD_NACOS_CONFIG_ENABLED: "false"
+      SPRING_CLOUD_NACOS_DISCOVERY_ENABLED: "false"
+      SPRING_MAIN_WEB_APPLICATION_TYPE: reactive
+      JAVA_OPTS: >-
+        -Xms64m -Xmx128m
+        -XX:MaxMetaspaceSize=64m
+        -XX:+UseSerialGC
+        -XX:+TieredCompilation
+        -XX:TieredStopAtLevel=1
+        -Djava.security.egd=file:/dev/./urandom
+      SPRING_APPLICATION_JSON: >
+        {
+          "spring.cloud.gateway.routes": [
+            {"id":"psi-system","uri":"http://psi-system:8087","predicates":[{"name":"Path","args":{"pattern":"/psi/admin/**"}}],"filters":[{"name":"StripPrefix","args":{"parts":"2"}},{"name":"JwtAuthenticationFilter"}]},
+            {"id":"psi-goods","uri":"http://psi-goods:8082","predicates":[{"name":"Path","args":{"pattern":"/psi/goods/**"}}],"filters":[{"name":"StripPrefix","args":{"parts":"2"}},{"name":"JwtAuthenticationFilter"}]},
+            {"id":"psi-sale","uri":"http://psi-sale:8083","predicates":[{"name":"Path","args":{"pattern":"/psi/sale/**"}}],"filters":[{"name":"StripPrefix","args":{"parts":"2"}},{"name":"JwtAuthenticationFilter"}]},
+            {"id":"psi-stock","uri":"http://psi-stock:8085","predicates":[{"name":"Path","args":{"pattern":"/psi/stock/**"}}],"filters":[{"name":"StripPrefix","args":{"parts":"2"}},{"name":"JwtAuthenticationFilter"}]},
+            {"id":"psi-purchase","uri":"http://psi-purchase:8084","predicates":[{"name":"Path","args":{"pattern":"/psi/purchase/**"}}],"filters":[{"name":"StripPrefix","args":{"parts":"2"}},{"name":"JwtAuthenticationFilter"}]}
+          ]
+        }
+    entrypoint: ["/bin/sh", "-c", "java $$JAVA_OPTS -jar /app/app.jar"]
+    depends_on:
+      mysql-init:
+        condition: service_completed_successfully
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8081/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+    restart: unless-stopped
+
+  psi-system:
+    build: ./psi-system
+    image: psi-system:latest
+    container_name: psi-system
+    ports:
+      - "8087:8087"
+    environment:
+      SPRING_PROFILES_ACTIVE: lite
+      SPRING_CLOUD_NACOS_CONFIG_ENABLED: "false"
+      SPRING_CLOUD_NACOS_DISCOVERY_ENABLED: "false"
+      SPRING_RABBITMQ_HOST: ""
+      SPRING_RABBITMQ_PORT: "0"
+      JAVA_OPTS: >-
+        -Xms64m -Xmx128m
+        -XX:MaxMetaspaceSize=80m
+        -XX:+UseSerialGC
+        -XX:+TieredCompilation
+        -XX:TieredStopAtLevel=1
+        -Djava.security.egd=file:/dev/./urandom
+      SPRING_APPLICATION_JSON: >
+        {"spring.datasource.url":"jdbc:mysql://mysql:3306/erp_system_db?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai","spring.datasource.username":"root","spring.datasource.password":"root","spring.data.redis.host":"redis","spring.rabbitmq.host":"","spring.rabbitmq.port":"0","spring.cloud.nacos.config.enabled":false,"spring.cloud.nacos.discovery.enabled":false}
+    entrypoint: ["/bin/sh", "-c", "java $$JAVA_OPTS -jar /app/app.jar"]
+    depends_on:
+      mysql-init:
+        condition: service_completed_successfully
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8087/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 90s
+    restart: unless-stopped
+
+  psi-goods:
+    build:
+      context: .
+      dockerfile: ./psi-goods/Dockerfile
+    image: psi-goods:latest
+    container_name: psi-goods
+    ports:
+      - "8082:8082"
+    environment:
+      SPRING_PROFILES_ACTIVE: lite
+      SPRING_CLOUD_NACOS_CONFIG_ENABLED: "false"
+      SPRING_CLOUD_NACOS_DISCOVERY_ENABLED: "false"
+      JAVA_OPTS: >-
+        -Xms64m -Xmx128m
+        -XX:MaxMetaspaceSize=80m
+        -XX:+UseSerialGC
+        -XX:+TieredCompilation
+        -XX:TieredStopAtLevel=1
+        -Djava.security.egd=file:/dev/./urandom
+      SPRING_APPLICATION_JSON: >
+        {"spring.datasource.url":"jdbc:mysql://mysql:3306/psi_goods?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai","spring.datasource.username":"root","spring.datasource.password":"root","spring.data.redis.host":"redis","spring.rabbitmq.host":"","spring.rabbitmq.port":"0","spring.cloud.nacos.config.enabled":false,"spring.cloud.nacos.discovery.enabled":false}
+    entrypoint: ["/bin/sh", "-c", "java $$JAVA_OPTS -jar /app/app.jar"]
+    depends_on:
+      mysql-init:
+        condition: service_completed_successfully
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8082/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 90s
+    restart: unless-stopped
+
+  psi-sale:
+    build:
+      context: .
+      dockerfile: ./psi-sale/Dockerfile
+    image: psi-sale:latest
+    container_name: psi-sale
+    ports:
+      - "8083:8083"
+    environment:
+      SPRING_PROFILES_ACTIVE: lite
+      SPRING_CLOUD_NACOS_CONFIG_ENABLED: "false"
+      SPRING_CLOUD_NACOS_DISCOVERY_ENABLED: "false"
+      JAVA_OPTS: >-
+        -Xms64m -Xmx128m
+        -XX:MaxMetaspaceSize=80m
+        -XX:+UseSerialGC
+        -XX:+TieredCompilation
+        -XX:TieredStopAtLevel=1
+        -Djava.security.egd=file:/dev/./urandom
+      SPRING_APPLICATION_JSON: >
+        {"spring.datasource.url":"jdbc:mysql://mysql:3306/psi_sale?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai","spring.datasource.username":"root","spring.datasource.password":"root","spring.data.redis.host":"redis","spring.rabbitmq.host":"","spring.rabbitmq.port":"0","spring.cloud.nacos.config.enabled":false,"spring.cloud.nacos.discovery.enabled":false}
+    entrypoint: ["/bin/sh", "-c", "java $$JAVA_OPTS -jar /app/app.jar"]
+    depends_on:
+      mysql-init:
+        condition: service_completed_successfully
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8083/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 90s
+    restart: unless-stopped
+
+  psi-purchase:
+    build:
+      context: .
+      dockerfile: ./psi-purchase/Dockerfile
+    image: psi-purchase:latest
+    container_name: psi-purchase
+    ports:
+      - "8084:8084"
+    environment:
+      SPRING_PROFILES_ACTIVE: lite
+      SPRING_CLOUD_NACOS_CONFIG_ENABLED: "false"
+      SPRING_CLOUD_NACOS_DISCOVERY_ENABLED: "false"
+      JAVA_OPTS: >-
+        -Xms64m -Xmx128m
+        -XX:MaxMetaspaceSize=80m
+        -XX:+UseSerialGC
+        -XX:+TieredCompilation
+        -XX:TieredStopAtLevel=1
+        -Djava.security.egd=file:/dev/./urandom
+      SPRING_APPLICATION_JSON: >
+        {"spring.datasource.url":"jdbc:mysql://mysql:3306/psi_purchase?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai","spring.datasource.username":"root","spring.datasource.password":"root","spring.data.redis.host":"redis","spring.rabbitmq.host":"","spring.rabbitmq.port":"0","spring.cloud.nacos.config.enabled":false,"spring.cloud.nacos.discovery.enabled":false}
+    entrypoint: ["/bin/sh", "-c", "java $$JAVA_OPTS -jar /app/app.jar"]
+    depends_on:
+      mysql-init:
+        condition: service_completed_successfully
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8084/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 90s
+    restart: unless-stopped
+
+  psi-stock:
+    build:
+      context: .
+      dockerfile: ./psi-stock/Dockerfile
+    image: psi-stock:latest
+    container_name: psi-stock
+    ports:
+      - "8085:8085"
+    environment:
+      SPRING_PROFILES_ACTIVE: lite
+      SPRING_CLOUD_NACOS_CONFIG_ENABLED: "false"
+      SPRING_CLOUD_NACOS_DISCOVERY_ENABLED: "false"
+      JAVA_OPTS: >-
+        -Xms64m -Xmx128m
+        -XX:MaxMetaspaceSize=80m
+        -XX:+UseSerialGC
+        -XX:+TieredCompilation
+        -XX:TieredStopAtLevel=1
+        -Djava.security.egd=file:/dev/./urandom
+      SPRING_APPLICATION_JSON: >
+        {"spring.datasource.url":"jdbc:mysql://mysql:3306/psi_stock?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai","spring.datasource.username":"root","spring.datasource.password":"root","spring.data.redis.host":"redis","spring.rabbitmq.host":"","spring.rabbitmq.port":"0","spring.cloud.nacos.config.enabled":false,"spring.cloud.nacos.discovery.enabled":false}
+    entrypoint: ["/bin/sh", "-c", "java $$JAVA_OPTS -jar /app/app.jar"]
+    depends_on:
+      mysql-init:
+        condition: service_completed_successfully
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8085/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 90s
+    restart: unless-stopped
+
+volumes:
+  mysql-data:
+    driver: local
+  redis-data:
+    driver: local

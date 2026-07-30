@@ -1,0 +1,1403 @@
+2026-06-30 11:49:37.495 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2026-06-30 11:49:41.420 [main] INFO  com.alibaba.nacos.client.utils.ParamUtil - [settings] [req-serv] nacos-server port:8848
+2026-06-30 11:49:41.420 [main] INFO  com.alibaba.nacos.client.utils.ParamUtil - [settings] [http-client] connect timeout:1000
+2026-06-30 11:49:41.425 [main] INFO  com.alibaba.nacos.client.utils.ParamUtil - PER_TASK_CONFIG_SIZE: 3000.0
+2026-06-30 11:49:41.461 [Thread-2] INFO  c.a.n.client.auth.ram.identify.CredentialWatcher - null No credential found
+2026-06-30 11:49:41.622 [main] INFO  com.alibaba.nacos.common.labels - DefaultLabelsCollectorManager get labels.....
+2026-06-30 11:49:41.624 [main] INFO  com.alibaba.nacos.common.labels - Process LabelsCollector with [name:defaultNacosLabelsCollector]
+2026-06-30 11:49:41.624 [main] INFO  com.alibaba.nacos.common.labels - default nacos collect properties raw labels: null
+2026-06-30 11:49:41.625 [main] INFO  com.alibaba.nacos.common.labels - default nacos collect properties labels: {}
+2026-06-30 11:49:41.626 [main] INFO  com.alibaba.nacos.common.labels - default nacos collect jvm raw labels: null
+2026-06-30 11:49:41.626 [main] INFO  com.alibaba.nacos.common.labels - default nacos collect jvm labels: {}
+2026-06-30 11:49:41.628 [main] INFO  com.alibaba.nacos.common.labels - default nacos collect env raw labels: null
+2026-06-30 11:49:41.628 [main] INFO  com.alibaba.nacos.common.labels - default nacos collect env labels: {}
+2026-06-30 11:49:41.629 [main] INFO  com.alibaba.nacos.common.labels - DefaultLabelsCollectorManager get labels finished,labels :{}
+2026-06-30 11:49:41.650 [main] INFO  c.a.n.p.auth.spi.client.ClientAuthPluginManager - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+2026-06-30 11:49:41.651 [main] INFO  c.a.n.p.auth.spi.client.ClientAuthPluginManager - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+2026-06-30 11:49:41.665 [main] INFO  c.a.n.client.config.impl.LocalConfigInfoProcessor - LOCAL_SNAPSHOT_PATH:C:\Users\T480S\nacos\config
+2026-06-30 11:49:41.676 [main] INFO  com.alibaba.nacos.common.remote.client - [RpcClientFactory] create a new rpc client of 0f8143a3-d0c7-4460-aea4-38308374e70a_config-0
+2026-06-30 11:49:41.740 [main] INFO  com.alibaba.nacos.common.remote.client - [0f8143a3-d0c7-4460-aea4-38308374e70a_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda/0x000002052a355a88
+2026-06-30 11:49:41.742 [main] INFO  com.alibaba.nacos.common.remote.client - [0f8143a3-d0c7-4460-aea4-38308374e70a_config-0] Register server push request handler:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$$Lambda/0x000002052a355e98
+2026-06-30 11:49:41.744 [main] INFO  com.alibaba.nacos.common.remote.client - [0f8143a3-d0c7-4460-aea4-38308374e70a_config-0] Registry connection listener to current client:com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$1
+2026-06-30 11:49:41.745 [main] INFO  com.alibaba.nacos.common.remote.client - [0f8143a3-d0c7-4460-aea4-38308374e70a_config-0] RpcClient init, ServerListFactory = com.alibaba.nacos.client.config.impl.ClientWorker$ConfigRpcTransportClient$2
+2026-06-30 11:49:41.759 [main] INFO  com.alibaba.nacos.common.remote.client - [0f8143a3-d0c7-4460-aea4-38308374e70a_config-0] Try to connect to server on start up, server: {serverIp = '127.0.0.1', server main port = 8848}
+2026-06-30 11:49:41.847 [main] INFO  c.a.nacos.common.remote.client.grpc.GrpcClient - grpc client connection server:127.0.0.1 ip,serverPort:9848,grpcTslConfig:{"sslProvider":"","enableTls":false,"mutualAuthEnable":false,"trustAll":false}
+2026-06-30 11:49:43.331 [main] INFO  c.a.n.common.ability.AbstractAbilityControlManager - Ready to get current node abilities...
+2026-06-30 11:49:43.337 [main] INFO  c.a.n.common.ability.AbstractAbilityControlManager - Ready to initialize current node abilities, support modes: [SDK_CLIENT]
+2026-06-30 11:49:43.339 [main] INFO  c.a.n.common.ability.AbstractAbilityControlManager - Initialize current abilities finish...
+2026-06-30 11:49:43.339 [main] INFO  c.a.n.c.ability.discover.NacosAbilityManagerHolder - [AbilityControlManager] Successfully initialize AbilityControlManager
+2026-06-30 11:49:43.417 [main] INFO  com.alibaba.nacos.common.remote.client - [0f8143a3-d0c7-4460-aea4-38308374e70a_config-0] Success to connect to server [127.0.0.1:8848] on start up, connectionId = 1782791383116_127.0.0.1_56013
+2026-06-30 11:49:43.418 [com.alibaba.nacos.client.remote.worker.0] INFO  com.alibaba.nacos.common.remote.client - [0f8143a3-d0c7-4460-aea4-38308374e70a_config-0] Notify connected event to listeners.
+2026-06-30 11:49:43.419 [com.alibaba.nacos.client.remote.worker.0] INFO  com.alibaba.nacos.client.config.impl.ClientWorker - [0f8143a3-d0c7-4460-aea4-38308374e70a_config-0] Connected,notify listen context...
+2026-06-30 11:49:43.419 [main] INFO  com.alibaba.nacos.common.remote.client - [0f8143a3-d0c7-4460-aea4-38308374e70a_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+2026-06-30 11:49:43.420 [main] INFO  com.alibaba.nacos.common.remote.client - [0f8143a3-d0c7-4460-aea4-38308374e70a_config-0] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda/0x000002052a4b0460
+2026-06-30 11:49:43.611 [main] INFO  com.alibaba.nacos.client.config.impl.Limiter - limitTime:5.0
+2026-06-30 11:49:43.676 [main] WARN  c.a.cloud.nacos.client.NacosPropertySourceBuilder - Ignore the empty nacos configuration and get it based on dataId[psi-sale] & group[DEFAULT_GROUP]
+2026-06-30 11:49:43.688 [main] WARN  c.a.cloud.nacos.client.NacosPropertySourceBuilder - Ignore the empty nacos configuration and get it based on dataId[psi-sale.properties] & group[DEFAULT_GROUP]
+2026-06-30 11:49:43.698 [main] WARN  c.a.cloud.nacos.client.NacosPropertySourceBuilder - Ignore the empty nacos configuration and get it based on dataId[psi-sale-dev.properties] & group[DEFAULT_GROUP]
+2026-06-30 11:49:43.701 [main] INFO  o.s.c.b.c.PropertySourceBootstrapConfiguration - Located property source: [BootstrapPropertySource {name='bootstrapProperties-psi-sale-dev.properties,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-psi-sale.properties,DEFAULT_GROUP'}, BootstrapPropertySource {name='bootstrapProperties-psi-sale,DEFAULT_GROUP'}]
+2026-06-30 11:49:43.722 [main] INFO  com.psi.sale.SaleApplication - The following 1 profile is active: "dev"
+2026-06-30 11:49:46.120 [main] INFO  o.springframework.cloud.context.scope.GenericScope - BeanFactory id=7b2dd1e4-adc5-303c-a670-c2b6a77f2aaa
+2026-06-30 11:49:47.118 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8085 (http)
+2026-06-30 11:49:47.153 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8085"]
+2026-06-30 11:49:47.158 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2026-06-30 11:49:47.160 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2026-06-30 11:49:47.294 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-06-30 11:49:47.296 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3533 ms
+2026-06-30 11:49:48.503 [main] INFO  c.psi.common.mq.autoconfigure.MQAutoConfiguration - TtlRabbitTemplate configured
+2026-06-30 11:49:48.933 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-06-30 11:49:49.313 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3f033664
+2026-06-30 11:49:49.318 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-06-30 11:49:49.410 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:mysql://localhost:3306/psi_sale (MySQL 8.0)
+2026-06-30 11:49:49.517 [main] INFO  org.flywaydb.core.internal.command.DbValidate - Successfully validated 1 migration (execution time 00:00.065s)
+2026-06-30 11:49:49.547 [main] INFO  org.flywaydb.core.internal.command.DbMigrate - Current version of schema `psi_sale`: 1
+2026-06-30 11:49:49.553 [main] INFO  org.flywaydb.core.internal.command.DbMigrate - Schema `psi_sale` is up to date. No migration necessary.
+ _ _   |_  _ _|_. ___ _ |    _ 
+| | |\/|_)(_| | |_\  |_)||_|_\ 
+     /               |         
+                        3.5.6 
+2026-06-30 11:49:52.454 [main] INFO  c.p.c.nacos.autoconfigure.NacosAutoConfiguration - [PSI-Nacos-Starter] 初始化成功 ✅ SpringBoot3.3.10 专用
+2026-06-30 11:49:52.480 [main] INFO  c.p.c.async.autoconfigure.AsyncAutoConfiguration - Async executor initialized with TTL wrapper: corePoolSize=4, maxPoolSize=8, queueCapacity=1000
+2026-06-30 11:49:52.563 [main] INFO  c.p.c.m.a.RabbitBindingAutoConfiguration - 声明公共交换机: common.exchange
+2026-06-30 11:49:52.568 [main] INFO  c.p.c.m.a.RabbitBindingAutoConfiguration - 声明绑定关系: common.exchange -> common.queue (common.routing)
+2026-06-30 11:49:52.570 [main] INFO  c.p.c.m.a.RabbitBindingAutoConfiguration - 声明公共死信交换机: common.dlx.exchange
+2026-06-30 11:49:52.571 [main] INFO  c.p.c.m.a.RabbitBindingAutoConfiguration - 声明公共死信队列: common.dlx.queue
+2026-06-30 11:49:52.583 [main] INFO  c.p.c.m.a.RabbitBindingAutoConfiguration - 声明绑定关系: common.dlx.exchange -> common.dlx.queue (common.dlx.routing)
+2026-06-30 11:49:52.585 [main] INFO  c.p.c.m.a.RabbitBindingAutoConfiguration - 声明消息记录交换机: psi.message.record
+2026-06-30 11:49:52.587 [main] INFO  c.p.c.m.a.RabbitBindingAutoConfiguration - 声明绑定关系: psi.message.record -> psi.message.record.queue (message.record)
+2026-06-30 11:49:52.589 [main] INFO  c.p.c.m.a.RabbitBindingAutoConfiguration - 声明登录日志交换机: system.login.log.exchange
+2026-06-30 11:49:52.592 [main] INFO  c.p.c.m.a.RabbitBindingAutoConfiguration - 声明绑定关系: system.login.log.exchange -> system.login.log.queue (login.log)
+2026-06-30 11:49:52.593 [main] INFO  c.p.c.m.a.RabbitBindingAutoConfiguration - 声明流程完成交换机(订单): flow.completed.order.exchange
+2026-06-30 11:49:52.596 [main] INFO  c.p.c.m.a.RabbitBindingAutoConfiguration - 声明绑定关系: flow.completed.order.exchange -> flow.completed.order.queue (flow.completed.order)
+2026-06-30 11:49:52.598 [main] INFO  c.p.c.m.a.RabbitBindingAutoConfiguration - 声明流程完成交换机(商品): flow.completed.goods.exchange
+2026-06-30 11:49:52.602 [main] INFO  c.p.c.m.a.RabbitBindingAutoConfiguration - 声明绑定关系: flow.completed.goods.exchange -> flow.completed.goods.queue (flow.completed.goods)
+2026-06-30 11:49:52.603 [main] INFO  c.p.c.m.a.RabbitBindingAutoConfiguration - 声明流程完成交换机(库存): flow.completed.stock.exchange
+2026-06-30 11:49:52.606 [main] INFO  c.p.c.m.a.RabbitBindingAutoConfiguration - 声明绑定关系: flow.completed.stock.exchange -> flow.completed.stock.queue (flow.completed.stock)
+2026-06-30 11:49:52.607 [main] INFO  c.p.c.m.a.RabbitBindingAutoConfiguration - 声明流程完成交换机(通用): flow.completed.common.exchange
+2026-06-30 11:49:52.611 [main] INFO  c.p.c.m.a.RabbitBindingAutoConfiguration - 声明绑定关系: flow.completed.common.exchange -> flow.completed.common.queue (flow.completed.common)
+2026-06-30 11:49:52.624 [main] INFO  c.p.c.m.a.RabbitBindingAutoConfiguration - 声明收银业务交换机: psi.sale.cashier.exchange
+2026-06-30 11:49:52.627 [main] INFO  c.p.c.m.a.RabbitBindingAutoConfiguration - 声明绑定关系: psi.sale.cashier.exchange -> psi.sale.cashier.finance.queue (cashier.finance)
+2026-06-30 11:49:52.630 [main] INFO  c.p.c.m.a.RabbitBindingAutoConfiguration - 声明绑定关系: psi.sale.cashier.exchange -> psi.sale.cashier.stock.queue (cashier.stock)
+2026-06-30 11:49:52.632 [main] INFO  c.p.c.m.a.RabbitBindingAutoConfiguration - 声明销售订单交换机: psi.sale.order.exchange
+2026-06-30 11:49:52.635 [main] INFO  c.p.c.m.a.RabbitBindingAutoConfiguration - 声明绑定关系: psi.sale.order.exchange -> psi.sale.order.finance.queue (sale.order.finance)
+2026-06-30 11:49:52.638 [main] INFO  c.p.c.m.a.RabbitBindingAutoConfiguration - 声明绑定关系: psi.sale.order.exchange -> psi.sale.order.stock.queue (sale.order.stock)
+2026-06-30 11:49:52.641 [main] INFO  c.p.c.m.a.RabbitBindingAutoConfiguration - 声明绑定关系: psi.sale.order.exchange -> psi.sale.order.release.queue (sale.order.release)
+2026-06-30 11:49:52.643 [main] INFO  c.p.c.m.a.RabbitBindingAutoConfiguration - 声明销售出库交换机: psi.sale.out.exchange
+2026-06-30 11:49:52.646 [main] INFO  c.p.c.m.a.RabbitBindingAutoConfiguration - 声明绑定关系: psi.sale.out.exchange -> psi.sale.out.finance.queue (sale.out.finance)
+2026-06-30 11:49:52.648 [main] INFO  c.p.c.m.a.RabbitBindingAutoConfiguration - 声明绑定关系: psi.sale.out.exchange -> psi.sale.out.stock.queue (sale.out.stock)
+2026-06-30 11:49:52.649 [main] INFO  c.p.c.m.a.RabbitBindingAutoConfiguration - 声明销售退货交换机: psi.sale.return.exchange
+2026-06-30 11:49:52.652 [main] INFO  c.p.c.m.a.RabbitBindingAutoConfiguration - 声明绑定关系: psi.sale.return.exchange -> psi.sale.return.finance.queue (sale.return.finance)
+2026-06-30 11:49:52.655 [main] INFO  c.p.c.m.a.RabbitBindingAutoConfiguration - 声明绑定关系: psi.sale.return.exchange -> psi.sale.return.stock.queue (sale.return.stock)
+2026-06-30 11:49:52.656 [main] INFO  c.p.c.m.a.RabbitBindingAutoConfiguration - 声明上行同步交换机: psi.sync.up.exchange
+2026-06-30 11:49:52.658 [main] INFO  c.p.c.m.a.RabbitBindingAutoConfiguration - 声明绑定关系: psi.sync.up.exchange -> psi.sync.up.queue (sync.up)
+2026-06-30 11:49:52.660 [main] INFO  c.p.c.m.a.RabbitBindingAutoConfiguration - 声明商品上行同步队列: psi.goods.sync.up.queue
+2026-06-30 11:49:52.662 [main] INFO  c.p.c.m.a.RabbitBindingAutoConfiguration - 声明绑定关系: psi.sync.up.exchange -> psi.goods.sync.up.queue (sync.up.goods)
+2026-06-30 11:49:52.664 [main] INFO  c.p.c.m.a.RabbitBindingAutoConfiguration - 声明上行同步客户队列: psi.sync.up.customer.queue
+2026-06-30 11:49:52.666 [main] INFO  c.p.c.m.a.RabbitBindingAutoConfiguration - 声明绑定关系: psi.sync.up.exchange -> psi.sync.up.customer.queue (sync.up.customer)
+2026-06-30 11:49:52.667 [main] INFO  c.p.c.m.a.RabbitBindingAutoConfiguration - 声明下行同步交换机: psi.sync.down.exchange
+2026-06-30 11:49:52.674 [main] INFO  c.p.c.m.a.RabbitBindingAutoConfiguration - 声明下行同步队列: psi.sync.down.queue
+2026-06-30 11:49:52.676 [main] INFO  c.p.c.m.a.RabbitBindingAutoConfiguration - 声明绑定关系: psi.sync.down.exchange -> psi.sync.down.queue (sync.down)
+2026-06-30 11:49:52.678 [main] INFO  c.p.c.tenant.autoconfigure.TenantAutoConfiguration - Tenant context auto-configuration enabled. Required: false, DefaultTenantId: default
+2026-06-30 11:49:53.139 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8085"]
+2026-06-30 11:49:53.170 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8085 (http) with context path ''
+2026-06-30 11:49:53.182 [main] INFO  com.alibaba.nacos.client.naming - initializer namespace from ans.namespace attribute : null
+2026-06-30 11:49:53.184 [main] INFO  com.alibaba.nacos.client.naming - initializer namespace from ALIBABA_ALIWARE_NAMESPACE attribute :null
+2026-06-30 11:49:53.185 [main] INFO  com.alibaba.nacos.client.naming - initializer namespace from namespace attribute :null
+2026-06-30 11:49:53.206 [main] INFO  com.alibaba.nacos.client.naming - FailoverDataSource type is class com.alibaba.nacos.client.naming.backups.datasource.DiskFailoverDataSource
+2026-06-30 11:49:53.219 [main] INFO  c.a.n.p.auth.spi.client.ClientAuthPluginManager - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+2026-06-30 11:49:53.220 [main] INFO  c.a.n.p.auth.spi.client.ClientAuthPluginManager - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+2026-06-30 11:49:53.232 [main] INFO  com.alibaba.nacos.common.remote.client - [RpcClientFactory] create a new rpc client of 0c14c7fe-ab3c-4c0c-bf90-3dd0cb514c27
+2026-06-30 11:49:53.239 [main] INFO  com.alibaba.nacos.client.naming - Create naming rpc client for uuid->0c14c7fe-ab3c-4c0c-bf90-3dd0cb514c27
+2026-06-30 11:49:53.240 [main] INFO  com.alibaba.nacos.common.remote.client - [0c14c7fe-ab3c-4c0c-bf90-3dd0cb514c27] RpcClient init, ServerListFactory = com.alibaba.nacos.client.naming.core.ServerListManager
+2026-06-30 11:49:53.240 [main] INFO  com.alibaba.nacos.common.remote.client - [0c14c7fe-ab3c-4c0c-bf90-3dd0cb514c27] Registry connection listener to current client:com.alibaba.nacos.client.naming.remote.gprc.redo.NamingGrpcRedoService
+2026-06-30 11:49:53.241 [main] INFO  com.alibaba.nacos.common.remote.client - [0c14c7fe-ab3c-4c0c-bf90-3dd0cb514c27] Register server push request handler:com.alibaba.nacos.client.naming.remote.gprc.NamingPushRequestHandler
+2026-06-30 11:49:53.243 [main] INFO  com.alibaba.nacos.common.remote.client - [0c14c7fe-ab3c-4c0c-bf90-3dd0cb514c27] Try to connect to server on start up, server: {serverIp = '127.0.0.1', server main port = 8848}
+2026-06-30 11:49:53.245 [main] INFO  c.a.nacos.common.remote.client.grpc.GrpcClient - grpc client connection server:127.0.0.1 ip,serverPort:9848,grpcTslConfig:{"sslProvider":"","enableTls":false,"mutualAuthEnable":false,"trustAll":false}
+2026-06-30 11:49:53.284 [main] INFO  com.alibaba.nacos.common.remote.client - [0c14c7fe-ab3c-4c0c-bf90-3dd0cb514c27] Success to connect to server [127.0.0.1:8848] on start up, connectionId = 1782791393261_127.0.0.1_62497
+2026-06-30 11:49:53.284 [main] INFO  com.alibaba.nacos.common.remote.client - [0c14c7fe-ab3c-4c0c-bf90-3dd0cb514c27] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+2026-06-30 11:49:53.285 [main] INFO  com.alibaba.nacos.common.remote.client - [0c14c7fe-ab3c-4c0c-bf90-3dd0cb514c27] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda/0x000002052a4b0460
+2026-06-30 11:49:53.284 [com.alibaba.nacos.client.remote.worker.0] INFO  com.alibaba.nacos.common.remote.client - [0c14c7fe-ab3c-4c0c-bf90-3dd0cb514c27] Notify connected event to listeners.
+2026-06-30 11:49:53.286 [com.alibaba.nacos.client.remote.worker.0] INFO  com.alibaba.nacos.client.naming - Grpc connection connect
+2026-06-30 11:49:53.289 [main] INFO  com.alibaba.nacos.client.naming - [REGISTER-SERVICE] public registering service psi-sale with instance Instance{instanceId='null', ip='192.168.1.135', port=8085, weight=1.0, healthy=true, enabled=true, ephemeral=true, clusterName='', serviceName='null', metadata={IPv6=[240a:42c9:7001:325:bd3c:7771:960e:2854], preserved.register.source=SPRING_CLOUD}}
+2026-06-30 11:49:53.348 [main] INFO  c.a.cloud.nacos.registry.NacosServiceRegistry - nacos registry, DEFAULT_GROUP psi-sale 192.168.1.135:8085 register finished
+2026-06-30 11:49:53.367 [main] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2026-06-30 11:49:53.569 [main] INFO  o.s.a.rabbit.connection.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#7fb82f73:0/SimpleConnection@47fbf95e [delegate=amqp://guest@127.0.0.1:5672/, localPort=62498]
+2026-06-30 11:49:54.109 [main] INFO  com.psi.sale.SaleApplication - Started SaleApplication in 18.303 seconds (process running for 19.895)
+2026-06-30 11:49:54.123 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 10:49:54
+2026-06-30 11:49:54.128 [main] INFO  com.alibaba.nacos.client.config.impl.CacheData - config listener notify warn timeout millis use default 60000 millis 
+2026-06-30 11:49:54.129 [main] INFO  com.alibaba.nacos.client.config.impl.CacheData - nacos.cache.data.init.snapshot = true 
+2026-06-30 11:49:54.130 [main] INFO  com.alibaba.nacos.client.config.impl.ClientWorker - [fixed-127.0.0.1_8848] [subscribe] psi-sale+DEFAULT_GROUP
+2026-06-30 11:49:54.171 [main] INFO  com.alibaba.nacos.client.config.impl.CacheData - [fixed-127.0.0.1_8848] [add-listener] ok, tenant=, dataId=psi-sale, group=DEFAULT_GROUP, cnt=1
+2026-06-30 11:49:54.172 [main] INFO  c.a.cloud.nacos.refresh.NacosContextRefresher - [Nacos Config] Listening config: dataId=psi-sale, group=DEFAULT_GROUP
+2026-06-30 11:49:54.174 [main] INFO  com.alibaba.nacos.client.config.impl.ClientWorker - [fixed-127.0.0.1_8848] [subscribe] psi-sale-dev.properties+DEFAULT_GROUP
+2026-06-30 11:49:54.175 [main] INFO  com.alibaba.nacos.client.config.impl.CacheData - [fixed-127.0.0.1_8848] [add-listener] ok, tenant=, dataId=psi-sale-dev.properties, group=DEFAULT_GROUP, cnt=1
+2026-06-30 11:49:54.176 [main] INFO  c.a.cloud.nacos.refresh.NacosContextRefresher - [Nacos Config] Listening config: dataId=psi-sale-dev.properties, group=DEFAULT_GROUP
+2026-06-30 11:49:54.177 [main] INFO  com.alibaba.nacos.client.config.impl.ClientWorker - [fixed-127.0.0.1_8848] [subscribe] psi-sale.properties+DEFAULT_GROUP
+2026-06-30 11:49:54.178 [main] INFO  com.alibaba.nacos.client.config.impl.CacheData - [fixed-127.0.0.1_8848] [add-listener] ok, tenant=, dataId=psi-sale.properties, group=DEFAULT_GROUP, cnt=1
+2026-06-30 11:49:54.179 [main] INFO  c.a.cloud.nacos.refresh.NacosContextRefresher - [Nacos Config] Listening config: dataId=psi-sale.properties, group=DEFAULT_GROUP
+2026-06-30 11:49:54.234 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 拉取到 2 条上行数据
+2026-06-30 11:49:54.236 [scheduling-1] INFO  com.psi.sale.service.SaleUpSyncDownloadService - [sale] process up data: tableName=sale_return_main, batchUuid=ec94e241aa664ebc8ce0f3492d2043f0
+2026-06-30 11:49:54.251 [scheduling-1] INFO  com.psi.sale.service.SaleUpSyncDownloadService - [sale] process up data: tableName=sale_return_item, batchUuid=166e359cb84c45eaba7cf44550aef35c
+2026-06-30 11:49:54.346 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 批量确认完成: 2/2
+2026-06-30 11:49:54.595 [scheduling-1] INFO  com.psi.sale.service.SaleUpSyncBizService - [sale] 批量处理销售退货后置业务: count=1
+2026-06-30 11:49:54.660 [scheduling-1] INFO  com.psi.sale.service.SaleUpSyncBizService - [sale] 销售退货单已保存: returnNo=SR_UP_001, id=3753
+2026-06-30 11:49:54.709 [scheduling-1] INFO  c.psi.sale.service.impl.SaleReturnMainServiceImpl - 销售退货库存增加消息已发送: returnNo=SR_UP_001
+2026-06-30 11:49:54.710 [scheduling-1] INFO  com.psi.sale.service.SaleUpSyncBizService - [sale] 销售退货库存增加完成: returnNo=SR_UP_001
+2026-06-30 11:49:54.759 [scheduling-1] INFO  com.psi.sale.service.SaleUpSyncBizService - [sale] 销售退货财务消息已发送: returnNo=SR_UP_001
+2026-06-30 11:50:24.777 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 11:49:54
+2026-06-30 11:50:54.803 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 11:50:24
+2026-06-30 11:51:24.826 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 11:50:54
+2026-06-30 11:51:54.853 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 11:51:24
+2026-06-30 11:52:24.874 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 11:51:54
+2026-06-30 11:52:54.900 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 11:52:24
+2026-06-30 11:53:24.924 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 11:52:54
+2026-06-30 11:53:54.935 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 11:53:24
+2026-06-30 11:54:24.973 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 11:53:54
+2026-06-30 11:54:55.025 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 11:54:25
+2026-06-30 11:55:25.050 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 11:54:55
+2026-06-30 11:55:55.070 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 11:55:25
+2026-06-30 11:56:25.101 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 11:55:55
+2026-06-30 11:56:55.162 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 11:56:25
+2026-06-30 11:57:25.188 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 11:56:55
+2026-06-30 11:57:55.206 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 11:57:25
+2026-06-30 11:57:55.223 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 拉取到 2 条上行数据
+2026-06-30 11:57:55.224 [scheduling-1] INFO  com.psi.sale.service.SaleUpSyncDownloadService - [sale] process up data: tableName=purchase_in_main, batchUuid=426adf4c1cf048e4bacbf09ae7062ef3
+2026-06-30 11:57:55.224 [scheduling-1] WARN  com.psi.sale.service.SaleUpSyncDownloadService - [sale] 未知表名: purchase_in_main
+2026-06-30 11:57:55.225 [scheduling-1] INFO  com.psi.sale.service.SaleUpSyncDownloadService - [sale] process up data: tableName=purchase_in_item, batchUuid=4c3c9e820f294ec7962ac1fcbbb353ed
+2026-06-30 11:57:55.225 [scheduling-1] WARN  com.psi.sale.service.SaleUpSyncDownloadService - [sale] 未知表名: purchase_in_item
+2026-06-30 11:58:25.235 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 11:57:55
+2026-06-30 11:58:55.254 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 11:58:25
+2026-06-30 11:59:25.283 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 11:58:55
+2026-06-30 11:59:55.301 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 11:59:25
+2026-06-30 12:00:25.313 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 11:59:55
+2026-06-30 12:00:55.329 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:00:25
+2026-06-30 12:01:25.346 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:00:55
+2026-06-30 12:01:55.361 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:01:25
+2026-06-30 12:02:25.390 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:01:55
+2026-06-30 12:02:55.406 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:02:25
+2026-06-30 12:03:25.427 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:02:55
+2026-06-30 12:03:55.448 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:03:25
+2026-06-30 12:04:25.472 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:03:55
+2026-06-30 12:04:55.512 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:04:25
+2026-06-30 12:05:25.540 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:04:55
+2026-06-30 12:05:55.556 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:05:25
+2026-06-30 12:06:25.570 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:05:55
+2026-06-30 12:06:55.583 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:06:25
+2026-06-30 12:07:25.603 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:06:55
+2026-06-30 12:07:55.614 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:07:25
+2026-06-30 12:08:25.628 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:07:55
+2026-06-30 12:08:55.650 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:08:25
+2026-06-30 12:09:25.675 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:08:55
+2026-06-30 12:09:55.689 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:09:25
+2026-06-30 12:10:25.713 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:09:55
+2026-06-30 12:10:55.731 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:10:25
+2026-06-30 12:11:25.740 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:10:55
+2026-06-30 12:11:55.754 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:11:25
+2026-06-30 12:12:25.776 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:11:55
+2026-06-30 12:12:55.792 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:12:25
+2026-06-30 12:13:25.808 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:12:55
+2026-06-30 12:13:55.823 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:13:25
+2026-06-30 12:14:25.835 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:13:55
+2026-06-30 12:14:55.856 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:14:25
+2026-06-30 12:15:25.868 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:14:55
+2026-06-30 12:15:55.903 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:15:25
+2026-06-30 12:16:25.928 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:15:55
+2026-06-30 12:16:55.938 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:16:25
+2026-06-30 12:17:25.959 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:16:55
+2026-06-30 12:17:55.982 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:17:25
+2026-06-30 12:18:26.006 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:17:55
+2026-06-30 12:18:56.059 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:18:26
+2026-06-30 12:19:26.095 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:18:56
+2026-06-30 12:19:56.118 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:19:26
+2026-06-30 12:20:26.135 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:19:56
+2026-06-30 12:20:56.149 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:20:26
+2026-06-30 12:21:26.161 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:20:56
+2026-06-30 12:21:56.170 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:21:26
+2026-06-30 12:22:26.184 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:21:56
+2026-06-30 12:22:56.206 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:22:26
+2026-06-30 12:23:26.225 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:22:56
+2026-06-30 12:23:56.246 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:23:26
+2026-06-30 12:24:26.270 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:23:56
+2026-06-30 12:24:56.291 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:24:26
+2026-06-30 12:25:26.316 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:24:56
+2026-06-30 12:25:56.329 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:25:26
+2026-06-30 12:26:26.346 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:25:56
+2026-06-30 12:26:56.368 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:26:26
+2026-06-30 12:27:26.377 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:26:56
+2026-06-30 12:27:56.402 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:27:26
+2026-06-30 12:28:26.425 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:27:56
+2026-06-30 12:28:56.446 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:28:26
+2026-06-30 12:29:26.468 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:28:56
+2026-06-30 12:29:56.477 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:29:26
+2026-06-30 14:13:40.373 [nacos-grpc-client-executor-127.0.0.1-470] INFO  com.alibaba.nacos.common.remote.client - [0c14c7fe-ab3c-4c0c-bf90-3dd0cb514c27] Receive server push request, request = ClientDetectionRequest, requestId = 102
+2026-06-30 14:13:40.378 [nacos-grpc-client-executor-127.0.0.1-470] INFO  com.alibaba.nacos.common.remote.client - [0c14c7fe-ab3c-4c0c-bf90-3dd0cb514c27] Ack server push request, request = ClientDetectionRequest, requestId = 102
+2026-06-30 14:13:59.250 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h44m9s118ms372µs900ns).
+2026-06-30 14:14:05.586 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 12:29:56
+2026-06-30 14:14:35.680 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:14:05
+2026-06-30 14:15:05.702 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:14:35
+2026-06-30 14:15:35.718 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:15:05
+2026-06-30 14:16:05.734 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:15:35
+2026-06-30 14:16:35.764 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:16:05
+2026-06-30 14:17:05.776 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:16:35
+2026-06-30 14:17:35.792 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:17:05
+2026-06-30 14:18:05.806 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:17:35
+2026-06-30 14:18:35.819 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:18:05
+2026-06-30 14:19:05.836 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:18:35
+2026-06-30 14:19:35.848 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:19:05
+2026-06-30 14:20:05.869 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:19:35
+2026-06-30 14:20:35.887 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:20:05
+2026-06-30 14:21:05.897 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:20:35
+2026-06-30 14:21:35.909 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:21:05
+2026-06-30 14:22:05.931 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:21:35
+2026-06-30 14:22:35.946 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:22:05
+2026-06-30 14:23:05.963 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:22:35
+2026-06-30 14:23:35.977 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:23:05
+2026-06-30 14:24:06.004 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:23:35
+2026-06-30 14:24:36.043 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:24:06
+2026-06-30 14:25:06.059 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:24:36
+2026-06-30 14:25:36.081 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:25:06
+2026-06-30 14:26:06.099 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:25:36
+2026-06-30 14:26:36.112 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:26:06
+2026-06-30 14:27:06.127 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:26:36
+2026-06-30 14:27:36.147 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:27:06
+2026-06-30 14:28:06.169 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:27:36
+2026-06-30 14:28:36.181 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:28:06
+2026-06-30 14:29:06.198 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:28:36
+2026-06-30 14:29:36.226 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:29:06
+2026-06-30 14:30:06.248 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:29:36
+2026-06-30 14:30:36.262 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:30:06
+2026-06-30 14:31:06.284 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:30:36
+2026-06-30 14:31:36.308 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:31:06
+2026-06-30 14:32:06.329 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:31:36
+2026-06-30 14:32:36.351 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:32:06
+2026-06-30 14:33:06.374 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:32:36
+2026-06-30 14:33:36.384 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:33:06
+2026-06-30 14:34:06.398 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:33:36
+2026-06-30 14:34:36.416 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:34:06
+2026-06-30 14:35:06.442 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:34:36
+2026-06-30 14:35:36.457 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:35:06
+2026-06-30 14:36:06.474 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:35:36
+2026-06-30 14:36:36.483 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:36:06
+2026-06-30 14:37:06.514 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:36:36
+2026-06-30 14:37:36.523 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:37:06
+2026-06-30 14:37:36.545 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 拉取到 2 条上行数据
+2026-06-30 14:37:36.546 [scheduling-1] INFO  com.psi.sale.service.SaleUpSyncDownloadService - [sale] process up data: tableName=sale_order_main, batchUuid=8296ef3b540e4c37b1f3d69207a80a20
+2026-06-30 14:37:36.562 [scheduling-1] INFO  com.psi.sale.service.SaleUpSyncDownloadService - [sale] process up data: tableName=sale_order_item, batchUuid=283e85bb50c24854a8bdadb6a63999d7
+2026-06-30 14:37:36.598 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 批量确认完成: 2/2
+2026-06-30 14:37:36.621 [scheduling-1] INFO  com.psi.sale.service.SaleUpSyncBizService - [sale] 批量处理销售订单后置业务: count=1
+2026-06-30 14:37:36.655 [scheduling-1] INFO  com.psi.sale.service.SaleUpSyncBizService - [sale] 销售订单已保存: orderNo=SO_UP_004, id=9
+2026-06-30 14:37:36.683 [scheduling-1] INFO  c.psi.sale.service.impl.SaleOrderMainServiceImpl - 销售订单库存预占消息已发送: orderNo=SO_UP_004
+2026-06-30 14:37:36.684 [scheduling-1] INFO  com.psi.sale.service.SaleUpSyncBizService - [sale] 销售订单预占库存完成: orderNo=SO_UP_004
+2026-06-30 14:37:36.743 [scheduling-1] INFO  com.psi.sale.service.SaleUpSyncBizService - [sale] 销售出库单已生成: orderNo=SO_UP_004, outNo=SOUT330235407746863104
+2026-06-30 14:37:36.757 [scheduling-1] INFO  com.psi.sale.service.impl.SaleOutMainServiceImpl - 销售出库库存确认消息已发送: outNo=SOUT330235407746863104
+2026-06-30 14:37:36.758 [scheduling-1] INFO  com.psi.sale.service.SaleUpSyncBizService - [sale] 销售出库单库存扣减完成: outNo=SOUT330235407746863104
+2026-06-30 14:37:36.759 [scheduling-1] INFO  com.psi.sale.service.SaleUpSyncBizService - [sale] 销售出库财务消息已发送: outNo=SOUT330235407746863104
+2026-06-30 14:38:06.773 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:37:36
+2026-06-30 14:38:36.788 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:38:06
+2026-06-30 14:39:06.798 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:38:36
+2026-06-30 14:39:36.824 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:39:06
+2026-06-30 14:40:06.849 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:39:36
+2026-06-30 14:40:36.872 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:40:06
+2026-06-30 14:41:06.906 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:40:36
+2026-06-30 14:41:36.926 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:41:06
+2026-06-30 14:42:06.945 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:41:36
+2026-06-30 14:42:36.956 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:42:06
+2026-06-30 14:43:06.969 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:42:36
+2026-06-30 14:43:36.995 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:43:06
+2026-06-30 14:44:07.003 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:43:37
+2026-06-30 14:44:37.019 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:44:07
+2026-06-30 14:45:07.045 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:44:37
+2026-06-30 14:45:37.065 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:45:07
+2026-06-30 14:46:07.080 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:45:37
+2026-06-30 14:46:37.104 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:46:07
+2026-06-30 14:47:07.122 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:46:37
+2026-06-30 14:47:37.132 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:47:07
+2026-06-30 14:48:07.148 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:47:37
+2026-06-30 14:48:37.169 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:48:07
+2026-06-30 14:49:07.192 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:48:37
+2026-06-30 14:49:37.212 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:49:07
+2026-06-30 14:50:07.235 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:49:37
+2026-06-30 14:50:37.251 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:50:07
+2026-06-30 14:51:07.260 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:50:37
+2026-06-30 14:51:37.267 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:51:07
+2026-06-30 14:52:07.287 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:51:37
+2026-06-30 14:52:37.299 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:52:07
+2026-06-30 14:53:07.318 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:52:37
+2026-06-30 14:53:37.333 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:53:07
+2026-06-30 14:54:07.355 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:53:37
+2026-06-30 14:54:37.377 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:54:07
+2026-06-30 14:55:07.397 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:54:37
+2026-06-30 14:55:37.423 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:55:07
+2026-06-30 15:02:13.507 [nacos-grpc-client-executor-127.0.0.1-979] INFO  com.alibaba.nacos.common.remote.client - [0f8143a3-d0c7-4460-aea4-38308374e70a_config-0] Receive server push request, request = ClientDetectionRequest, requestId = 104
+2026-06-30 15:02:13.508 [nacos-grpc-client-executor-127.0.0.1-979] INFO  com.alibaba.nacos.common.remote.client - [0f8143a3-d0c7-4460-aea4-38308374e70a_config-0] Ack server push request, request = ClientDetectionRequest, requestId = 104
+2026-06-30 15:02:13.749 [nacos-grpc-client-executor-127.0.0.1-980] ERROR c.a.nacos.common.remote.client.grpc.GrpcClient - [1782791383116_127.0.0.1_56013]Request stream onCompleted, switch server
+2026-06-30 15:02:13.781 [com.alibaba.nacos.client.remote.worker.1] INFO  com.alibaba.nacos.common.remote.client - [0f8143a3-d0c7-4460-aea4-38308374e70a_config-0] Try to reconnect to a new server, server is  not appointed, will choose a random server.
+2026-06-30 15:02:13.786 [com.alibaba.nacos.client.remote.worker.1] INFO  c.a.nacos.common.remote.client.grpc.GrpcClient - grpc client connection server:127.0.0.1 ip,serverPort:9848,grpcTslConfig:{"sslProvider":"","enableTls":false,"mutualAuthEnable":false,"trustAll":false}
+2026-06-30 15:02:14.510 [com.alibaba.nacos.client.remote.worker.1] INFO  com.alibaba.nacos.common.remote.client - [0f8143a3-d0c7-4460-aea4-38308374e70a_config-0] Success to connect a server [127.0.0.1:8848], connectionId = 1782802934197_127.0.0.1_61655
+2026-06-30 15:02:14.511 [com.alibaba.nacos.client.remote.worker.1] INFO  com.alibaba.nacos.common.remote.client - [0f8143a3-d0c7-4460-aea4-38308374e70a_config-0] Abandon prev connection, server is 127.0.0.1:8848, connectionId is 1782791383116_127.0.0.1_56013
+2026-06-30 15:02:14.512 [com.alibaba.nacos.client.remote.worker.1] INFO  com.alibaba.nacos.common.remote.client - Close current connection 1782791383116_127.0.0.1_56013
+2026-06-30 15:02:14.534 [com.alibaba.nacos.client.remote.worker.0] INFO  com.alibaba.nacos.common.remote.client - [0f8143a3-d0c7-4460-aea4-38308374e70a_config-0] Notify disconnected event to listeners
+2026-06-30 15:02:14.535 [com.alibaba.nacos.client.remote.worker.0] INFO  com.alibaba.nacos.client.config.impl.ClientWorker - [0f8143a3-d0c7-4460-aea4-38308374e70a_config-0] DisConnected,clear listen context...
+2026-06-30 15:02:14.539 [com.alibaba.nacos.client.remote.worker.0] INFO  com.alibaba.nacos.common.remote.client - [0f8143a3-d0c7-4460-aea4-38308374e70a_config-0] Notify connected event to listeners.
+2026-06-30 15:02:14.540 [com.alibaba.nacos.client.remote.worker.0] INFO  com.alibaba.nacos.client.config.impl.ClientWorker - [0f8143a3-d0c7-4460-aea4-38308374e70a_config-0] Connected,notify listen context...
+2026-06-30 15:02:30.917 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m1s40ms813µs300ns).
+2026-06-30 15:02:38.469 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 14:55:37
+2026-06-30 15:03:08.487 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:02:38
+2026-06-30 15:03:38.505 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:03:08
+2026-06-30 15:04:08.514 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:03:38
+2026-06-30 15:04:38.535 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:04:08
+2026-06-30 15:05:08.555 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:04:38
+2026-06-30 15:05:38.567 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:05:08
+2026-06-30 15:06:08.577 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:05:38
+2026-06-30 15:06:38.612 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:06:08
+2026-06-30 15:06:38.625 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 拉取到 2 条上行数据
+2026-06-30 15:06:38.625 [scheduling-1] INFO  com.psi.sale.service.SaleUpSyncDownloadService - [sale] process up data: tableName=sale_return_main, batchUuid=8af24ea75be34f81b6769f0d8cb4b8f8
+2026-06-30 15:06:38.626 [scheduling-1] INFO  com.psi.sale.service.SaleUpSyncDownloadService - [sale] process up data: tableName=sale_return_item, batchUuid=318332ae0c034dfbafa232c5b38ff78b
+2026-06-30 15:06:38.652 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 批量确认完成: 2/2
+2026-06-30 15:06:38.657 [scheduling-1] INFO  com.psi.sale.service.SaleUpSyncBizService - [sale] 批量处理销售退货后置业务: count=1
+2026-06-30 15:06:38.669 [scheduling-1] INFO  com.psi.sale.service.SaleUpSyncBizService - [sale] 销售退货单已保存: returnNo=SR_UP_002, id=3754
+2026-06-30 15:06:38.681 [scheduling-1] INFO  c.psi.sale.service.impl.SaleReturnMainServiceImpl - 销售退货库存增加消息已发送: returnNo=SR_UP_002
+2026-06-30 15:06:38.681 [scheduling-1] INFO  com.psi.sale.service.SaleUpSyncBizService - [sale] 销售退货库存增加完成: returnNo=SR_UP_002
+2026-06-30 15:06:38.682 [scheduling-1] INFO  com.psi.sale.service.SaleUpSyncBizService - [sale] 销售退货财务消息已发送: returnNo=SR_UP_002
+2026-06-30 15:07:08.695 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:06:38
+2026-06-30 15:07:38.706 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:07:08
+2026-06-30 15:08:08.726 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:07:38
+2026-06-30 15:08:38.747 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:08:08
+2026-06-30 15:09:08.778 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:08:38
+2026-06-30 15:09:38.804 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:09:08
+2026-06-30 15:10:08.819 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:09:38
+2026-06-30 15:10:38.833 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:10:08
+2026-06-30 15:11:08.859 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:10:38
+2026-06-30 15:11:38.870 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:11:08
+2026-06-30 15:12:08.895 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:11:38
+2026-06-30 15:12:38.915 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:12:08
+2026-06-30 15:13:08.952 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:12:38
+2026-06-30 15:13:38.984 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:13:08
+2026-06-30 15:14:08.992 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:13:38
+2026-06-30 15:14:39.163 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:14:09
+2026-06-30 15:15:09.347 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:14:39
+2026-06-30 15:15:39.368 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:15:09
+2026-06-30 15:15:43.388 [http-nio-8085-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-30 15:15:43.391 [http-nio-8085-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-06-30 15:15:43.397 [http-nio-8085-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+2026-06-30 15:15:43.508 [http-nio-8085-exec-1] INFO  com.psi.sale.controller.SaleUpSyncController - [sale] manual trigger up sync download
+2026-06-30 15:15:43.508 [http-nio-8085-exec-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:15:39
+2026-06-30 15:16:09.380 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:15:43
+2026-06-30 15:16:39.401 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:16:09
+2026-06-30 15:17:09.414 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:16:39
+2026-06-30 15:17:39.438 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:17:09
+2026-06-30 15:17:48.796 [http-nio-8085-exec-4] INFO  com.psi.sale.controller.SaleUpSyncController - [sale] manual trigger up sync download
+2026-06-30 15:17:48.797 [http-nio-8085-exec-4] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:17:39
+2026-06-30 15:17:48.809 [http-nio-8085-exec-4] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 拉取到 2 条上行数据
+2026-06-30 15:17:48.810 [http-nio-8085-exec-4] INFO  com.psi.sale.service.SaleUpSyncDownloadService - [sale] process up data: tableName=sale_order_main, batchUuid=05d675b93aa44edca676c9193c51257a
+2026-06-30 15:17:48.811 [http-nio-8085-exec-4] INFO  com.psi.sale.service.SaleUpSyncDownloadService - [sale] process up data: tableName=sale_order_item, batchUuid=4b0aeb85af8548d5b412ec475bda84fb
+2026-06-30 15:17:48.837 [http-nio-8085-exec-4] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 批量确认完成: 2/2
+2026-06-30 15:17:48.854 [http-nio-8085-exec-4] INFO  com.psi.sale.service.SaleUpSyncBizService - [sale] 批量处理销售订单后置业务: count=1
+2026-06-30 15:17:49.526 [http-nio-8085-exec-4] ERROR com.psi.sale.service.SaleUpSyncBizService - [sale] 处理单个销售订单失败: orderNo=SO_UP_004, error=
+### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'SO_UP_004' for key 'sale_order_main.uk_order_no'
+### The error may exist in com/psi/sale/mapper/SaleOrderMainMapper.java (best guess)
+### The error may involve com.psi.sale.mapper.SaleOrderMainMapper.insert-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO sale_order_main  ( order_no, doc_name, customer_id, customer_code, customer_name, order_date, delivery_date, sale_type, payment_type, currency_code, exchange_rate, total_amount, tax_amount, discount_amount, pay_amount,  warehouse_code, warehouse_name, order_status, tenant_id, create_by, create_time, update_by, update_time, del_flag, status, data_uuid )  VALUES (  ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,  ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?  )
+### Cause: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'SO_UP_004' for key 'sale_order_main.uk_order_no'
+; Duplicate entry 'SO_UP_004' for key 'sale_order_main.uk_order_no'
+org.springframework.dao.DuplicateKeyException: 
+### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'SO_UP_004' for key 'sale_order_main.uk_order_no'
+### The error may exist in com/psi/sale/mapper/SaleOrderMainMapper.java (best guess)
+### The error may involve com.psi.sale.mapper.SaleOrderMainMapper.insert-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO sale_order_main  ( order_no, doc_name, customer_id, customer_code, customer_name, order_date, delivery_date, sale_type, payment_type, currency_code, exchange_rate, total_amount, tax_amount, discount_amount, pay_amount,  warehouse_code, warehouse_name, order_status, tenant_id, create_by, create_time, update_by, update_time, del_flag, status, data_uuid )  VALUES (  ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,  ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?  )
+### Cause: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'SO_UP_004' for key 'sale_order_main.uk_order_no'
+; Duplicate entry 'SO_UP_004' for key 'sale_order_main.uk_order_no'
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:254)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:92)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:439)
+	at jdk.proxy2/jdk.proxy2.$Proxy104.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:272)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.execute(MybatisMapperMethod.java:59)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy$PlainMethodInvoker.invoke(MybatisMapperProxy.java:149)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:90)
+	at jdk.proxy2/jdk.proxy2.$Proxy113.insert(Unknown Source)
+	at com.baomidou.mybatisplus.extension.service.IService.save(IService.java:60)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:354)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:716)
+	at com.psi.sale.service.impl.SaleOrderMainServiceImpl$$SpringCGLIB$$0.save(<generated>)
+	at com.psi.sale.service.SaleUpSyncBizService.processSingleSaleOrder(SaleUpSyncBizService.java:62)
+	at com.psi.sale.service.SaleUpSyncBizService.batchProcessSaleOrders(SaleUpSyncBizService.java:47)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:354)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:392)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:720)
+	at com.psi.sale.service.SaleUpSyncBizService$$SpringCGLIB$$0.batchProcessSaleOrders(<generated>)
+	at com.psi.sale.service.SaleUpSyncDownloadService.afterProcess(SaleUpSyncDownloadService.java:137)
+	at com.psi.common.service.BaseUpSyncDownloadService.syncDownload(BaseUpSyncDownloadService.java:96)
+	at com.psi.sale.controller.SaleUpSyncController.triggerDownload(SaleUpSyncController.java:20)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1736)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'SO_UP_004' for key 'sale_order_main.uk_order_no'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:109)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:113)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:938)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:359)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:48)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:75)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:61)
+	at jdk.proxy2/jdk.proxy2.$Proxy134.update(Unknown Source)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.apache.ibatis.plugin.Invocation.proceed(Invocation.java:61)
+	at com.psi.common.mybatis.interceptor.SlowSqlInterceptor.intercept(SlowSqlInterceptor.java:51)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:59)
+	at jdk.proxy2/jdk.proxy2.$Proxy133.update(Unknown Source)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.apache.ibatis.plugin.Invocation.proceed(Invocation.java:61)
+	at com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor.intercept(MybatisPlusInterceptor.java:106)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:59)
+	at jdk.proxy2/jdk.proxy2.$Proxy133.update(Unknown Source)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:184)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:425)
+	... 78 common frames omitted
+2026-06-30 15:17:49.554 [http-nio-8085-exec-4] ERROR com.psi.sale.service.SaleUpSyncDownloadService - [sale] 批量处理销售订单失败: count=1, error=
+### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'SO_UP_004' for key 'sale_order_main.uk_order_no'
+### The error may exist in com/psi/sale/mapper/SaleOrderMainMapper.java (best guess)
+### The error may involve com.psi.sale.mapper.SaleOrderMainMapper.insert-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO sale_order_main  ( order_no, doc_name, customer_id, customer_code, customer_name, order_date, delivery_date, sale_type, payment_type, currency_code, exchange_rate, total_amount, tax_amount, discount_amount, pay_amount,  warehouse_code, warehouse_name, order_status, tenant_id, create_by, create_time, update_by, update_time, del_flag, status, data_uuid )  VALUES (  ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,  ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?  )
+### Cause: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'SO_UP_004' for key 'sale_order_main.uk_order_no'
+; Duplicate entry 'SO_UP_004' for key 'sale_order_main.uk_order_no'
+org.springframework.dao.DuplicateKeyException: 
+### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'SO_UP_004' for key 'sale_order_main.uk_order_no'
+### The error may exist in com/psi/sale/mapper/SaleOrderMainMapper.java (best guess)
+### The error may involve com.psi.sale.mapper.SaleOrderMainMapper.insert-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO sale_order_main  ( order_no, doc_name, customer_id, customer_code, customer_name, order_date, delivery_date, sale_type, payment_type, currency_code, exchange_rate, total_amount, tax_amount, discount_amount, pay_amount,  warehouse_code, warehouse_name, order_status, tenant_id, create_by, create_time, update_by, update_time, del_flag, status, data_uuid )  VALUES (  ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,  ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?  )
+### Cause: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'SO_UP_004' for key 'sale_order_main.uk_order_no'
+; Duplicate entry 'SO_UP_004' for key 'sale_order_main.uk_order_no'
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:254)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:92)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:439)
+	at jdk.proxy2/jdk.proxy2.$Proxy104.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:272)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.execute(MybatisMapperMethod.java:59)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy$PlainMethodInvoker.invoke(MybatisMapperProxy.java:149)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:90)
+	at jdk.proxy2/jdk.proxy2.$Proxy113.insert(Unknown Source)
+	at com.baomidou.mybatisplus.extension.service.IService.save(IService.java:60)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:354)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:716)
+	at com.psi.sale.service.impl.SaleOrderMainServiceImpl$$SpringCGLIB$$0.save(<generated>)
+	at com.psi.sale.service.SaleUpSyncBizService.processSingleSaleOrder(SaleUpSyncBizService.java:62)
+	at com.psi.sale.service.SaleUpSyncBizService.batchProcessSaleOrders(SaleUpSyncBizService.java:47)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:354)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:392)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:720)
+	at com.psi.sale.service.SaleUpSyncBizService$$SpringCGLIB$$0.batchProcessSaleOrders(<generated>)
+	at com.psi.sale.service.SaleUpSyncDownloadService.afterProcess(SaleUpSyncDownloadService.java:137)
+	at com.psi.common.service.BaseUpSyncDownloadService.syncDownload(BaseUpSyncDownloadService.java:96)
+	at com.psi.sale.controller.SaleUpSyncController.triggerDownload(SaleUpSyncController.java:20)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1736)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'SO_UP_004' for key 'sale_order_main.uk_order_no'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:109)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:113)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:938)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:359)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:48)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:75)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:61)
+	at jdk.proxy2/jdk.proxy2.$Proxy134.update(Unknown Source)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.apache.ibatis.plugin.Invocation.proceed(Invocation.java:61)
+	at com.psi.common.mybatis.interceptor.SlowSqlInterceptor.intercept(SlowSqlInterceptor.java:51)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:59)
+	at jdk.proxy2/jdk.proxy2.$Proxy133.update(Unknown Source)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.apache.ibatis.plugin.Invocation.proceed(Invocation.java:61)
+	at com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor.intercept(MybatisPlusInterceptor.java:106)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:59)
+	at jdk.proxy2/jdk.proxy2.$Proxy133.update(Unknown Source)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:184)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:425)
+	... 78 common frames omitted
+2026-06-30 15:18:09.452 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:17:49
+2026-06-30 15:18:39.472 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:18:09
+2026-06-30 15:19:09.482 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:18:39
+2026-06-30 15:19:39.496 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:19:09
+2026-06-30 15:20:09.505 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:19:39
+2026-06-30 15:20:39.526 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:20:09
+2026-06-30 15:21:09.536 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:20:39
+2026-06-30 15:21:39.557 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:21:09
+2026-06-30 15:22:09.572 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:21:39
+2026-06-30 15:22:39.599 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:22:09
+2026-06-30 15:23:09.612 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:22:39
+2026-06-30 15:23:39.645 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:23:09
+2026-06-30 15:24:09.659 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:23:39
+2026-06-30 15:24:39.670 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:24:09
+2026-06-30 15:25:09.692 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:24:39
+2026-06-30 15:25:39.712 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:25:09
+2026-06-30 15:26:09.724 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:25:39
+2026-06-30 15:26:39.744 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:26:09
+2026-06-30 15:27:09.763 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:26:39
+2026-06-30 15:27:39.777 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:27:09
+2026-06-30 15:28:09.788 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:27:39
+2026-06-30 15:28:39.797 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:28:09
+2026-06-30 15:29:09.815 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:28:39
+2026-06-30 15:29:39.829 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:29:09
+2026-06-30 15:30:09.848 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:29:39
+2026-06-30 15:30:39.871 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:30:09
+2026-06-30 15:31:09.886 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:30:39
+2026-06-30 15:31:39.902 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:31:09
+2026-06-30 15:32:09.916 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:31:39
+2026-06-30 15:32:39.932 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:32:09
+2026-06-30 15:33:09.947 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:32:39
+2026-06-30 15:33:39.953 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:33:09
+2026-06-30 15:34:09.976 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:33:39
+2026-06-30 15:34:39.985 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:34:09
+2026-06-30 15:35:09.992 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:34:39
+2026-06-30 15:35:39.999 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:35:09
+2026-06-30 15:36:10.006 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:35:40
+2026-06-30 15:36:40.021 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:36:10
+2026-06-30 15:37:10.036 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:36:40
+2026-06-30 15:37:40.049 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:37:10
+2026-06-30 15:38:10.058 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:37:40
+2026-06-30 15:38:40.071 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:38:10
+2026-06-30 15:39:10.093 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:38:40
+2026-06-30 15:39:40.112 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:39:10
+2026-06-30 15:40:10.125 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:39:40
+2026-06-30 15:40:40.148 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:40:10
+2026-06-30 15:41:10.159 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:40:40
+2026-06-30 15:41:40.184 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:41:10
+2026-06-30 15:42:10.201 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:41:40
+2026-06-30 15:42:40.218 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:42:10
+2026-06-30 15:43:10.224 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:42:40
+2026-06-30 15:43:40.243 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:43:10
+2026-06-30 15:44:10.255 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:43:40
+2026-06-30 15:44:40.268 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:44:10
+2026-06-30 15:45:10.294 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:44:40
+2026-06-30 15:45:40.314 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:45:10
+2026-06-30 15:46:10.334 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:45:40
+2026-06-30 15:46:40.345 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:46:10
+2026-06-30 15:47:10.363 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:46:40
+2026-06-30 15:47:40.380 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:47:10
+2026-06-30 15:48:10.402 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:47:40
+2026-06-30 15:48:40.434 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:48:10
+2026-06-30 15:49:10.445 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:48:40
+2026-06-30 15:49:40.465 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:49:10
+2026-06-30 15:50:10.491 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:49:40
+2026-06-30 15:50:40.513 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:50:10
+2026-06-30 15:51:10.533 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:50:40
+2026-06-30 15:51:40.556 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:51:10
+2026-06-30 15:52:10.584 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:51:40
+2026-06-30 15:52:40.609 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:52:10
+2026-06-30 15:53:10.624 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:52:40
+2026-06-30 15:53:40.635 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:53:10
+2026-06-30 15:54:10.662 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:53:40
+2026-06-30 15:54:40.682 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:54:10
+2026-06-30 15:55:10.704 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:54:40
+2026-06-30 15:55:40.721 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:55:10
+2026-06-30 15:56:10.739 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:55:40
+2026-06-30 15:56:40.756 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:56:10
+2026-06-30 15:57:10.785 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:56:40
+2026-06-30 15:57:40.802 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:57:10
+2026-06-30 15:58:10.817 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:57:40
+2026-06-30 15:58:40.829 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:58:10
+2026-06-30 15:59:10.850 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:58:40
+2026-06-30 15:59:40.864 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:59:10
+2026-06-30 16:00:10.889 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 15:59:40
+2026-06-30 16:00:40.896 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:00:10
+2026-06-30 16:01:10.921 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:00:40
+2026-06-30 16:01:40.930 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:01:10
+2026-06-30 16:02:10.938 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:01:40
+2026-06-30 16:02:40.958 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:02:10
+2026-06-30 16:03:10.976 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:02:40
+2026-06-30 16:03:40.992 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:03:10
+2026-06-30 16:04:11.009 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:03:40
+2026-06-30 16:04:41.021 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:04:11
+2026-06-30 16:05:11.040 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:04:41
+2026-06-30 16:05:41.047 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:05:11
+2026-06-30 16:06:11.055 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:05:41
+2026-06-30 16:06:41.073 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:06:11
+2026-06-30 16:07:11.093 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:06:41
+2026-06-30 16:07:41.110 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:07:11
+2026-06-30 16:08:11.121 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:07:41
+2026-06-30 16:08:41.132 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:08:11
+2026-06-30 16:09:11.143 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:08:41
+2026-06-30 16:09:41.159 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:09:11
+2026-06-30 16:10:11.182 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:09:41
+2026-06-30 16:10:41.205 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:10:11
+2026-06-30 16:11:11.218 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:10:41
+2026-06-30 16:11:41.226 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:11:11
+2026-06-30 16:12:11.244 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:11:41
+2026-06-30 16:12:41.266 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:12:11
+2026-06-30 16:13:11.294 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:12:41
+2026-06-30 16:13:41.321 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:13:11
+2026-06-30 16:14:11.346 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:13:41
+2026-06-30 16:14:41.362 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:14:11
+2026-06-30 16:15:11.377 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:14:41
+2026-06-30 16:15:41.399 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:15:11
+2026-06-30 16:16:11.418 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:15:41
+2026-06-30 16:16:41.439 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:16:11
+2026-06-30 16:17:11.459 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:16:41
+2026-06-30 16:17:41.480 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:17:11
+2026-06-30 16:18:11.494 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:17:41
+2026-06-30 16:18:41.521 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:18:11
+2026-06-30 16:19:11.536 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:18:41
+2026-06-30 16:19:41.559 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:19:11
+2026-06-30 16:20:11.591 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:19:41
+2026-06-30 16:20:41.599 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:20:11
+2026-06-30 16:21:11.620 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:20:41
+2026-06-30 16:21:41.650 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:21:11
+2026-06-30 16:22:11.669 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:21:41
+2026-06-30 16:22:41.689 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:22:11
+2026-06-30 16:23:11.717 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:22:41
+2026-06-30 16:23:41.737 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:23:11
+2026-06-30 16:24:11.753 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:23:41
+2026-06-30 16:24:41.772 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:24:11
+2026-06-30 16:25:11.781 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:24:41
+2026-06-30 16:25:41.786 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:25:11
+2026-06-30 16:26:11.799 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:25:41
+2026-06-30 16:26:41.804 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:26:11
+2026-06-30 16:27:11.821 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:26:41
+2026-06-30 16:27:41.839 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:27:11
+2026-06-30 16:28:11.860 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:27:41
+2026-06-30 16:28:41.878 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:28:11
+2026-06-30 16:29:11.904 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:28:41
+2026-06-30 16:29:41.926 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:29:11
+2026-06-30 16:30:11.945 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:29:41
+2026-06-30 16:30:41.979 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:30:11
+2026-06-30 16:31:12.004 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:30:41
+2026-06-30 16:31:42.021 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:31:12
+2026-06-30 16:32:12.034 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:31:42
+2026-06-30 16:32:42.052 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:32:12
+2026-06-30 16:33:12.082 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:32:42
+2026-06-30 16:33:42.108 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:33:12
+2026-06-30 16:34:12.129 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:33:42
+2026-06-30 16:34:42.155 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:34:12
+2026-06-30 16:35:12.178 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:34:42
+2026-06-30 16:35:42.194 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:35:12
+2026-06-30 16:36:12.213 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:35:42
+2026-06-30 16:36:42.220 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:36:12
+2026-06-30 16:37:12.236 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:36:42
+2026-06-30 16:37:42.260 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:37:12
+2026-06-30 16:38:12.286 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:37:42
+2026-06-30 16:38:42.304 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:38:12
+2026-06-30 16:39:12.311 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:38:42
+2026-06-30 16:39:42.323 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:39:12
+2026-06-30 16:40:12.340 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:39:42
+2026-06-30 16:40:42.349 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:40:12
+2026-06-30 16:41:12.366 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:40:42
+2026-06-30 16:41:42.379 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:41:12
+2026-06-30 16:42:12.398 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:41:42
+2026-06-30 16:42:42.418 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:42:12
+2026-06-30 16:43:12.427 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:42:42
+2026-06-30 16:43:42.441 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:43:12
+2026-06-30 16:44:12.460 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:43:42
+2026-06-30 16:44:42.470 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:44:12
+2026-06-30 16:45:12.492 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:44:42
+2026-06-30 16:45:42.507 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:45:12
+2026-06-30 16:46:12.517 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:45:42
+2026-06-30 16:46:42.536 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:46:12
+2026-06-30 16:47:12.552 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:46:42
+2026-06-30 16:47:42.572 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:47:12
+2026-06-30 16:48:12.580 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:47:42
+2026-06-30 16:48:42.602 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:48:12
+2026-06-30 16:49:12.628 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:48:42
+2026-06-30 16:49:42.653 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:49:12
+2026-06-30 16:50:12.670 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:49:42
+2026-06-30 16:50:42.682 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:50:12
+2026-06-30 16:51:12.696 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:50:42
+2026-06-30 16:51:42.718 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:51:12
+2026-06-30 16:52:12.739 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:51:42
+2026-06-30 17:02:49.666 [nacos-grpc-client-executor-127.0.0.1-2214] INFO  com.alibaba.nacos.common.remote.client - [0c14c7fe-ab3c-4c0c-bf90-3dd0cb514c27] Receive server push request, request = ClientDetectionRequest, requestId = 111
+2026-06-30 17:02:49.666 [nacos-grpc-client-executor-127.0.0.1-2214] INFO  com.alibaba.nacos.common.remote.client - [0c14c7fe-ab3c-4c0c-bf90-3dd0cb514c27] Ack server push request, request = ClientDetectionRequest, requestId = 111
+2026-06-30 17:03:01.235 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10m57s475ms870µs900ns).
+2026-06-30 17:03:10.216 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 16:52:12
+2026-06-30 17:03:40.232 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 17:03:10
+2026-06-30 17:04:10.238 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 17:03:40
+2026-06-30 17:04:40.245 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 17:04:10
+2026-06-30 17:05:10.254 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 17:04:40
+2026-06-30 17:05:40.277 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 17:05:10
+2026-06-30 17:06:10.289 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 17:05:40
+2026-06-30 17:06:40.302 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 17:06:10
+2026-06-30 17:07:10.333 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 17:06:40
+2026-06-30 17:07:40.360 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 17:07:10
+2026-06-30 17:08:10.372 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 17:07:40
+2026-06-30 17:08:40.389 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 17:08:10
+2026-06-30 17:09:10.410 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 17:08:40
+2026-06-30 17:09:40.437 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 17:09:10
+2026-06-30 17:10:10.462 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 17:09:40
+2026-06-30 17:10:40.485 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 17:10:10
+2026-06-30 17:11:10.504 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 17:10:40
+2026-06-30 17:11:40.522 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 17:11:10
+2026-06-30 17:12:10.543 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 17:11:40
+2026-06-30 17:12:40.563 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 17:12:10
+2026-06-30 17:13:10.592 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 17:12:40
+2026-06-30 17:13:40.610 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 17:13:10
+2026-06-30 17:14:10.623 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 17:13:40
+2026-06-30 17:14:40.653 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 17:14:10
+2026-06-30 17:15:10.670 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 17:14:40
+2026-06-30 17:15:40.690 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 17:15:10
+2026-06-30 17:16:10.717 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 17:15:40
+2026-06-30 17:16:40.740 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 17:16:10
+2026-06-30 17:17:10.759 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 17:16:40
+2026-06-30 17:17:40.779 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 17:17:10
+2026-06-30 17:18:10.803 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 17:17:40
+2026-06-30 17:18:40.827 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 17:18:10
+2026-06-30 17:19:10.863 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 17:18:40
+2026-06-30 20:19:17.495 [nacos-grpc-client-executor-127.0.0.1-2402] INFO  com.alibaba.nacos.common.remote.client - [0c14c7fe-ab3c-4c0c-bf90-3dd0cb514c27] Receive server push request, request = ClientDetectionRequest, requestId = 122
+2026-06-30 20:19:17.495 [nacos-grpc-client-executor-127.0.0.1-2402] INFO  com.alibaba.nacos.common.remote.client - [0c14c7fe-ab3c-4c0c-bf90-3dd0cb514c27] Ack server push request, request = ClientDetectionRequest, requestId = 122
+2026-06-30 21:56:32.421 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4h37m36s335ms195µs700ns).
+2026-06-30 21:56:41.845 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 17:19:10
+2026-06-30 21:57:11.862 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 21:56:41
+2026-06-30 21:57:41.880 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 21:57:11
+2026-06-30 21:58:11.891 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 21:57:41
+2026-06-30 21:58:41.913 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 21:58:11
+2026-06-30 21:59:11.927 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 21:58:41
+2026-06-30 21:59:41.944 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 21:59:11
+2026-06-30 22:00:11.953 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 21:59:41
+2026-06-30 22:00:41.975 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 22:00:11
+2026-06-30 22:01:11.996 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 22:00:41
+2026-06-30 22:01:42.020 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 22:01:12
+2026-06-30 22:02:12.046 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 22:01:42
+2026-06-30 22:02:42.058 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 22:02:12
+2026-06-30 22:03:12.082 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 22:02:42
+2026-06-30 22:03:42.103 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 22:03:12
+2026-06-30 22:04:12.125 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 22:03:42
+2026-06-30 22:04:42.153 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 22:04:12
+2026-06-30 22:05:12.177 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 22:04:42
+2026-06-30 22:05:42.183 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 22:05:12
+2026-06-30 22:06:12.194 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 22:05:42
+2026-06-30 22:06:42.201 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 22:06:12
+2026-06-30 22:07:12.209 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 22:06:42
+2026-06-30 22:07:42.221 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 22:07:12
+2026-06-30 22:08:12.246 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 22:07:42
+2026-06-30 22:08:42.265 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 22:08:12
+2026-06-30 22:09:12.271 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 22:08:42
+2026-06-30 22:09:42.280 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 22:09:12
+2026-06-30 22:10:12.290 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 22:09:42
+2026-06-30 22:10:42.309 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 22:10:12
+2026-06-30 22:11:12.327 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 22:10:42
+2026-06-30 22:11:42.343 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 22:11:12
+2026-06-30 22:12:12.358 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 22:11:42
+2026-06-30 22:12:42.378 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 22:12:12
+2026-06-30 22:13:12.401 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 22:12:42
+2026-06-30 22:13:42.409 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 22:13:12
+2026-07-01 01:14:11.151 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-06-30 22:13:42
+2026-07-01 01:14:12.805 [nacos-grpc-client-executor-127.0.0.1-2645] INFO  com.alibaba.nacos.common.remote.client - [0f8143a3-d0c7-4460-aea4-38308374e70a_config-0] Receive server push request, request = ClientDetectionRequest, requestId = 136
+2026-07-01 01:14:12.805 [nacos-grpc-client-executor-127.0.0.1-2606] INFO  com.alibaba.nacos.common.remote.client - [0c14c7fe-ab3c-4c0c-bf90-3dd0cb514c27] Receive server push request, request = ClientDetectionRequest, requestId = 138
+2026-07-01 01:14:12.805 [nacos-grpc-client-executor-127.0.0.1-2645] INFO  com.alibaba.nacos.common.remote.client - [0f8143a3-d0c7-4460-aea4-38308374e70a_config-0] Ack server push request, request = ClientDetectionRequest, requestId = 136
+2026-07-01 01:14:12.806 [nacos-grpc-client-executor-127.0.0.1-2606] INFO  com.alibaba.nacos.common.remote.client - [0c14c7fe-ab3c-4c0c-bf90-3dd0cb514c27] Ack server push request, request = ClientDetectionRequest, requestId = 138
+2026-07-01 02:17:43.098 [nacos-grpc-client-executor-127.0.0.1-2607] INFO  com.alibaba.nacos.common.remote.client - [0c14c7fe-ab3c-4c0c-bf90-3dd0cb514c27] Receive server push request, request = ClientDetectionRequest, requestId = 144
+2026-07-01 02:17:43.099 [nacos-grpc-client-executor-127.0.0.1-2607] INFO  com.alibaba.nacos.common.remote.client - [0c14c7fe-ab3c-4c0c-bf90-3dd0cb514c27] Ack server push request, request = ClientDetectionRequest, requestId = 144
+2026-07-01 02:17:55.057 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4h3m57s809ms940µs).
+2026-07-01 02:18:04.888 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 01:14:11
+2026-07-01 02:18:34.904 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 02:18:04
+2026-07-01 02:19:04.914 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 02:18:34
+2026-07-01 02:19:34.921 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 02:19:04
+2026-07-01 02:20:04.928 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 02:19:34
+2026-07-01 02:20:34.932 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 02:20:04
+2026-07-01 02:21:04.958 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 02:20:34
+2026-07-01 02:21:34.987 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 02:21:04
+2026-07-01 08:28:19.304 [nacos-grpc-client-executor-127.0.0.1-2654] INFO  com.alibaba.nacos.common.remote.client - [0c14c7fe-ab3c-4c0c-bf90-3dd0cb514c27] Receive server push request, request = ClientDetectionRequest, requestId = 151
+2026-07-01 08:28:19.305 [nacos-grpc-client-executor-127.0.0.1-2654] INFO  com.alibaba.nacos.common.remote.client - [0c14c7fe-ab3c-4c0c-bf90-3dd0cb514c27] Ack server push request, request = ClientDetectionRequest, requestId = 151
+2026-07-01 08:28:36.060 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6h7m16s262ms914µs800ns).
+2026-07-01 08:28:45.922 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 02:21:34
+2026-07-01 08:29:15.947 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:28:45
+2026-07-01 08:29:45.963 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:29:15
+2026-07-01 08:30:15.985 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:29:45
+2026-07-01 08:30:45.992 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:30:15
+2026-07-01 08:31:16.011 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:30:45
+2026-07-01 08:31:46.025 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:31:16
+2026-07-01 08:32:16.047 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:31:46
+2026-07-01 08:32:46.066 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:32:16
+2026-07-01 08:33:16.083 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:32:46
+2026-07-01 08:33:46.094 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:33:16
+2026-07-01 08:34:16.101 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:33:46
+2026-07-01 08:34:46.107 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:34:16
+2026-07-01 08:35:16.127 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:34:46
+2026-07-01 08:35:46.146 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:35:16
+2026-07-01 08:36:16.156 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:35:46
+2026-07-01 08:36:46.168 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:36:16
+2026-07-01 08:37:16.181 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:36:46
+2026-07-01 08:37:46.187 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:37:16
+2026-07-01 08:38:16.210 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:37:46
+2026-07-01 08:38:46.223 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:38:16
+2026-07-01 08:39:16.233 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:38:46
+2026-07-01 08:39:46.245 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:39:16
+2026-07-01 08:40:16.271 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:39:46
+2026-07-01 08:40:46.286 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:40:16
+2026-07-01 08:41:16.309 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:40:46
+2026-07-01 08:41:46.331 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:41:16
+2026-07-01 08:42:16.359 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:41:46
+2026-07-01 08:42:46.378 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:42:16
+2026-07-01 08:43:16.404 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:42:46
+2026-07-01 08:43:46.413 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:43:16
+2026-07-01 08:44:16.449 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:43:46
+2026-07-01 08:44:46.477 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:44:16
+2026-07-01 08:45:16.491 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:44:46
+2026-07-01 08:45:46.511 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:45:16
+2026-07-01 08:46:16.539 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:45:46
+2026-07-01 08:46:46.563 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:46:16
+2026-07-01 08:47:16.581 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:46:46
+2026-07-01 08:47:46.608 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:47:16
+2026-07-01 08:48:16.628 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:47:46
+2026-07-01 08:48:46.648 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:48:16
+2026-07-01 08:49:16.666 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:48:46
+2026-07-01 08:49:46.685 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:49:16
+2026-07-01 08:50:16.703 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:49:46
+2026-07-01 08:50:46.723 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:50:16
+2026-07-01 08:51:16.744 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:50:46
+2026-07-01 08:51:46.770 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:51:16
+2026-07-01 08:52:16.784 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:51:46
+2026-07-01 08:52:46.811 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:52:16
+2026-07-01 08:53:16.832 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:52:46
+2026-07-01 08:53:46.858 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:53:16
+2026-07-01 08:54:16.870 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:53:46
+2026-07-01 08:54:46.888 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:54:16
+2026-07-01 08:55:16.912 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:54:46
+2026-07-01 08:55:46.927 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:55:16
+2026-07-01 08:56:16.947 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:55:46
+2026-07-01 08:56:46.962 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:56:16
+2026-07-01 08:57:16.978 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:56:46
+2026-07-01 08:57:47.004 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:57:16
+2026-07-01 08:58:17.033 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:57:47
+2026-07-01 08:58:47.063 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:58:17
+2026-07-01 08:59:17.077 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:58:47
+2026-07-01 08:59:47.092 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:59:17
+2026-07-01 09:00:17.117 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 08:59:47
+2026-07-01 09:00:47.134 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:00:17
+2026-07-01 09:01:17.147 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:00:47
+2026-07-01 09:01:47.161 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:01:17
+2026-07-01 09:02:17.170 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:01:47
+2026-07-01 09:02:47.181 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:02:17
+2026-07-01 09:03:17.193 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:02:47
+2026-07-01 09:03:47.207 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:03:17
+2026-07-01 09:04:17.216 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:03:47
+2026-07-01 09:04:47.235 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:04:17
+2026-07-01 09:05:17.244 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:04:47
+2026-07-01 09:05:47.253 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:05:17
+2026-07-01 09:06:17.257 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:05:47
+2026-07-01 09:06:47.264 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:06:17
+2026-07-01 09:07:17.284 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:06:47
+2026-07-01 09:07:47.297 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:07:17
+2026-07-01 09:08:17.328 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:07:47
+2026-07-01 09:08:47.356 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:08:17
+2026-07-01 09:09:17.367 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:08:47
+2026-07-01 09:09:47.384 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:09:17
+2026-07-01 09:10:17.403 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:09:47
+2026-07-01 09:10:47.416 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:10:17
+2026-07-01 09:11:17.422 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:10:47
+2026-07-01 09:11:47.433 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:11:17
+2026-07-01 09:12:17.444 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:11:47
+2026-07-01 09:12:47.463 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:12:17
+2026-07-01 09:13:17.474 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:12:47
+2026-07-01 09:13:47.479 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:13:17
+2026-07-01 09:14:17.501 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:13:47
+2026-07-01 09:14:47.522 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:14:17
+2026-07-01 09:15:17.549 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:14:47
+2026-07-01 09:15:47.569 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:15:17
+2026-07-01 09:16:17.597 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:15:47
+2026-07-01 09:16:47.614 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:16:17
+2026-07-01 09:17:17.627 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:16:47
+2026-07-01 09:17:47.638 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:17:17
+2026-07-01 09:18:17.647 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:17:47
+2026-07-01 09:18:47.663 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:18:17
+2026-07-01 09:19:17.674 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:18:47
+2026-07-01 09:19:47.691 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:19:17
+2026-07-01 09:20:17.709 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:19:47
+2026-07-01 09:20:47.720 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:20:17
+2026-07-01 09:21:17.736 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:20:47
+2026-07-01 09:21:47.756 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:21:17
+2026-07-01 09:22:17.773 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:21:47
+2026-07-01 09:22:47.779 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:22:17
+2026-07-01 09:23:17.784 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:22:47
+2026-07-01 09:23:47.806 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:23:17
+2026-07-01 09:24:17.821 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:23:47
+2026-07-01 09:24:47.842 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:24:17
+2026-07-01 09:25:17.859 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:24:47
+2026-07-01 09:25:47.878 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:25:17
+2026-07-01 09:26:17.886 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:25:47
+2026-07-01 09:26:47.899 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:26:17
+2026-07-01 09:27:17.918 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:26:47
+2026-07-01 09:27:47.929 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:27:17
+2026-07-01 09:28:17.953 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:27:47
+2026-07-01 09:28:47.959 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:28:17
+2026-07-01 09:29:17.984 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:28:47
+2026-07-01 09:29:47.990 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:29:17
+2026-07-01 09:30:18.007 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:29:47
+2026-07-01 09:30:48.021 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:30:18
+2026-07-01 09:31:18.038 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:30:48
+2026-07-01 09:31:48.057 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:31:18
+2026-07-01 09:32:18.070 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:31:48
+2026-07-01 09:32:48.083 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:32:18
+2026-07-01 09:33:18.098 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:32:48
+2026-07-01 09:33:48.118 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:33:18
+2026-07-01 09:34:18.133 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:33:48
+2026-07-01 09:34:48.145 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:34:18
+2026-07-01 09:35:18.160 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:34:48
+2026-07-01 09:35:48.169 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:35:18
+2026-07-01 09:36:18.198 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:35:48
+2026-07-01 09:36:48.212 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:36:18
+2026-07-01 09:37:18.220 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:36:48
+2026-07-01 09:37:48.241 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:37:18
+2026-07-01 09:38:18.256 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:37:48
+2026-07-01 09:38:48.273 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:38:18
+2026-07-01 09:39:18.278 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:38:48
+2026-07-01 09:39:48.290 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:39:18
+2026-07-01 09:40:18.298 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:39:48
+2026-07-01 09:40:48.309 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:40:18
+2026-07-01 09:41:18.319 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:40:48
+2026-07-01 09:41:48.334 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:41:18
+2026-07-01 09:42:18.346 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:41:48
+2026-07-01 09:42:48.358 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:42:18
+2026-07-01 09:43:18.374 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:42:48
+2026-07-01 09:43:48.394 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:43:18
+2026-07-01 09:44:18.407 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:43:48
+2026-07-01 09:44:48.418 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:44:18
+2026-07-01 09:45:18.435 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:44:48
+2026-07-01 09:45:48.446 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:45:18
+2026-07-01 09:46:18.459 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:45:48
+2026-07-01 09:46:48.485 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:46:18
+2026-07-01 09:47:18.505 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:46:48
+2026-07-01 09:47:48.521 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:47:18
+2026-07-01 09:48:18.531 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:47:48
+2026-07-01 09:48:48.548 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:48:18
+2026-07-01 09:49:18.567 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:48:48
+2026-07-01 09:49:48.583 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:49:18
+2026-07-01 09:50:18.605 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:49:48
+2026-07-01 09:50:48.615 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:50:18
+2026-07-01 09:51:18.634 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:50:48
+2026-07-01 09:51:48.658 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:51:18
+2026-07-01 09:52:18.690 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:51:48
+2026-07-01 09:52:48.714 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:52:18
+2026-07-01 09:53:18.723 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:52:48
+2026-07-01 09:53:48.740 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:53:18
+2026-07-01 09:54:18.750 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:53:48
+2026-07-01 09:54:48.761 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:54:18
+2026-07-01 09:55:18.780 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:54:48
+2026-07-01 09:55:48.795 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:55:18
+2026-07-01 09:56:18.808 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:55:48
+2026-07-01 09:56:48.825 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:56:18
+2026-07-01 09:57:18.857 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:56:48
+2026-07-01 09:57:48.871 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:57:18
+2026-07-01 09:58:18.892 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:57:48
+2026-07-01 09:58:48.922 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:58:18
+2026-07-01 09:59:18.939 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:58:48
+2026-07-01 09:59:48.956 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:59:18
+2026-07-01 10:00:18.971 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 09:59:48
+2026-07-01 10:00:48.977 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:00:18
+2026-07-01 10:01:18.996 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:00:48
+2026-07-01 10:01:49.005 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:01:18
+2026-07-01 10:02:19.019 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:01:49
+2026-07-01 10:02:49.039 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:02:19
+2026-07-01 10:03:19.057 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:02:49
+2026-07-01 10:03:49.077 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:03:19
+2026-07-01 10:04:19.097 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:03:49
+2026-07-01 10:04:49.119 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:04:19
+2026-07-01 10:05:19.144 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:04:49
+2026-07-01 10:05:49.172 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:05:19
+2026-07-01 10:06:19.198 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:05:49
+2026-07-01 10:06:49.227 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:06:19
+2026-07-01 10:07:19.252 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:06:49
+2026-07-01 10:07:49.259 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:07:19
+2026-07-01 10:08:19.284 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:07:49
+2026-07-01 10:08:49.308 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:08:19
+2026-07-01 10:09:19.327 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:08:49
+2026-07-01 10:09:49.354 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:09:19
+2026-07-01 10:10:19.373 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:09:49
+2026-07-01 10:10:49.386 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:10:19
+2026-07-01 10:11:19.412 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:10:49
+2026-07-01 10:11:49.436 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:11:19
+2026-07-01 10:12:19.458 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:11:49
+2026-07-01 10:12:49.475 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:12:19
+2026-07-01 10:13:19.505 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:12:49
+2026-07-01 10:13:49.527 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:13:19
+2026-07-01 10:14:19.546 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:13:49
+2026-07-01 10:14:49.565 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:14:19
+2026-07-01 10:15:19.577 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:14:49
+2026-07-01 10:15:49.587 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:15:19
+2026-07-01 10:16:19.600 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:15:49
+2026-07-01 10:16:49.619 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:16:19
+2026-07-01 10:17:19.640 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:16:49
+2026-07-01 10:17:49.650 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:17:19
+2026-07-01 10:18:19.673 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:17:49
+2026-07-01 10:18:49.683 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:18:19
+2026-07-01 10:19:19.700 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:18:49
+2026-07-01 10:19:49.721 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:19:19
+2026-07-01 10:20:19.741 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:19:49
+2026-07-01 10:20:49.762 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:20:19
+2026-07-01 10:21:19.788 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:20:49
+2026-07-01 10:21:49.808 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:21:19
+2026-07-01 10:22:19.816 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:21:49
+2026-07-01 10:22:49.833 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:22:19
+2026-07-01 10:23:19.844 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:22:49
+2026-07-01 10:23:49.864 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:23:19
+2026-07-01 10:24:19.889 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:23:49
+2026-07-01 10:24:49.914 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:24:19
+2026-07-01 10:25:19.929 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:24:49
+2026-07-01 10:25:49.952 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:25:19
+2026-07-01 10:26:19.987 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:25:49
+2026-07-01 10:26:50.001 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:26:19
+2026-07-01 10:27:20.017 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:26:50
+2026-07-01 10:27:50.028 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:27:20
+2026-07-01 10:28:20.056 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:27:50
+2026-07-01 10:28:50.069 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:28:20
+2026-07-01 10:29:20.099 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:28:50
+2026-07-01 10:29:50.120 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:29:20
+2026-07-01 10:30:20.140 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:29:50
+2026-07-01 10:30:50.167 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:30:20
+2026-07-01 10:31:20.191 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:30:50
+2026-07-01 10:31:50.210 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:31:20
+2026-07-01 10:32:20.232 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:31:50
+2026-07-01 10:32:50.246 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:32:20
+2026-07-01 10:33:20.260 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:32:50
+2026-07-01 10:33:50.280 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:33:20
+2026-07-01 10:34:20.305 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:33:50
+2026-07-01 10:34:50.316 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:34:20
+2026-07-01 10:35:20.334 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:34:50
+2026-07-01 10:35:50.350 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:35:20
+2026-07-01 10:36:20.370 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:35:50
+2026-07-01 10:36:50.381 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:36:20
+2026-07-01 10:37:20.398 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:36:50
+2026-07-01 10:37:50.425 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:37:20
+2026-07-01 10:38:20.438 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:37:50
+2026-07-01 10:38:50.456 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:38:20
+2026-07-01 10:39:20.474 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:38:50
+2026-07-01 10:39:50.484 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:39:20
+2026-07-01 10:40:20.501 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:39:50
+2026-07-01 10:40:50.527 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:40:20
+2026-07-01 10:41:20.536 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:40:50
+2026-07-01 10:41:50.552 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:41:20
+2026-07-01 10:42:20.571 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:41:50
+2026-07-01 10:42:50.579 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:42:20
+2026-07-01 10:43:20.601 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:42:50
+2026-07-01 10:43:50.608 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:43:20
+2026-07-01 10:44:20.627 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:43:50
+2026-07-01 10:44:50.657 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:44:20
+2026-07-01 10:45:20.683 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:44:50
+2026-07-01 10:45:50.694 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:45:20
+2026-07-01 10:46:20.709 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:45:50
+2026-07-01 10:46:50.725 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:46:20
+2026-07-01 10:47:20.753 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:46:50
+2026-07-01 10:47:50.769 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:47:20
+2026-07-01 10:48:20.789 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:47:50
+2026-07-01 10:48:50.797 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:48:20
+2026-07-01 10:49:20.818 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:48:50
+2026-07-01 10:49:50.836 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:49:20
+2026-07-01 10:50:20.845 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:49:50
+2026-07-01 10:50:50.860 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:50:20
+2026-07-01 10:51:20.885 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:50:50
+2026-07-01 10:51:50.911 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:51:20
+2026-07-01 10:52:20.926 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:51:50
+2026-07-01 10:52:50.945 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:52:20
+2026-07-01 10:53:20.960 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:52:50
+2026-07-01 10:53:50.978 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:53:20
+2026-07-01 10:54:20.987 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:53:50
+2026-07-01 10:54:51.007 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:54:21
+2026-07-01 10:55:21.015 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:54:51
+2026-07-01 10:55:51.032 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:55:21
+2026-07-01 10:56:21.038 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:55:51
+2026-07-01 10:56:51.052 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:56:21
+2026-07-01 10:57:21.068 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:56:51
+2026-07-01 10:57:51.082 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:57:21
+2026-07-01 10:58:21.099 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:57:51
+2026-07-01 10:58:51.116 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:58:21
+2026-07-01 10:59:21.146 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:58:51
+2026-07-01 10:59:51.168 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:59:21
+2026-07-01 11:00:21.189 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 10:59:51
+2026-07-01 11:00:51.196 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 11:00:21
+2026-07-01 11:01:21.213 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 11:00:51
+2026-07-01 11:01:51.239 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 11:01:21
+2026-07-01 11:02:21.253 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 11:01:51
+2026-07-01 11:02:51.270 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 11:02:21
+2026-07-01 11:03:21.297 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 11:02:51
+2026-07-01 11:03:51.318 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 11:03:21
+2026-07-01 11:04:21.334 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 11:03:51
+2026-07-01 11:04:51.352 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 11:04:21
+2026-07-01 11:05:21.364 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 11:04:51
+2026-07-01 11:05:51.373 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 11:05:21
+2026-07-01 11:06:21.391 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 11:05:51
+2026-07-01 11:06:51.408 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 11:06:21
+2026-07-01 11:07:21.426 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 11:06:51
+2026-07-01 11:07:51.444 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 11:07:21
+2026-07-01 14:00:48.389 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h53m9s854ms115µs900ns).
+2026-07-01 14:00:49.995 [nacos-grpc-client-executor-127.0.0.1-4477] INFO  com.alibaba.nacos.common.remote.client - [0c14c7fe-ab3c-4c0c-bf90-3dd0cb514c27] Receive server push request, request = ClientDetectionRequest, requestId = 163
+2026-07-01 14:00:49.997 [nacos-grpc-client-executor-127.0.0.1-4477] INFO  com.alibaba.nacos.common.remote.client - [0c14c7fe-ab3c-4c0c-bf90-3dd0cb514c27] Ack server push request, request = ClientDetectionRequest, requestId = 163
+2026-07-01 14:00:49.997 [nacos-grpc-client-executor-127.0.0.1-4525] INFO  com.alibaba.nacos.common.remote.client - [0f8143a3-d0c7-4460-aea4-38308374e70a_config-0] Receive server push request, request = ClientDetectionRequest, requestId = 161
+2026-07-01 14:00:49.998 [nacos-grpc-client-executor-127.0.0.1-4525] INFO  com.alibaba.nacos.common.remote.client - [0f8143a3-d0c7-4460-aea4-38308374e70a_config-0] Ack server push request, request = ClientDetectionRequest, requestId = 161
+2026-07-01 14:01:01.297 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 11:07:51
+2026-07-01 14:01:31.317 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:01:01
+2026-07-01 14:02:01.324 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:01:31
+2026-07-01 14:02:31.339 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:02:01
+2026-07-01 14:03:01.352 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:02:31
+2026-07-01 14:03:31.380 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:03:01
+2026-07-01 14:04:01.403 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:03:31
+2026-07-01 14:04:31.425 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:04:01
+2026-07-01 14:05:01.441 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:04:31
+2026-07-01 14:05:31.456 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:05:01
+2026-07-01 14:06:01.475 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:05:31
+2026-07-01 14:06:31.498 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:06:01
+2026-07-01 14:07:01.518 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:06:31
+2026-07-01 14:07:31.526 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:07:01
+2026-07-01 14:08:01.542 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:07:31
+2026-07-01 14:08:31.555 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:08:01
+2026-07-01 14:09:01.562 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:08:31
+2026-07-01 14:09:31.575 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:09:01
+2026-07-01 14:10:01.584 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:09:31
+2026-07-01 14:10:31.594 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:10:01
+2026-07-01 14:11:01.613 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:10:31
+2026-07-01 14:11:31.618 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:11:01
+2026-07-01 14:12:01.636 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:11:31
+2026-07-01 14:12:31.646 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:12:01
+2026-07-01 14:13:01.658 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:12:31
+2026-07-01 14:13:31.673 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:13:01
+2026-07-01 14:14:01.687 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:13:31
+2026-07-01 14:14:31.707 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:14:01
+2026-07-01 14:15:01.721 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:14:31
+2026-07-01 14:15:31.731 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:15:01
+2026-07-01 14:16:01.753 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:15:31
+2026-07-01 14:16:31.757 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:16:01
+2026-07-01 14:17:01.777 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:16:31
+2026-07-01 14:17:31.801 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:17:01
+2026-07-01 14:18:01.821 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:17:31
+2026-07-01 14:18:31.827 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:18:01
+2026-07-01 14:19:01.838 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:18:31
+2026-07-01 14:19:31.847 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:19:01
+2026-07-01 14:20:01.867 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:19:31
+2026-07-01 14:20:31.873 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:20:01
+2026-07-01 14:21:01.890 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:20:31
+2026-07-01 14:21:31.907 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:21:01
+2026-07-01 14:22:01.924 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:21:31
+2026-07-01 14:22:31.943 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:22:01
+2026-07-01 14:23:01.958 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:22:31
+2026-07-01 14:23:31.980 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:23:01
+2026-07-01 14:24:02.002 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:23:31
+2026-07-01 14:24:32.019 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:24:02
+2026-07-01 14:25:02.038 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:24:32
+2026-07-01 14:25:32.058 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:25:02
+2026-07-01 14:26:02.071 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:25:32
+2026-07-01 14:26:32.085 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:26:02
+2026-07-01 14:27:02.092 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:26:32
+2026-07-01 14:27:32.108 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:27:02
+2026-07-01 14:28:02.123 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:27:32
+2026-07-01 14:28:32.131 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:28:02
+2026-07-01 14:29:02.145 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:28:32
+2026-07-01 14:29:32.157 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:29:02
+2026-07-01 14:30:02.170 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:29:32
+2026-07-01 14:30:32.200 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:30:02
+2026-07-01 14:31:02.219 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:30:32
+2026-07-01 14:31:32.228 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:31:02
+2026-07-01 14:32:02.260 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:31:32
+2026-07-01 14:32:32.292 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:32:02
+2026-07-01 14:33:02.306 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:32:32
+2026-07-01 14:33:32.327 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:33:02
+2026-07-01 14:34:02.348 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:33:32
+2026-07-01 14:34:32.359 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:34:02
+2026-07-01 14:35:02.369 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:34:32
+2026-07-01 14:35:32.380 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:35:02
+2026-07-01 14:36:02.387 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:35:32
+2026-07-01 14:36:32.394 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:36:02
+2026-07-01 14:37:02.410 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:36:32
+2026-07-01 14:37:32.420 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:37:02
+2026-07-01 14:38:02.437 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:37:32
+2026-07-01 14:38:32.455 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:38:02
+2026-07-01 14:39:02.460 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:38:32
+2026-07-01 14:39:32.475 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:39:02
+2026-07-01 14:40:02.485 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:39:32
+2026-07-01 14:40:32.500 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:40:02
+2026-07-01 14:41:02.513 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:40:32
+2026-07-01 14:41:32.538 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:41:02
+2026-07-01 14:42:02.550 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:41:32
+2026-07-01 14:42:32.566 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:42:02
+2026-07-01 14:43:02.580 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:42:32
+2026-07-01 14:43:32.594 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:43:02
+2026-07-01 14:44:02.610 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:43:32
+2026-07-01 14:44:32.620 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:44:02
+2026-07-01 14:45:02.631 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:44:32
+2026-07-01 14:45:32.646 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:45:02
+2026-07-01 14:46:02.657 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:45:32
+2026-07-01 14:46:32.675 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:46:02
+2026-07-01 14:47:02.689 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:46:32
+2026-07-01 14:47:32.696 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:47:02
+2026-07-01 14:48:02.711 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:47:32
+2026-07-01 14:48:32.718 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:48:02
+2026-07-01 14:49:02.736 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:48:32
+2026-07-01 14:49:32.744 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:49:02
+2026-07-01 14:50:02.761 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:49:32
+2026-07-01 14:50:32.771 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:50:02
+2026-07-01 14:51:02.782 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:50:32
+2026-07-01 14:51:32.802 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:51:02
+2026-07-01 14:52:02.808 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:51:32
+2026-07-01 14:52:32.826 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:52:02
+2026-07-01 14:53:02.843 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:52:32
+2026-07-01 14:53:32.852 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:53:02
+2026-07-01 14:54:02.866 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:53:32
+2026-07-01 14:54:32.873 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:54:02
+2026-07-01 14:55:02.890 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:54:32
+2026-07-01 14:55:32.909 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:55:02
+2026-07-01 14:56:02.923 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:55:32
+2026-07-01 14:56:32.948 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:56:02
+2026-07-01 14:57:02.963 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:56:32
+2026-07-01 14:57:32.977 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:57:02
+2026-07-01 14:58:02.999 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:57:32
+2026-07-01 14:58:33.033 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:58:03
+2026-07-01 14:59:03.053 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:58:33
+2026-07-01 14:59:33.058 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:59:03
+2026-07-01 15:00:03.086 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 14:59:33
+2026-07-01 15:00:33.104 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 15:00:03
+2026-07-01 15:01:03.121 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 15:00:33
+2026-07-01 15:01:33.136 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 15:01:03
+2026-07-01 15:02:03.146 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 15:01:33
+2026-07-01 15:02:33.160 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 15:02:03
+2026-07-01 15:03:03.174 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 15:02:33
+2026-07-01 15:03:33.192 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 15:03:03
+2026-07-01 15:04:03.203 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 15:03:33
+2026-07-01 15:04:33.207 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 15:04:03
+2026-07-01 15:05:03.226 [scheduling-1] INFO  com.psi.common.service.BaseUpSyncDownloadService - [sale] 开始拉取上行同步数据: lastTime=2026-07-01 15:04:33

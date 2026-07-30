@@ -1,0 +1,49 @@
+services:
+  # 收银终端 01
+  cashier-terminal-01:
+    build:
+      context: ./psi-cashier
+      dockerfile: Dockerfile
+    image: psi-cashier:latest
+    container_name: psi-cashier-t01
+    ports:
+      - "8094:8088"
+    environment:
+      TERMINAL_ID: T01
+      STORE_ID: S001
+      # 如果其他微服务也在 Docker 里跑，改成对应服务名
+      PSI_SYNC_BASE_URL: http://host.docker.internal:8090
+      PSI_STOCK_BASE_URL: http://host.docker.internal:8086
+    volumes:
+      - ./psi-cashier/data/t01:/app/data
+    restart: unless-stopped
+
+  # 收银终端 02
+  cashier-terminal-02:
+    image: psi-cashier:latest
+    container_name: psi-cashier-t02
+    ports:
+      - "8095:8088"
+    environment:
+      TERMINAL_ID: T02
+      STORE_ID: S001
+      PSI_SYNC_BASE_URL: http://host.docker.internal:8090
+      PSI_STOCK_BASE_URL: http://host.docker.internal:8086
+    volumes:
+      - ./psi-cashier/data/t02:/app/data
+    restart: unless-stopped
+
+  # 收银终端 03
+  cashier-terminal-03:
+    image: psi-cashier:latest
+    container_name: psi-cashier-t03
+    ports:
+      - "8096:8088"
+    environment:
+      TERMINAL_ID: T03
+      STORE_ID: S001
+      PSI_SYNC_BASE_URL: http://host.docker.internal:8090
+      PSI_STOCK_BASE_URL: http://host.docker.internal:8086
+    volumes:
+      - ./psi-cashier/data/t03:/app/data
+    restart: unless-stopped

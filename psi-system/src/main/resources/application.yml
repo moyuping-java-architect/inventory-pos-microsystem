@@ -1,0 +1,37 @@
+server:
+  port: 8087
+
+spring:
+  application:
+    name: psi-system
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:mysql://localhost:3306/erp_system_db?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-field: del_flag
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+jwt:
+  secret: psi-jwt-secret-key-for-production-use-a-strong-secret-here
+  expire: 86400000
+  refresh-expire: 604800000
+  ignore-urls:
+    - /psi/admin/login
+    - /psi/admin/refresh-token
+    - /actuator/**
+
+logging:
+  level:
+    com.psi.system: DEBUG
+    org.springframework.security: INFO

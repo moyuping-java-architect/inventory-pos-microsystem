@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.psi.stock.mapper.SyncLogMapper">
+
+    <select id="selectByType" resultType="com.psi.stock.entity.SyncLogEntity">
+        SELECT type, last_download_time AS lastTime
+        FROM sync_log
+        WHERE type = #{type}
+    </select>
+
+    <update id="updateLastTime">
+        UPDATE sync_log
+        SET last_download_time = #{lastTime}
+        WHERE type = #{type}
+    </update>
+
+    <insert id="insert">
+        INSERT INTO sync_log (tenant_id, type, last_download_time)
+        VALUES ('1', #{type}, #{lastTime})
+    </insert>
+
+</mapper>

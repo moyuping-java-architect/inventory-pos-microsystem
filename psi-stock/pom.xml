@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.psi</groupId>
+        <artifactId>psi-parent</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>psi-stock</artifactId>
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.psi</groupId>
+            <artifactId>psi-common-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.psi</groupId>
+            <artifactId>psi-common-starter-nacos</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.psi</groupId>
+            <artifactId>psi-common-starter-mybatis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.psi</groupId>
+            <artifactId>psi-common-starter-tenant</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.psi</groupId>
+            <artifactId>psi-common-starter-log</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.psi</groupId>
+            <artifactId>psi-common-starter-async</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.psi</groupId>
+            <artifactId>psi-common-starter-order-rule</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.github.resilience4j</groupId>
+            <artifactId>resilience4j-spring-boot3</artifactId>
+            <version>2.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+
+        <!-- OpenAPI 文档 -->
+        <dependency>
+            <groupId>com.psi</groupId>
+            <artifactId>psi-common-starter-doc</artifactId>
+        </dependency>
+
+        <!-- Actuator 健康检查 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <skip>false</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.psi.cashier.mapper.CashierSettlementMapper">
+
+    <resultMap id="BaseResultMap" type="com.psi.cashier.entity.CashierSettlementEntity">
+        <id column="id" property="id" />
+        <result column="settle_no" property="settleNo" />
+        <result column="tenant_id" property="tenantId" />
+        <result column="shop_code" property="shopCode" />
+        <result column="pos_id" property="posId" />
+        <result column="biz_type" property="bizType" />
+        <result column="operator_id" property="operatorId" />
+        <result column="username" property="username" />
+        <result column="real_name" property="realName" />
+        <result column="begin_time" property="beginTime" />
+        <result column="end_time" property="endTime" />
+        <result column="total_order" property="totalOrder" />
+        <result column="total_amount" property="totalAmount" />
+        <result column="total_real" property="totalReal" />
+        <result column="total_discount" property="totalDiscount" />
+        <result column="cash_amount" property="cashAmount" />
+        <result column="wechat_amount" property="wechatAmount" />
+        <result column="alipay_amount" property="alipayAmount" />
+        <result column="member_amount" property="memberAmount" />
+        <result column="other_amount" property="otherAmount" />
+        <result column="status" property="status" />
+        <result column="create_by" property="createBy" />
+        <result column="create_time" property="createTime" />
+        <result column="update_by" property="updateBy" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+    <select id="selectBySettleNo" parameterType="java.lang.String" resultMap="BaseResultMap">
+        SELECT * FROM cashier_settlement WHERE settle_no = #{settleNo}
+    </select>
+
+    <select id="selectByOperatorId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        SELECT * FROM cashier_settlement WHERE operator_id = #{operatorId}
+    </select>
+
+    <select id="selectByDate" parameterType="java.lang.String" resultMap="BaseResultMap">
+        SELECT * FROM cashier_settlement WHERE #{dateStr} BETWEEN DATE(begin_time) AND DATE(end_time)
+    </select>
+
+</mapper>

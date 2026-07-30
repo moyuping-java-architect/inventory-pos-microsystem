@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.psi.sync.mapper.UpSyncMapper">
+
+    <select id="selectPendingProcess" resultType="com.psi.sync.entity.UpSyncEntity">
+        SELECT * FROM up_sync
+        WHERE sync_status = 0
+        ORDER BY create_time ASC
+    </select>
+
+    <select id="selectPendingProcessWithTime" resultType="com.psi.sync.entity.UpSyncEntity">
+        SELECT * FROM up_sync
+        WHERE sync_status = 0
+        <if test="lastTime != null and lastTime != ''">
+            AND create_time > STR_TO_DATE(#{lastTime}, '%Y-%m-%d %H:%i:%s')
+        </if>
+        ORDER BY create_time ASC
+    </select>
+
+    <update id="batchUpdateStatusByBatchUuids">
+        UPDATE up_sync
+        SET sync_status = #{syncStatus},
+            process_time = NOW()
+        WHERE batch_uuid IN
+        <foreach collection="batchUuids" item="batchUuid" open="(" separator="," close=")">
+            #{batchUuid}
+        </foreach>
+        AND sync_status = 0
+    </update>
+
+    <!-- 幂等插入：利用数据库唯一索引保证幂等 -->
+    <insert id="insertIgnore">
+        INSERT IGNORE INTO up_sync (
+            batch_uuid,
+            record_id,
+            tenant_id,
+            shop_code,
+            pos_sn,
+            table_name,
+            business_key,
+            data_version,
+            json_data,
+            sync_status,
+            retry_count,
+            create_time
+        ) VALUES (
+            #{entity.batchUuid},
+            #{entity.recordId},
+            #{entity.tenantId},
+            #{entity.shopCode},
+            #{entity.posSn},
+            #{entity.tableName},
+            #{entity.businessKey},
+            #{entity.dataVersion},
+            #{entity.jsonData},
+            0,
+            0,
+            NOW()
+        )
+    </insert>
+
+    <!-- 递增重试次数 -->
+    <update id="incrementRetryCount">
+        UPDATE up_sync
+        SET retry_count = retry_count + 1
+        WHERE id = #{id}
+    </update>
+
+    <!-- 按记录ID更新状态（逐条确认，事务安全） -->
+    <update id="updateStatusById">
+        UPDATE up_sync
+        SET sync_status = #{syncStatus},
+            process_time = NOW(),
+            error_msg = #{errorMsg}
+        WHERE id = #{id}
+          AND sync_status = 0
+    </update>
+
+</mapper>

@@ -1,0 +1,90 @@
+# =====================================================================
+# TradeMaster 单机版部署 - 赞比亚进销存收银系统
+# =====================================================================
+# 包含：
+#   1. MySQL 8.0 - 数据库
+#   2. Redis 7 - 缓存
+#   3. TradeMaster - 主应用（收银+进销存+系统）
+#
+# 内存占用：约 1.5-2 GB
+#   MySQL:    ~300MB
+#   Redis:    ~50MB
+#   App:      ~500MB
+#   ------------------
+#   合计:     ~850MB
+#
+# 启动命令：
+#   docker compose -f docker-compose.yml up -d
+#
+# 访问地址：
+#   管理后台: http://localhost:8080
+#   收银端:   http://localhost:8080/cashier
+# =====================================================================
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: tm-mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: trademaster
+      TZ: Africa/Lusaka
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./src/main/resources/schema.sql:/docker-entrypoint-initdb.d/01_schema.sql
+    command: --default-authentication-plugin=mysql_native_password --innodb-buffer-pool-size=128M
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-uroot", "-proot"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    container_name: tm-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    command: redis-server --maxmemory 64mb --maxmemory-policy allkeys-lru
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  app:
+    build: .
+    container_name: trademaster
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/trademaster?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Africa/Lusaka&allowPublicKeyRetrieval=true&useSSL=false
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      SPRING_DATA_REDIS_HOST: redis
+      JAVA_OPTS: "-Xms128m -Xmx256m -XX:MaxMetaspaceSize=128m -XX:+UseSerialGC -Djava.security.egd=file:/dev/./urandom"
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 90s
+    restart: unless-stopped
+
+volumes:
+  mysql-data:
+    driver: local
+  redis-data:
+    driver: local

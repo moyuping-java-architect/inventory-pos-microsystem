@@ -1,0 +1,67 @@
+:root {
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #333;
+  background-color: #f5f7fa;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  min-width: 1200px;
+}
+
+#app {
+  height: 100%;
+  width: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* 修复 Element Plus dialog 遮罩层拦截内部控件点击的问题 */
+.el-modal-dialog {
+  pointer-events: none !important;
+}
+.el-overlay-dialog {
+  pointer-events: auto !important;
+}
+.el-overlay-dialog .el-dialog {
+  pointer-events: auto !important;
+}
+
+/* 防止 dialog 内表单 label 遮挡下层控件点击 */
+.el-dialog .el-form-item__label {
+  pointer-events: none !important;
+}

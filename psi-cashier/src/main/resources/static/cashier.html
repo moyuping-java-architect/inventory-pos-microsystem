@@ -1,0 +1,1543 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="common.title">PSI收银系统 - 收银台</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f5f5f5;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        /* 顶部导航栏 */
+        .header {
+            background: #3498db;
+            color: white;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .header-title {
+            font-size: 20px;
+            font-weight: 600;
+        }
+        
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .header-store {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .header-center {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-header {
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: background 0.3s;
+        }
+        
+        .btn-header:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 14px;
+        }
+        
+        .lang-selector {
+            padding: 6px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 13px;
+            cursor: pointer;
+            outline: none;
+        }
+        
+        .lang-selector option {
+            background: #3498db;
+            color: white;
+        }
+
+        .network-status {
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .network-status.online {
+            background: #27ae60;
+            color: white;
+        }
+
+        .network-status.offline {
+            background: #e74c3c;
+            color: white;
+        }
+
+        /* 主内容区 */
+        .main-content {
+            flex: 1;
+            display: flex;
+            overflow: hidden;
+            padding: 15px;
+            gap: 15px;
+        }
+        
+        /* 左侧面板 */
+        .left-panel {
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        /* 搜索区域 */
+        .search-section {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .search-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .search-row:last-child {
+            margin-bottom: 0;
+        }
+        
+        .search-select {
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            background: white;
+            min-width: 120px;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            outline: none;
+        }
+        
+        .search-input:focus {
+            border-color: #3498db;
+        }
+        
+        .btn-search {
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .btn-search:hover {
+            background: #2980b9;
+        }
+        
+        /* 支付信息区域 */
+        .payment-section {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 13px;
+            color: #666;
+            font-weight: 500;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            outline: none;
+        }
+        
+        .form-group input:focus {
+            border-color: #3498db;
+        }
+        
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            background: white;
+        }
+        
+        .form-group .change-value {
+            font-size: 18px;
+            font-weight: 600;
+            color: #27ae60;
+        }
+        
+        /* 支付明细样式 */
+        .pay-details-header {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+        
+        .pay-method-select {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 13px;
+            width: 80px;
+            max-width: 80px;
+            flex-shrink: 0;
+            flex-grow: 0;
+        }
+        
+        .pay-amount-input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 15px;
+            min-width: 0;
+        }
+        
+        .btn-add-pay {
+            padding: 10px 18px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            flex-shrink: 0;
+            flex-grow: 0;
+            white-space: nowrap;
+        }
+        
+        .btn-add-pay:hover {
+            background: #2980b9;
+        }
+        
+        .pay-details-list {
+            max-height: 120px;
+            overflow-y: auto;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+        
+        .empty-pay-list {
+            text-align: center;
+            color: #999;
+            padding: 20px;
+            font-size: 13px;
+        }
+        
+        .pay-detail-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 10px;
+            background: #f8f9fa;
+            border-radius: 4px;
+            margin-bottom: 5px;
+        }
+        
+        .pay-detail-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .pay-detail-method {
+            font-weight: 500;
+        }
+        
+        .pay-detail-amount {
+            font-weight: 600;
+            color: #3498db;
+        }
+        
+        .pay-detail-delete {
+            padding: 4px 8px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        
+        .pay-summary {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        
+        .pay-summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 13px;
+        }
+        
+        .pay-summary-row:last-child {
+            margin-bottom: 0;
+        }
+        
+        .pay-total {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .pay-paid {
+            font-weight: 600;
+            color: #27ae60;
+        }
+        
+        .pay-remaining {
+            font-weight: 600;
+            color: #e74c3c;
+        }
+        
+        .pay-change {
+            font-weight: 600;
+            font-size: 16px;
+            color: #27ae60;
+        }
+        
+        /* 操作按钮区域 */
+        .action-section {
+            display: flex;
+            gap: 10px;
+            margin-top: auto;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .btn-secondary {
+            flex: 1;
+            background: white;
+            color: #666;
+            border: 1px solid #ddd;
+        }
+        
+        .btn-secondary:hover {
+            background: #f5f5f5;
+        }
+        
+        .btn-primary {
+            flex: 1;
+            background: #3498db;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #2980b9;
+        }
+        
+        /* 右侧面板 */
+        .right-panel {
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            min-height: 0;
+        }
+        
+        /* 订单汇总区域 */
+        .order-summary {
+            background: white;
+            border-radius: 8px;
+            padding: 15px 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .summary-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .summary-label {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .summary-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .summary-total {
+            font-size: 20px;
+            font-weight: 700;
+            color: #e74c3c;
+        }
+        
+        .summary-final {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .summary-final-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        /* 订单详情区域 */
+        .order-details {
+            flex: 1;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .order-details-header {
+            padding: 15px 20px;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 15px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .order-table-wrapper {
+            flex: 1;
+            overflow-y: auto;
+        }
+        
+        .order-table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        
+        .order-table thead {
+            position: sticky;
+            top: 0;
+            background: #f8f9fa;
+        }
+        
+        .order-table th {
+            padding: 12px 15px;
+            text-align: left;
+            font-size: 13px;
+            font-weight: 600;
+            color: #666;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .order-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 14px;
+        }
+        
+        .order-table .product-name {
+            color: #333;
+        }
+        
+        .order-table .product-price {
+            color: #666;
+        }
+        
+        .order-table .qty-control {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .qty-btn {
+            width: 24px;
+            height: 24px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: white;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .qty-btn:hover {
+            background: #f0f0f0;
+        }
+        
+        .qty-input {
+            width: 60px;
+            height: 24px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            outline: none;
+        }
+        
+        .qty-input:focus {
+            border-color: #3498db;
+        }
+        
+        .qty-input.error {
+            border-color: #e74c3c;
+            background-color: #fdf2f2;
+        }
+        
+        .price-input {
+            width: 80px;
+            height: 28px;
+            text-align: center;
+            border: 2px solid #95a5a6;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #2c3e50;
+            outline: none;
+            background: #fff;
+            padding: 2px 4px;
+        }
+        
+        .price-input:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+        }
+        
+        .price-input.error {
+            border-color: #e74c3c;
+            background-color: #fdf2f2;
+        }
+        
+        .amount-input {
+            width: 80px;
+            height: 28px;
+            text-align: center;
+            border: 2px solid #3498db;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #e74c3c;
+            outline: none;
+            background: #fff;
+            padding: 2px 4px;
+        }
+        
+        .amount-input:focus {
+            border-color: #2980b9;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+        }
+        
+        .amount-input.error {
+            border-color: #e74c3c;
+            background-color: #fdf2f2;
+        }
+        
+        .order-table .product-total {
+            font-weight: 600;
+            color: #e74c3c;
+        }
+        
+        .btn-delete {
+            padding: 6px 12px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        
+        .btn-delete:hover {
+            background: #c0392b;
+        }
+        
+        .empty-cart {
+            text-align: center;
+            color: #999;
+            padding: 50px 0;
+        }
+        
+        /* 模态框 */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        
+        .modal-overlay.show {
+            display: flex;
+        }
+        
+        .modal {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+        }
+        
+        .modal-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+            padding-right: 30px;
+        }
+        
+        .modal-content {
+            margin-bottom: 20px;
+        }
+        
+        .modal-amount {
+            font-size: 48px;
+            font-weight: 700;
+            color: #e74c3c;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .modal-input {
+            width: 100%;
+            padding: 15px;
+            font-size: 24px;
+            text-align: center;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            outline: none;
+        }
+        
+        .modal-input:focus {
+            border-color: #3498db;
+        }
+        
+        .modal-change {
+            font-size: 18px;
+            text-align: center;
+            margin-top: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        /* 成功提示 */
+        .success-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(46, 204, 113, 0.95);
+            color: white;
+            padding: 30px 50px;
+            border-radius: 12px;
+            font-size: 20px;
+            font-weight: 600;
+            display: none;
+            z-index: 2000;
+        }
+        
+        .success-message.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+            to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+        }
+        
+        /* 滚动条样式 */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 3px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #999;
+        }
+        
+        /* 查询过滤器样式 */
+        .query-filters {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .filter-row {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .filter-input {
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            min-width: 150px;
+        }
+        
+        /* 数据表格样式 */
+        .table-wrapper {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 15px;
+        }
+        
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        
+        .data-table th {
+            padding: 10px 12px;
+            text-align: left;
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #666;
+            border-bottom: 2px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+        }
+        
+        .data-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .data-table tr:hover td {
+            background: #f8f9fa;
+        }
+        
+        /* 订单信息样式 */
+        .order-info {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+        
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+        
+        .info-row:last-child {
+            border-bottom: none;
+        }
+        
+        .info-label {
+            font-weight: 500;
+            color: #666;
+        }
+        
+        .info-value {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .refund-available {
+            color: #e74c3c;
+        }
+        
+        /* 分页样式 */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .pagination button {
+            padding: 6px 12px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+        
+        .pagination button:hover {
+            background: #f0f0f0;
+        }
+        
+        .pagination button.active {
+            background: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
+        
+        /* 区域分隔线 */
+        .section-divider {
+            height: 1px;
+            background: #e0e0e0;
+            margin: 15px 0;
+        }
+        
+        /* 表单输入样式 */
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .form-input:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+        
+        /* 退货汇总 */
+        .refund-summary {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 15px;
+        }
+        
+        .refund-summary .summary-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        .refund-total {
+            color: #e74c3c;
+            font-size: 20px;
+        }
+        
+        /* 日结汇总卡片 */
+        .settlement-summary {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .summary-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .summary-card .summary-label {
+            display: block;
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .summary-card .summary-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: #333;
+        }
+        
+        .summary-money {
+            color: #3498db;
+        }
+        
+        .btn-detail {
+            padding: 4px 10px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        
+        .btn-detail:hover {
+            background: #2980b9;
+        }
+        
+        /* 挂单列表样式 */
+        .empty-suspended-list {
+            text-align: center;
+            color: #999;
+            padding: 40px;
+        }
+        
+        .suspended-item {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: box-shadow 0.3s;
+        }
+        
+        .suspended-item:hover {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .suspended-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .suspended-index {
+            font-size: 18px;
+            font-weight: 600;
+            color: #3498db;
+        }
+        
+        .suspended-time {
+            font-size: 13px;
+            color: #999;
+        }
+        
+        .suspended-total {
+            font-size: 18px;
+            font-weight: 600;
+            color: #e74c3c;
+        }
+        
+        .suspended-items {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .suspended-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+        
+        .suspended-actions .btn {
+            padding: 6px 14px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <header class="header">
+        <div class="header-left">
+            <div class="header-title" data-i18n="common.title">收银系统</div>
+            <div class="header-store" id="headerStore">店铺：测试店铺</div>
+        </div>
+        <div class="header-center">
+            <button class="btn-header" id="btnUploadData" data-i18n="button.upload">上传数据</button>
+            <button class="btn-header" id="btnDownloadData" data-i18n="button.download">下载数据</button>
+            <button class="btn-header" id="btnCashierShift" data-i18n="button.cashierShift">收银下班</button>
+        </div>
+        <div class="header-right">
+            <span id="networkStatus" class="network-status online" data-i18n="label.online">在线</span>
+            <span id="offlinePendingBadge" style="display: none; background: #f39c12; color: white; padding: 2px 8px; border-radius: 10px; font-size: 12px; margin-left: -10px;">0</span>
+            <select id="currencySelect" class="lang-selector">
+                <option value="ZMW">ZMW</option>
+                <option value="USD">USD</option>
+            </select>
+            <select id="langSelector" class="lang-selector">
+                <option value="zh_CN" data-i18n="lang.chinese">中文</option>
+                <option value="en_US" data-i18n="lang.english">English</option>
+            </select>
+            <span id="cashierName">收银员：admin</span>
+            <span id="currentTime"></span>
+        </div>
+    </header>
+    
+    <!-- 主内容区 -->
+    <main class="main-content">
+        <!-- 左侧面板 -->
+        <div class="left-panel">
+            <!-- 搜索区域 -->
+            <div class="search-section">
+                <div class="search-row">
+                    <select class="search-select" id="searchType">
+                        <option value="barcode" data-i18n="label.barcode">条码</option>
+                        <option value="name" data-i18n="label.product">商品名称</option>
+                    </select>
+                    <input type="text" class="search-input" placeholder="扫描条码或输入商品名称" id="searchInput" data-i18n="hint.searchProduct">
+                    <button class="btn-search" id="btnSearch" data-i18n="button.search">搜索</button>
+                </div>
+            </div>
+            
+            <!-- 支付信息区域 -->
+            <div class="payment-section">
+                <div class="section-title" data-i18n="label.payment">支付信息</div>
+                
+                <div class="form-group">
+                    <label data-i18n="label.member">会员：</label>
+                    <input type="text" placeholder="输入会员手机号或卡号" id="memberInput" data-i18n="hint.enterMember">
+                    <div style="display: flex; gap: 5px; margin-top: 5px;">
+                        <button class="btn-search" style="flex: 1;" id="btnSearchMember" data-i18n="button.search">搜索</button>
+                        <button class="btn-search" style="flex: 1; background: #27ae60; color: white;" id="btnRegisterMember" data-i18n="button.register">注册会员</button>
+                    </div>
+                    <!-- 会员信息显示区域 -->
+                    <div id="memberInfo" style="display: none; margin-top: 10px; padding: 10px; background: #f8f9fa; border-radius: 4px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <span style="color: #666;" data-i18n="label.name">会员姓名：</span>
+                            <span id="memberName" style="font-weight: 600;"></span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <span style="color: #666;">会员等级：</span>
+                            <span id="memberLevel" style="font-weight: 600;"></span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span style="color: #666;" data-i18n="label.discount">会员折扣：</span>
+                            <span id="memberDiscount" style="font-weight: 600; color: #3498db;"></span>
+                        </div>
+                    </div>
+                    <button class="btn-search" style="width: 100%; margin-top: 5px; display: none;" id="btnClearMember" data-i18n="button.clear">清除会员</button>
+                </div>
+                
+                <!-- 支付明细区域 -->
+                <div class="form-group">
+                    <label data-i18n="label.detail">支付明细：</label>
+                    <div class="pay-details-header">
+                        <select class="pay-method-select" id="newPayMethod">
+                            <option value="cash" data-i18n="pay.cash">现金</option>
+                            <option value="wechat" data-i18n="pay.wechat">微信</option>
+                            <option value="alipay" data-i18n="pay.alipay">支付宝</option>
+                            <option value="memberCard" data-i18n="pay.card">会员卡</option>
+                            <option value="mobileMoney" data-i18n="pay.mobileMoney">Mobile Money</option>
+                        </select>
+                        <input type="number" class="pay-amount-input" placeholder="金额" id="newPayAmount" data-i18n="hint.enterAmount">
+                        <button class="btn-add-pay" id="btnAddPay" data-i18n="button.add">+ 添加</button>
+                    </div>
+                    <div id="mobileMoneyFields" style="display: none; gap: 8px; margin-bottom: 10px;">
+                        <select class="pay-method-select" id="mobileProvider" style="width: 90px; max-width: 90px;">
+                            <option value="Airtel" data-i18n="mobileMoney.airtel">Airtel</option>
+                            <option value="MTN" data-i18n="mobileMoney.mtn">MTN</option>
+                            <option value="Zamtel" data-i18n="mobileMoney.zamtel">Zamtel</option>
+                        </select>
+                        <input type="tel" class="pay-amount-input" placeholder="手机号" id="mobilePhone" data-i18n="hint.enterPhone">
+                    </div>
+                    
+                    <!-- 支付明细列表 -->
+                    <div class="pay-details-list" id="payDetailsList">
+                        <div class="empty-pay-list" data-i18n="hint.emptyPayList">暂无支付明细</div>
+                    </div>
+                    
+                    <div class="pay-summary">
+                        <div class="pay-summary-row">
+                            <span data-i18n="label.order">订单金额：</span>
+                            <span class="pay-total"><span class="currency-symbol">ZMW</span><span id="orderTotal">0.00</span></span>
+                        </div>
+                        <div class="pay-summary-row">
+                            <span data-i18n="label.paid">已支付：</span>
+                            <span class="pay-paid"><span class="currency-symbol">ZMW</span><span id="paidTotal">0.00</span></span>
+                        </div>
+                        <div class="pay-summary-row">
+                            <span data-i18n="label.pending">待支付：</span>
+                            <span class="pay-remaining"><span class="currency-symbol">ZMW</span><span id="remainingAmount">0.00</span></span>
+                        </div>
+                        <div class="pay-summary-row" style="border-top: 1px dashed #ddd; padding-top: 8px; margin-top: 8px;">
+                            <span data-i18n="label.change">找零：</span>
+                            <span class="pay-change"><span class="currency-symbol">ZMW</span><span id="changeAmount">0.00</span></span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <!-- 右侧面板 -->
+        <div class="right-panel">
+            <!-- 订单汇总 -->
+            <div class="order-summary">
+                <div class="summary-item">
+                    <span class="summary-label" data-i18n="label.quantity">商品数量:</span>
+                    <span class="summary-value" id="totalItems">0</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label" data-i18n="label.netAmount">不含税金额:</span>
+                    <span class="summary-value"><span class="currency-symbol">ZMW</span><span id="netAmount">0.00</span></span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label" data-i18n="label.vatAmount">VAT(16%):</span>
+                    <span class="summary-value"><span class="currency-symbol">ZMW</span><span id="vatAmount">0.00</span></span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label" data-i18n="label.amount">订单金额:</span>
+                    <span class="summary-total"><span class="currency-symbol">ZMW</span><span id="totalAmount">0.00</span></span>
+                </div>
+                <div class="summary-item" id="discountItem" style="display: none;">
+                    <span class="summary-label" data-i18n="label.discount">折扣金额:</span>
+                    <span class="summary-total" style="color: #e74c3c;">-<span class="currency-symbol">ZMW</span><span id="discountAmount">0.00</span></span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-final" data-i18n="label.total">应付金额:</span>
+                    <span class="summary-final-value"><span class="currency-symbol">ZMW</span><span id="finalAmount">0.00</span></span>
+                </div>
+            </div>
+            
+            <!-- 订单详情 -->
+            <div class="order-details">
+                <div class="order-details-header" data-i18n="label.order">订单信息</div>
+                <div class="order-table-wrapper">
+                    <table class="order-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 5%;">#</th>
+                                <th style="width: 35%;" data-i18n="table.header.product">商品名称</th>
+                                <th style="width: 12%;" data-i18n="table.header.price">单价</th>
+                                <th style="width: 12%;" data-i18n="table.header.quantity">数量</th>
+                                <th style="width: 8%;" data-i18n="label.unit">单位</th>
+                                <th style="width: 15%;" data-i18n="table.header.amount">金额</th>
+                                <th style="width: 13%;" data-i18n="label.action">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orderItems">
+                            <tr>
+                                <td colspan="7" class="empty-cart" data-i18n="hint.emptyCart">购物车为空，请选择商品</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- 操作按钮 -->
+            <div class="action-section">
+                <button class="btn btn-secondary" id="btnSaveDraft" data-i18n="button.suspend">挂单</button>
+                <button class="btn btn-secondary" id="btnClear" data-i18n="button.clear">清空</button>
+                <button class="btn btn-primary" id="btnConfirm" data-i18n="button.confirm">确认</button>
+            </div>
+            
+            <!-- 功能按钮区域 -->
+            <div class="action-section">
+                <button class="btn btn-secondary" id="btnQueryTrade" data-i18n="button.queryTrade">交易查询</button>
+                <button class="btn btn-secondary" id="btnDailySettlement" data-i18n="button.dailySettlement">日结</button>
+                <button class="btn btn-secondary" id="btnRefund" data-i18n="button.refund">退货</button>
+            </div>
+        </div>
+    </main>
+    
+    <!-- 支付输入模态框 -->
+    <div class="modal-overlay" id="payModal">
+        <div class="modal">
+            <div class="modal-title" data-i18n="modal.title.pay">请输入支付金额</div>
+            <div class="modal-content">
+                <div class="modal-amount"><span class="currency-symbol">ZMW</span><span id="payAmount">0.00</span></div>
+                <input type="number" class="modal-input" id="inputAmount" placeholder="输入金额" data-i18n="hint.enterAmount">
+                <div class="modal-change" id="changeInfo" style="display: none;">
+                    <span data-i18n="label.change">找零</span>：<span class="currency-symbol">ZMW</span><span id="modalChange">0.00</span>
+                </div>
+            </div>
+            <div class="modal-buttons">
+                <button class="btn btn-secondary" style="flex: 1;" id="btnCancelPay" data-i18n="button.cancel">取消</button>
+                <button class="btn btn-primary" style="flex: 2;" id="btnConfirmPay" data-i18n="button.confirm">确认支付</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 挂单列表模态框 -->
+    <div class="modal-overlay" id="suspendedModal">
+        <div class="modal" style="max-width: 800px; width: 90%; max-height: 80vh;">
+            <div class="modal-title" data-i18n="modal.title.suspendedOrder">挂单列表</div>
+            <div class="modal-content" style="max-height: 60vh; overflow-y: auto;">
+                <div id="suspendedOrdersList">
+                    <div class="empty-suspended-list" data-i18n="hint.emptySuspended">暂无挂单</div>
+                </div>
+            </div>
+            <div class="modal-buttons">
+                <button class="btn btn-secondary" style="flex: 1;" onclick="document.getElementById('suspendedModal').classList.remove('show')" data-i18n="button.close">关闭</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 交易查询模态框 -->
+    <div class="modal-overlay" id="tradeQueryModal">
+        <div class="modal" style="max-width: 900px; width: 95%; max-height: 85vh;">
+            <div class="modal-title" data-i18n="modal.title.tradeQuery">交易查询</div>
+            <div class="modal-content" style="max-height: 70vh; overflow-y: auto;">
+                <div class="query-filters">
+                    <div class="filter-row">
+                        <input type="text" class="filter-input" id="queryOrderNo" placeholder="订单号" data-i18n="hint.enterOrderNo">
+                        <input type="date" class="filter-input" id="queryDate">
+                        <button class="btn btn-primary" id="btnQuerySearch" data-i18n="button.search">查询</button>
+                    </div>
+                </div>
+                <div class="table-wrapper">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th data-i18n="table.header.orderNo">订单号</th>
+                                <th data-i18n="table.header.amount">订单金额</th>
+                                <th data-i18n="table.header.amountReceived">实付金额</th>
+                                <th data-i18n="table.header.status">支付状态</th>
+                                <th data-i18n="table.header.date">创建时间</th>
+                                <th data-i18n="label.action">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tradeList">
+                            <tr><td colspan="6" class="empty-cart" data-i18n="hint.emptyData">暂无数据</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="pagination" id="tradePagination"></div>
+            </div>
+            <div class="modal-buttons">
+                <button class="btn btn-secondary" style="flex: 1;" onclick="document.getElementById('tradeQueryModal').classList.remove('show')" data-i18n="button.close">关闭</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 订单详情模态框 -->
+    <div class="modal-overlay" id="orderDetailModal">
+        <div class="modal" style="max-width: 800px; width: 90%; max-height: 85vh;">
+            <div class="modal-title" data-i18n="label.detail">订单详情</div>
+            <div class="modal-content" style="max-height: 70vh; overflow-y: auto;">
+                <div class="order-info">
+                    <div class="info-row">
+                        <span class="info-label" data-i18n="table.header.orderNo">订单号：</span>
+                        <span class="info-value" id="detailOrderNo">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label" data-i18n="table.header.amount">订单金额：</span>
+                        <span class="info-value" id="detailTotalAmount">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label" data-i18n="table.header.amountReceived">实付金额：</span>
+                        <span class="info-value" id="detailRealAmount">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label" data-i18n="table.header.status">支付状态：</span>
+                        <span class="info-value" id="detailPayStatus">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label" data-i18n="label.date">创建时间：</span>
+                        <span class="info-value" id="detailCreateTime">-</span>
+                    </div>
+                </div>
+                <div class="section-divider"></div>
+                <div class="section-title" data-i18n="table.header.product">商品明细</div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="table.header.product">商品名称</th>
+                            <th data-i18n="table.header.price">单价</th>
+                            <th data-i18n="table.header.quantity">数量</th>
+                            <th data-i18n="table.header.amount">金额</th>
+                        </tr>
+                    </thead>
+                    <tbody id="detailItems">
+                        <tr><td colspan="4" class="empty-cart" data-i18n="hint.emptyProducts">暂无商品</td></tr>
+                    </tbody>
+                </table>
+                <div class="section-divider"></div>
+                <div class="section-title" data-i18n="label.detail">支付明细</div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="table.header.method">支付方式</th>
+                            <th data-i18n="table.header.amount">金额</th>
+                        </tr>
+                    </thead>
+                    <tbody id="detailPays">
+                        <tr><td colspan="2" class="empty-cart" data-i18n="hint.emptyPayRecords">暂无支付记录</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-buttons">
+                <button class="btn btn-secondary" style="flex: 1;" onclick="document.getElementById('orderDetailModal').classList.remove('show')" data-i18n="button.close">关闭</button>
+                <button class="btn btn-primary" style="flex: 1;" id="btnCreateRefund" data-i18n="button.refund">发起退货</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 退货模态框 -->
+    <div class="modal-overlay" id="refundModal">
+        <div class="modal" style="max-width: 700px; width: 90%; max-height: 85vh;">
+            <div class="modal-title" data-i18n="modal.title.refund">退货</div>
+            <div class="modal-content" style="max-height: 70vh; overflow-y: auto;">
+                <div class="form-group">
+                    <label data-i18n="table.header.orderNo">原订单号：</label>
+                    <input type="text" class="form-input" id="refundSourceOrderNo" placeholder="请输入原订单号" onchange="loadSourceOrder()" data-i18n="hint.enterOrderNo">
+                </div>
+                <div id="refundOrderInfo" style="display: none;">
+                    <div class="order-info">
+                        <div class="info-row">
+                            <span class="info-label" data-i18n="hint.sourceOrderAmount">原订单金额：</span>
+                            <span class="info-value" id="refundSourceTotal">-</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label" data-i18n="hint.refundedAmount">已退货金额：</span>
+                            <span class="info-value" id="refundAlready">-</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label" data-i18n="hint.availableRefund">可退金额：</span>
+                            <span class="info-value refund-available" id="refundAvailable">-</span>
+                        </div>
+                    </div>
+                    <div class="section-divider"></div>
+                    <div class="section-title" data-i18n="hint.refundProducts">退货商品</div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th data-i18n="table.header.product">商品名称</th>
+                                <th data-i18n="table.header.price">单价</th>
+                                <th data-i18n="hint.purchaseQty">购买数量</th>
+                                <th data-i18n="hint.refundedQty">已退数量</th>
+                                <th data-i18n="hint.refundQty">退货数量</th>
+                                <th data-i18n="table.header.amount">退货金额</th>
+                            </tr>
+                        </thead>
+                        <tbody id="refundItems">
+                            <tr><td colspan="6" class="empty-cart" data-i18n="hint.enterSourceOrder">请先输入原订单号</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="section-divider"></div>
+                    <div class="form-group">
+                        <label data-i18n="label.reason">退货原因：</label>
+                        <textarea class="form-input" id="refundReason" rows="3" placeholder="请输入退货原因" data-i18n="hint.enterRefundReason"></textarea>
+                    </div>
+                    <div class="section-divider"></div>
+                    <div class="section-title" data-i18n="hint.refundMethod">退款方式</div>
+                    <div class="pay-method-section">
+                        <div class="pay-method-row">
+                            <select class="form-select" id="refundPayMethod">
+                                <option value="1" data-i18n="pay.cash">现金</option>
+                                <option value="2" data-i18n="pay.wechat">微信</option>
+                                <option value="3" data-i18n="pay.alipay">支付宝</option>
+                                <option value="4" data-i18n="pay.card">会员卡</option>
+                            </select>
+                            <input type="number" class="pay-amount-input" placeholder="金额" id="refundPayAmount" data-i18n="hint.enterAmount">
+                            <button class="btn-add-pay" id="btnAddRefundPay" data-i18n="button.add">+ 添加</button>
+                        </div>
+                        <div id="refundPayDetailsList" class="pay-details-list">
+                            <div class="empty-pay-list" data-i18n="hint.emptyRefundDetails">暂无退款明细</div>
+                        </div>
+                        <div class="refund-pay-summary">
+                            <span data-i18n="hint.totalRefundAmount">退款总金额：</span>
+                            <span class="refund-pay-total" id="refundPayTotalAmount"><span class="currency-symbol">ZMW</span><span>0.00</span></span>
+                        </div>
+                    </div>
+                    <div class="refund-summary">
+                        <div class="summary-row">
+                            <span data-i18n="hint.refundTotal">退货总金额：</span>
+                            <span class="refund-total" id="refundTotalAmount"><span class="currency-symbol">ZMW</span><span>0.00</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-buttons">
+                <button class="btn btn-secondary" style="flex: 1;" onclick="document.getElementById('refundModal').classList.remove('show')" data-i18n="button.cancel">取消</button>
+                <button class="btn btn-primary" style="flex: 1;" id="btnSubmitRefund" data-i18n="button.submit">提交退货</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 日结模态框 -->
+    <div class="modal-overlay" id="settlementModal">
+        <div class="modal" style="max-width: 800px; width: 90%; max-height: 85vh;">
+            <div class="modal-title" data-i18n="modal.title.settlement">日结报表</div>
+            <div class="modal-content" style="max-height: 70vh; overflow-y: auto;">
+                <div class="query-filters">
+                    <div class="filter-row">
+                        <input type="date" class="filter-input" id="settlementDate" value="">
+                        <button class="btn btn-primary" id="btnSettlementSearch" data-i18n="button.search">查询</button>
+                        <button class="btn btn-secondary" id="btnCreateSettlement" data-i18n="button.submit">生成日结</button>
+                    </div>
+                </div>
+                <div class="settlement-summary">
+                    <div class="summary-card">
+                        <div class="summary-label" data-i18n="hint.orderCount">订单总数</div>
+                        <div class="summary-value" id="settleOrderCount">0</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-label" data-i18n="hint.orderTotal">订单总金额</div>
+                        <div class="summary-value summary-money" id="settleTotalAmount"><span class="currency-symbol">ZMW</span><span>0.00</span></div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-label" data-i18n="hint.realAmount">实收金额</div>
+                        <div class="summary-value summary-money" id="settleRealAmount"><span class="currency-symbol">ZMW</span><span>0.00</span></div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-label" data-i18n="hint.refundAmount">退货金额</div>
+                        <div class="summary-value summary-money" id="settleRefundAmount"><span class="currency-symbol">ZMW</span><span>0.00</span></div>
+                    </div>
+                </div>
+                <div class="section-divider"></div>
+                <div class="section-title" data-i18n="hint.payMethodSummary">支付方式汇总</div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="table.header.method">支付方式</th>
+                            <th data-i18n="hint.count">笔数</th>
+                            <th data-i18n="table.header.amount">金额</th>
+                        </tr>
+                    </thead>
+                    <tbody id="settlePayTypes">
+                        <tr><td colspan="3" class="empty-cart" data-i18n="hint.emptyData">暂无数据</td></tr>
+                    </tbody>
+                </table>
+                <div class="section-divider"></div>
+                <div class="section-title" data-i18n="hint.todayOrders">今日订单列表</div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="table.header.orderNo">订单号</th>
+                            <th data-i18n="table.header.amount">金额</th>
+                            <th data-i18n="table.header.method">支付方式</th>
+                            <th data-i18n="label.time">时间</th>
+                        </tr>
+                    </thead>
+                    <tbody id="settleOrders">
+                        <tr><td colspan="4" class="empty-cart" data-i18n="hint.emptyOrders">暂无订单</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-buttons">
+                <button class="btn btn-secondary" style="flex: 1;" onclick="document.getElementById('settlementModal').classList.remove('show')" data-i18n="button.close">关闭</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 会员注册模态框 -->
+    <div class="modal-overlay" id="memberRegisterModal">
+        <div class="modal" style="max-width: 400px; width: 90%;">
+            <div class="modal-title" data-i18n="modal.title.memberRegister">注册会员
+                <button id="btnCloseMemberRegister" class="modal-close" style="position: absolute; right: 15px; top: 10px; width: 30px; height: 30px; background: #f5f5f5; border: none; border-radius: 50%; font-size: 20px; cursor: pointer; color: #666; z-index: 10; display: flex; align-items: center; justify-content: center;" onclick="CashierModule.closeMemberRegisterModal()">&times;</button>
+            </div>
+            <div class="modal-content" style="padding: 20px;">
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px;" data-i18n="label.phone">手机号 *</label>
+                    <input type="tel" placeholder="请输入手机号" id="registerPhone" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;" data-i18n="hint.enterPhone">
+                </div>
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px;" data-i18n="label.name">姓名</label>
+                    <input type="text" placeholder="请输入姓名" id="registerName" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;" data-i18n="hint.enterName">
+                </div>
+            </div>
+            <div class="modal-buttons">
+                <button class="btn btn-secondary" style="flex: 1;" onclick="CashierModule.closeMemberRegisterModal()" data-i18n="button.close">关闭</button>
+                <button class="btn btn-secondary" style="flex: 1;" onclick="CashierModule.clearMemberRegisterForm()" data-i18n="button.clear">清空</button>
+                <button class="btn btn-primary" style="flex: 1;" onclick="CashierModule.submitMemberRegister()" data-i18n="button.confirm">确定</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 批次选择模态框 -->
+    <div class="modal-overlay" id="batchSelectModal">
+        <div class="modal" style="max-width: 700px; width: 90%; max-height: 80vh;">
+            <div class="modal-title" data-i18n="modal.title.batchSelect">选择批次</div>
+            <div class="modal-content" style="max-height: 60vh; overflow-y: auto;">
+                <div id="batchSelectContent">
+                    <div class="empty-cart" data-i18n="hint.emptyBatch">暂无可用批次</div>
+                </div>
+            </div>
+            <div class="modal-buttons">
+                <button class="btn btn-secondary" style="flex: 1;" onclick="document.getElementById('batchSelectModal').classList.remove('show')" data-i18n="button.cancel">取消</button>
+                <button class="btn btn-primary" style="flex: 1;" id="btnConfirmBatch" data-i18n="button.confirm">确认</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 成功提示 -->
+    <div class="success-message" id="successMsg" data-i18n="message.paySuccess">支付成功</div>
+    
+    <script src="js/locales/zh_CN.js"></script>
+    <script src="js/locales/en.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/cashier.js"></script>
+</body>
+</html>

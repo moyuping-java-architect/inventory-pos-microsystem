@@ -4,10 +4,7 @@ target/
 !**/src/test/**/target/
 
 ### IntelliJ IDEA ###
-.idea/modules.xml
-.idea/jarRepositories.xml
-.idea/compiler.xml
-.idea/libraries/
+.idea/
 *.iws
 *.iml
 *.ipr
@@ -34,11 +31,19 @@ build/
 ### VS Code ###
 .vscode/
 
+### Trae IDE ###
+.trae/
+
+### Environment & Secrets ###
+.env*
+!.env.example
+
 ### Mac OS ###
 .DS_Store
 
 ### Logs & Dumps ###
 *.log
+*.err
 hs_err_pid*.log
 replay_pid*.log
 derby.log
@@ -52,10 +57,17 @@ all_databases.sql
 !package.json
 !tsconfig.json
 data/
+*classpath.txt
+sale_raw.txt
 
 ### Python Cache ###
 __pycache__/
 *.pyc
+
+### Node.js ###
+node_modules/
+dist/
+.cache/
 
 ### Nacos Local Config ###
 nacos/

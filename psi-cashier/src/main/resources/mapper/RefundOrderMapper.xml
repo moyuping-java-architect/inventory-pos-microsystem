@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.psi.cashier.mapper.RefundOrderMapper">
+
+    <resultMap id="BaseResultMap" type="com.psi.cashier.entity.RefundOrderEntity">
+        <id column="id" property="id"/>
+        <result column="refund_no" property="refundNo"/>
+        <result column="tenant_id" property="tenantId"/>
+        <result column="shop_code" property="shopCode"/>
+        <result column="pos_id" property="posId"/>
+        <result column="biz_type" property="bizType"/>
+        <result column="source_order_no" property="sourceOrderNo"/>
+        <result column="operator_id" property="operatorId"/>
+        <result column="total_refund" property="totalRefund"/>
+        <result column="refund_time" property="refundTime"/>
+        <result column="refund_type" property="refundType"/>
+        <result column="remark" property="remark"/>
+        <result column="create_by" property="createBy"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_by" property="updateBy"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, refund_no, tenant_id, shop_code, pos_id, biz_type, source_order_no, 
+        operator_id, total_refund, refund_time, refund_type, remark, 
+        create_by, create_time, update_by, update_time
+    </sql>
+
+    <select id="selectByRefundNo" parameterType="java.lang.String" resultMap="BaseResultMap">
+        SELECT 
+        <include refid="Base_Column_List"/>
+        FROM refund_order
+        WHERE refund_no = #{refundNo}
+    </select>
+
+    <select id="selectBySourceOrderNo" parameterType="java.lang.String" resultMap="BaseResultMap">
+        SELECT 
+        <include refid="Base_Column_List"/>
+        FROM refund_order
+        WHERE source_order_no = #{sourceOrderNo}
+    </select>
+
+    <select id="selectByOperatorId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        SELECT 
+        <include refid="Base_Column_List"/>
+        FROM refund_order
+        WHERE operator_id = #{operatorId}
+    </select>
+
+</mapper>

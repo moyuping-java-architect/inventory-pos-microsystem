@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.psi.stock.mapper.StockMapper">
+
+    <!-- 批量预占库存：可用库存减少，锁定库存增加 -->
+    <update id="batchLockStock">
+        UPDATE psi_stock.stock
+        SET available_quantity = available_quantity - CASE
+            <foreach collection="items" item="item">
+                WHEN warehouse_code = #{item.warehouseCode} AND sku_code = #{item.skuCode} THEN #{item.quantity}
+            </foreach>
+            ELSE 0
+        END,
+        locked_quantity = locked_quantity + CASE
+            <foreach collection="items" item="item">
+                WHEN warehouse_code = #{item.warehouseCode} AND sku_code = #{item.skuCode} THEN #{item.quantity}
+            </foreach>
+            ELSE 0
+        END
+        WHERE (warehouse_code, sku_code) IN
+        <foreach collection="items" item="item" open="(" separator="," close=")">
+            (#{item.warehouseCode}, #{item.skuCode})
+        </foreach>
+        AND (
+            <foreach collection="items" item="item" separator=" OR ">
+                (warehouse_code = #{item.warehouseCode} AND sku_code = #{item.skuCode} AND available_quantity >= #{item.quantity})
+            </foreach>
+        )
+    </update>
+
+    <!-- 批量扣减库存：实际库存、可用库存、总金额同时减少 -->
+    <update id="batchDecreaseStock">
+        UPDATE psi_stock.stock
+        SET quantity = quantity - CASE
+            <foreach collection="items" item="item">
+                WHEN warehouse_code = #{item.warehouseCode} AND sku_code = #{item.skuCode} THEN #{item.quantity}
+            </foreach>
+            ELSE 0
+        END,
+        available_quantity = available_quantity - CASE
+            <foreach collection="items" item="item">
+                WHEN warehouse_code = #{item.warehouseCode} AND sku_code = #{item.skuCode} THEN #{item.quantity}
+            </foreach>
+            ELSE 0
+        END,
+        total_amount = total_amount - (avg_cost_price * CASE
+            <foreach collection="items" item="item">
+                WHEN warehouse_code = #{item.warehouseCode} AND sku_code = #{item.skuCode} THEN #{item.quantity}
+            </foreach>
+            ELSE 0
+        END)
+        WHERE (warehouse_code, sku_code) IN
+        <foreach collection="items" item="item" open="(" separator="," close=")">
+            (#{item.warehouseCode}, #{item.skuCode})
+        </foreach>
+        AND (
+            <foreach collection="items" item="item" separator=" OR ">
+                (warehouse_code = #{item.warehouseCode} AND sku_code = #{item.skuCode} AND available_quantity >= #{item.quantity})
+            </foreach>
+        )
+    </update>
+
+    <!-- 批量释放预占库存：可用库存增加，锁定库存减少 -->
+    <update id="batchReleaseStock">
+        UPDATE psi_stock.stock
+        SET available_quantity = available_quantity + CASE
+            <foreach collection="items" item="item">
+                WHEN warehouse_code = #{item.warehouseCode} AND sku_code = #{item.skuCode} THEN #{item.quantity}
+            </foreach>
+            ELSE 0
+        END,
+        locked_quantity = locked_quantity - CASE
+            <foreach collection="items" item="item">
+                WHEN warehouse_code = #{item.warehouseCode} AND sku_code = #{item.skuCode} THEN #{item.quantity}
+            </foreach>
+            ELSE 0
+        END
+        WHERE (warehouse_code, sku_code) IN
+        <foreach collection="items" item="item" open="(" separator="," close=")">
+            (#{item.warehouseCode}, #{item.skuCode})
+        </foreach>
+        AND (
+            <foreach collection="items" item="item" separator=" OR ">
+                (warehouse_code = #{item.warehouseCode} AND sku_code = #{item.skuCode} AND locked_quantity >= #{item.quantity})
+            </foreach>
+        )
+    </update>
+
+    <!-- 批量确认出库：实际库存和锁定库存同时扣减 -->
+    <update id="batchConfirmStock">
+        UPDATE psi_stock.stock
+        SET quantity = quantity - CASE
+            <foreach collection="items" item="item">
+                WHEN warehouse_code = #{item.warehouseCode} AND sku_code = #{item.skuCode} THEN #{item.quantity}
+            </foreach>
+            ELSE 0
+        END,
+        locked_quantity = locked_quantity - CASE
+            <foreach collection="items" item="item">
+                WHEN warehouse_code = #{item.warehouseCode} AND sku_code = #{item.skuCode} THEN #{item.quantity}
+            </foreach>
+            ELSE 0
+        END,
+        total_amount = total_amount - (avg_cost_price * CASE
+            <foreach collection="items" item="item">
+                WHEN warehouse_code = #{item.warehouseCode} AND sku_code = #{item.skuCode} THEN #{item.quantity}
+            </foreach>
+            ELSE 0
+        END)
+        WHERE (warehouse_code, sku_code) IN
+        <foreach collection="items" item="item" open="(" separator="," close=")">
+            (#{item.warehouseCode}, #{item.skuCode})
+        </foreach>
+        AND (
+            <foreach collection="items" item="item" separator=" OR ">
+                (warehouse_code = #{item.warehouseCode} AND sku_code = #{item.skuCode} AND locked_quantity >= #{item.quantity})
+            </foreach>
+        )
+    </update>
+
+</mapper>
