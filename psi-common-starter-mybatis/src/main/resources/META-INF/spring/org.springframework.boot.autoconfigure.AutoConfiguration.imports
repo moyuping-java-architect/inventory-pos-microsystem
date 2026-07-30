@@ -1,0 +1,2 @@
+com.psi.common.mybatis.autoconfigure.MyBatisAutoConfiguration
+com.psi.common.mybatis.config.MyBatisPlusConfig

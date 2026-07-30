@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="30 seconds">
+
+    <property name="psi.log.base-dir" value="./logs"/>
+    <property name="psi.log.service-dir" value="${psi.log.base-dir}/${spring.application.name:-unknown-service}"/>
+    <property name="psi.log.service-name" value="${spring.application.name:-unknown-service}"/>
+    <property name="psi.log.level" value="INFO"/>
+    <property name="psi.log.retention-days" value="7"/>
+    <property name="psi.log.max-file-size" value="100MB"/>
+    <property name="psi.log.async-queue-size" value="1024"/>
+
+    <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"/>
+    <property name="LOG_PATTERN_WITH_TRACE" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - traceId=%X{traceId} - %msg%n"/>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${LOG_PATTERN_WITH_TRACE}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <appender name="SERVICE_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${psi.log.service-dir}/${psi.log.service-name}.log</file>
+        
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${psi.log.service-dir}/${psi.log.service-name}-%d{yyyyMMdd}.%i.log</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>${psi.log.max-file-size}</maxFileSize>
+                <maxHistory>${psi.log.retention-days}</maxHistory>
+                <totalSizeCap>1GB</totalSizeCap>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>${psi.log.retention-days}</maxHistory>
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
+        </rollingPolicy>
+        
+        <encoder>
+            <pattern>${LOG_PATTERN_WITH_TRACE}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <appender name="ERROR_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+        
+        <file>${psi.log.service-dir}/${psi.log.service-name}-error.log</file>
+        
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${psi.log.service-dir}/${psi.log.service-name}-error-%d{yyyyMMdd}.%i.log</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>${psi.log.max-file-size}</maxFileSize>
+                <maxHistory>${psi.log.retention-days}</maxHistory>
+                <totalSizeCap>1GB</totalSizeCap>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>${psi.log.retention-days}</maxHistory>
+        </rollingPolicy>
+        
+        <encoder>
+            <pattern>${LOG_PATTERN_WITH_TRACE}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <appender name="ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+        <queueSize>${psi.log.async-queue-size}</queueSize>
+        <discardingThreshold>0</discardingThreshold>
+        <includeCallerData>false</includeCallerData>
+        
+        <appender-ref ref="SERVICE_FILE"/>
+        <appender-ref ref="ERROR_FILE"/>
+    </appender>
+
+    <root level="${psi.log.level}">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="ASYNC"/>
+    </root>
+
+    <logger name="com.psi" level="${psi.log.level}" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="ASYNC"/>
+    </logger>
+
+    <logger name="org.springframework" level="WARN" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="ASYNC"/>
+    </logger>
+
+    <logger name="com.baomidou.mybatisplus" level="WARN" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="ASYNC"/>
+    </logger>
+
+    <logger name="com.psi.common.mybatis" level="DEBUG" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="ASYNC"/>
+    </logger>
+
+</configuration>

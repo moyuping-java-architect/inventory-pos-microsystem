@@ -1,0 +1,42 @@
+<!DOCTYPE aspectj PUBLIC
+        "-//AspectJ//DTD//EN" "https://www.eclipse.org/aspectj/dtd/aspectj.dtd">
+
+<aspectj>
+    <!-- 声明需要织入的切面 -->
+    <aspects>
+        <aspect name="com.psi.common.trace.aspectj.TraceLtwAspect"/>
+    </aspects>
+
+    <!-- 定义织入规则 -->
+    <weaver options="-verbose">
+        <!-- 织入所有业务代码（包括私有方法） -->
+        <include within="com.psi..*"/>
+        
+        <!-- 排除工具类 -->
+        <exclude within="com.psi.util..*"/>
+        <exclude within="com.psi.common.util..*"/>
+        <exclude within="com.psi.common.trace..*"/>
+        
+        <!-- 排除配置类 -->
+        <exclude within="com.psi.config..*"/>
+        <exclude within="com.psi.common.config..*"/>
+        
+        <!-- 排除常量类 -->
+        <exclude within="com.psi.constant..*"/>
+        
+        <!-- 排除 DTO 和 Entity -->
+        <exclude within="com.psi.dto..*"/>
+        <exclude within="com.psi.entity..*"/>
+        <exclude within="com.psi.vo..*"/>
+        <exclude within="com.psi.po..*"/>
+        
+        <!-- 排除 Spring 框架和第三方库 -->
+        <exclude within="org.springframework..*"/>
+        <exclude within="java..*"/>
+        <exclude within="javax..*"/>
+        <exclude within="lombok..*"/>
+        <exclude within="com.alibaba..*"/>
+        <exclude within="org.mybatis..*"/>
+        <exclude within="com.fasterxml..*"/>
+    </weaver>
+</aspectj>

@@ -1,0 +1,2 @@
+com.psi.common.mq.autoconfigure.RabbitBindingAutoConfiguration
+com.psi.common.mq.autoconfigure.MQAutoConfiguration

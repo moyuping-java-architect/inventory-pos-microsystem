@@ -1,0 +1,15 @@
+# 原生标准 spring.cloud.nacos 配置，无自定义前缀
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: public
+        file-extension: properties
+        refresh-enabled: true
+        config-long-poll-timeout: 30000
+        max-retry: 3
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: public
+        weight: 100

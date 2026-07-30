@@ -1,0 +1,79 @@
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### IntelliJ IDEA ###
+.idea/modules.xml
+.idea/jarRepositories.xml
+.idea/compiler.xml
+.idea/libraries/
+*.iws
+*.iml
+*.ipr
+
+### Eclipse ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+### Mac OS ###
+.DS_Store
+
+### Logs & Dumps ###
+*.log
+hs_err_pid*.log
+replay_pid*.log
+derby.log
+dump.rdb
+all_databases.sql
+
+### Reports & Data ###
+*.xlsx
+*.pdf
+*.json
+!package.json
+!tsconfig.json
+data/
+
+### Python Cache ###
+__pycache__/
+*.pyc
+
+### Nacos Local Config ###
+nacos/
+
+### Logs directories ###
+**/logs/
+**/run.log
+**/startup.log
+**/err.log
+**/out.log
+
+### Java ###
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+.mtj.tmp/
+*.ctxt

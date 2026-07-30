@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.psi</groupId>
+        <artifactId>psi-parent</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>psi-common-starter-order-rule</artifactId>
+    <packaging>jar</packaging>
+    <name>psi-common-starter-order-rule</name>
+    <description>订单规则 Starter - 提供通用单据能力，支持采购订单、销售订单、报损单、报溢单、盘点单等</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.psi</groupId>
+            <artifactId>psi-common-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.psi</groupId>
+            <artifactId>psi-common-starter-mybatis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.psi</groupId>
+            <artifactId>psi-common-starter-async</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>2.5.0</version>
+        </dependency>
+    </dependencies>
+</project>
