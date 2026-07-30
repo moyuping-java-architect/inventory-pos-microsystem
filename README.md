@@ -75,7 +75,7 @@ psi-parent/
 
 **Yuping Mo** — Senior Architect
 - Location: Lusaka, Zambia (Open to Remote)
-- Email: 674376050@qq.com
+- Email: yuping.mo@outlook.com
 - GitHub: [moyuping-java-architect](https://github.com/moyuping-java-architect)
 
 ### License
