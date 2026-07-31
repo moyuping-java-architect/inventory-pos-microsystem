@@ -2,7 +2,7 @@
 
 > Enterprise-grade **Purchase · Sales · Inventory · POS · Finance** SaaS platform built with Java 21 + Go, deployed across African markets.
 
-<img src="docs/architecture.svg" alt="System Architecture" width="100%">
+<img src="docs/architecture.png" alt="System Architecture" width="100%">
 
 ---
 
