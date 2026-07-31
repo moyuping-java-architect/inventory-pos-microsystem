@@ -2,7 +2,7 @@
 
 > Enterprise-grade **Purchase · Sales · Inventory · POS · Finance** SaaS platform built with Java 21 + Go, deployed across African markets.
 
-![System Architecture](docs/architecture.png)
+![System Architecture](https://raw.githubusercontent.com/moyuping-java-architect/inventory-pos-microsystem/main/docs/architecture.png)
 
 ---
 
