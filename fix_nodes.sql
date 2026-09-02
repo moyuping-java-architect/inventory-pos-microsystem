@@ -1,0 +1,23 @@
+INSERT INTO wf_process_node (process_def_id, node_key, node_name, node_type, approve_type, sort, config, status, del_flag, tenant_id, create_time)
+VALUES
+(6, 'purchase_manager', '采购经理审批', 1, 1, 1, '{"handlerUserId":"1","handlerUserName":"admin"}', 1, 0, 1, NOW()),
+(6, 'end', '结束', 4, 1, 2, NULL, 1, 0, 1, NOW()),
+(7, 'sale_manager', '销售经理审批', 1, 1, 1, '{"handlerUserId":"1","handlerUserName":"admin"}', 1, 0, 1, NOW()),
+(7, 'end', '结束', 4, 1, 2, NULL, 1, 0, 1, NOW()),
+(8, 'sale_manager', '销售经理审批', 1, 1, 1, '{"handlerUserId":"1","handlerUserName":"admin"}', 1, 0, 1, NOW()),
+(8, 'warehouse_manager', '仓库管理员', 1, 1, 2, '{"handlerUserId":"1","handlerUserName":"admin"}', 1, 0, 1, NOW()),
+(8, 'end', '结束', 4, 1, 3, NULL, 1, 0, 1, NOW()),
+(9, 'sale_manager', '销售经理审批', 1, 1, 1, '{"handlerUserId":"1","handlerUserName":"admin"}', 1, 0, 1, NOW()),
+(9, 'end', '结束', 4, 1, 2, NULL, 1, 0, 1, NOW()),
+(14, 'goods_manager', '商品管理员审批', 1, 1, 1, '{"handlerUserId":"1","handlerUserName":"admin"}', 1, 0, 1, NOW()),
+(14, 'end', '结束', 4, 1, 2, NULL, 1, 0, 1, NOW()),
+(12, 'stock_manager', '库存管理员审批', 1, 1, 1, '{"handlerUserId":"1","handlerUserName":"admin"}', 1, 0, 1, NOW()),
+(12, 'end', '结束', 4, 1, 2, NULL, 1, 0, 1, NOW()),
+(10, 'stock_manager', '库存管理员审批', 1, 1, 1, '{"handlerUserId":"1","handlerUserName":"admin"}', 1, 0, 1, NOW()),
+(10, 'end', '结束', 4, 1, 2, NULL, 1, 0, 1, NOW()),
+(11, 'stock_manager', '库存管理员审批', 1, 1, 1, '{"handlerUserId":"1","handlerUserName":"admin"}', 1, 0, 1, NOW()),
+(11, 'end', '结束', 4, 1, 2, NULL, 1, 0, 1, NOW()),
+(4, 'stock_manager', '库存管理员审批', 1, 1, 1, '{"handlerUserId":"1","handlerUserName":"admin"}', 1, 0, 1, NOW()),
+(4, 'end', '结束', 4, 1, 2, NULL, 1, 0, 1, NOW()),
+(13, 'stock_manager', '库存管理员审批', 1, 1, 1, '{"handlerUserId":"1","handlerUserName":"admin"}', 1, 0, 1, NOW()),
+(13, 'end', '结束', 4, 1, 2, NULL, 1, 0, 1, NOW());

@@ -1,0 +1,45 @@
+=== TOUCHPOINT_TYPE ===
+  WHATSAPP_INQUIRY         = WhatsApp price inquiry
+  STORE_VISIT              = Store visit
+  PHONE_CALL               = Phone call
+  DELIVERY_FEEDBACK        = Delivery feedback
+  COMPLAINT                = Complaint
+  REFERRAL                 = Referral
+
+=== INTENT_TYPE ===
+
+=== SALES_FUNNEL stages ===
+  STAGE_INTENTION          意向客户        tp='INQUIRY'      intent='FIRST_CONTACT'
+  STAGE_DEMO               拜访演示        tp='STORE_VISIT'  intent='INTERESTED'
+  STAGE_PROPOSAL           方案报价        tp='DOC_SENT'     intent='SCHEMA_DISCUSS'
+  STAGE_PRICE              价格谈判        tp='NEGOTIATION'  intent='QUOTE_GIVEN'
+  STAGE_SIGNED             已签约         tp='CONTRACT_SIGNED' intent='SIGNED'
+  STAGE_RENEWED            阶段6: 客户成功   tp='ORDER_COMPLETED' intent='RENEWED'
+
+=== LIFECYCLE stages ===
+  LC_NEW                   新户          tp='MEMBER_REGISTERED' intent=None
+  LC_ACTIVE                活跃          tp='ORDER_COMPLETED' intent='BUY'
+  LC_SILENT                沉默          tp='SILENT_WARNING' intent='SILENT'
+  LC_CHURNED               已流失         tp='CHURN'        intent='CHURNED'
+
+=== customer_touchpoint sample ===
+  tp=IM                       ch=WHATSAPP   intent=FIRST_CONTACT
+  tp=VISIT                    ch=IN_STORE   intent=INTERESTED
+  tp=DOC                      ch=WHATSAPP   intent=SCHEMA_DISCUSS
+  tp=DOC                      ch=IM         intent=QUOTE_GIVEN
+  tp=CONTRACT                 ch=IN_STORE   intent=SIGNED
+  tp=VISIT                    ch=IN_STORE   intent=RENEWED
+  tp=MEMBER_REGISTERED        ch=SYSTEM     intent=FIRST_CONTACT
+  tp=MEMBER_RECHARGE          ch=SYSTEM     intent=BUY
+  tp=FIRST_PURCHASE           ch=SYSTEM     intent=BUY
+  tp=ORDER_COMPLETED          ch=SYSTEM     intent=BUY
+  tp=MEMBER_UPGRADE           ch=SYSTEM     intent=BRONZE
+  tp=MEMBER_REGISTERED        ch=SYSTEM     intent=FIRST_CONTACT
+  tp=MEMBER_RECHARGE          ch=SYSTEM     intent=BUY
+  tp=FIRST_PURCHASE           ch=SYSTEM     intent=BUY
+  tp=ORDER_COMPLETED          ch=SYSTEM     intent=BUY
+  tp=MEMBER_UPGRADE           ch=SYSTEM     intent=BRONZE
+  tp=ORDER_COMPLETED          ch=SYSTEM     intent=BUY
+  tp=ORDER_COMPLETED          ch=SYSTEM     intent=BUY
+  tp=MEMBER_UPGRADE           ch=SYSTEM     intent=SILVER
+  tp=ORDER_COMPLETED          ch=SYSTEM     intent=BUY

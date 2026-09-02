@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.psi</groupId>
+        <artifactId>psi-modular</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>psi-customer</artifactId>
+    <packaging>jar</packaging>
+    <name>psi-customer</name>
+    <description>Customer Growth Module - 客户增长/客户旅程主模块（复用进销存底座数据，做流失预警/复购分析/召回建议）</description>
+
+    <dependencies>
+        <!-- 公共核心模块（CommonResult / UserContext / IdUtils） -->
+        <dependency>
+            <groupId>com.psi</groupId>
+            <artifactId>psi-common-core</artifactId>
+        </dependency>
+
+        <!-- MyBatis Plus（聚合查询 + 触点CRUD） -->
+        <dependency>
+            <groupId>com.psi</groupId>
+            <artifactId>psi-common-starter-mybatis</artifactId>
+        </dependency>
+
+        <!-- 租户上下文 -->
+        <dependency>
+            <groupId>com.psi</groupId>
+            <artifactId>psi-common-starter-tenant</artifactId>
+        </dependency>
+
+        <!-- 日志 -->
+        <dependency>
+            <groupId>com.psi</groupId>
+            <artifactId>psi-common-starter-log</artifactId>
+        </dependency>
+
+        <!-- OpenAPI 文档（@Tag / @Operation） -->
+        <dependency>
+            <groupId>com.psi</groupId>
+            <artifactId>psi-common-starter-doc</artifactId>
+        </dependency>
+
+        <!-- OpenFeign（预留：后期拆微服务后调 psi-cashier 获取订单数据） -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
+        <!-- Lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
+</project>

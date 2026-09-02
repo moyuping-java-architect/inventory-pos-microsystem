@@ -1,0 +1,53 @@
+-- 促销活动表
+CREATE TABLE IF NOT EXISTS promotion (
+    id BIGINT NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+    data_uuid VARCHAR(64) DEFAULT NULL COMMENT '数据UUID',
+    tenant_id BIGINT DEFAULT NULL COMMENT '租户ID',
+    promotion_no VARCHAR(64) NOT NULL COMMENT '促销活动编号',
+    promotion_name VARCHAR(200) NOT NULL COMMENT '促销活动名称',
+    promotion_type TINYINT DEFAULT 1 COMMENT '促销类型 1:满减 2:满件折扣 3:买赠',
+    discount_type TINYINT DEFAULT 1 COMMENT '优惠类型 1:固定金额 2:折扣百分比',
+    discount_value DECIMAL(18,4) DEFAULT NULL COMMENT '优惠值',
+    min_amount DECIMAL(18,4) DEFAULT NULL COMMENT '最低消费金额',
+    min_quantity DECIMAL(18,4) DEFAULT NULL COMMENT '最低购买数量',
+    start_time DATETIME DEFAULT NULL COMMENT '开始时间',
+    end_time DATETIME DEFAULT NULL COMMENT '结束时间',
+    scope_type TINYINT DEFAULT 1 COMMENT '适用范围 1:全部商品 2:指定商品 3:指定分类',
+    status TINYINT DEFAULT 1 COMMENT '状态 0:禁用 1:启用',
+    priority INT DEFAULT 0 COMMENT '优先级，数字越小优先级越高',
+    superimposable TINYINT DEFAULT 0 COMMENT '是否可叠加 0:不可 1:可以',
+    remark VARCHAR(500) DEFAULT NULL COMMENT '备注',
+    create_by BIGINT DEFAULT NULL COMMENT '创建人ID',
+    create_time DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    update_by BIGINT DEFAULT NULL COMMENT '更新人ID',
+    update_time DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+    del_flag TINYINT DEFAULT '0' COMMENT '删除标记',
+    PRIMARY KEY (id),
+    UNIQUE KEY uk_promotion_no (promotion_no),
+    UNIQUE KEY uk_data_uuid (data_uuid),
+    KEY idx_status (status),
+    KEY idx_start_end (start_time, end_time)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='促销活动表';
+
+-- 促销活动商品表
+CREATE TABLE IF NOT EXISTS promotion_item (
+    id BIGINT NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+    data_uuid VARCHAR(64) DEFAULT NULL COMMENT '数据UUID',
+    tenant_id BIGINT DEFAULT NULL COMMENT '租户ID',
+    promotion_id BIGINT NOT NULL COMMENT '促销活动ID',
+    promotion_no VARCHAR(64) NOT NULL COMMENT '促销活动编号',
+    item_type TINYINT DEFAULT 1 COMMENT '类型 1:商品 2:分类',
+    item_code VARCHAR(64) DEFAULT NULL COMMENT '商品/分类编码',
+    item_name VARCHAR(200) DEFAULT NULL COMMENT '商品/分类名称',
+    category_code VARCHAR(64) DEFAULT NULL COMMENT '分类编码',
+    category_name VARCHAR(200) DEFAULT NULL COMMENT '分类名称',
+    create_by BIGINT DEFAULT NULL COMMENT '创建人ID',
+    create_time DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    update_by BIGINT DEFAULT NULL COMMENT '更新人ID',
+    update_time DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+    del_flag TINYINT DEFAULT '0' COMMENT '删除标记',
+    PRIMARY KEY (id),
+    UNIQUE KEY uk_data_uuid (data_uuid),
+    KEY idx_promotion_id (promotion_id),
+    KEY idx_item_code (item_code)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='促销活动商品表';

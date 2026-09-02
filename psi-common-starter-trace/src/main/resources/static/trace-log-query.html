@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trace日志查询</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .header { text-align: center; color: white; margin-bottom: 30px; }
+        .header h1 { font-size: 2.5rem; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .header p { font-size: 1.1rem; opacity: 0.9; }
+        .search-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            margin-bottom: 30px;
+        }
+        .form-row { display: flex; gap: 20px; flex-wrap: wrap; }
+        .form-group { flex: 1; min-width: 250px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: #333; }
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        .btn {
+            padding: 12px 32px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 28px;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4); }
+        .btn-secondary { background: #f5f5f5; color: #333; margin-left: 10px; }
+        .btn-secondary:hover { background: #e8e8e8; }
+        .result-card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .result-stats { display: flex; gap: 30px; }
+        .stat-item { text-align: center; }
+        .stat-value { font-size: 1.8rem; font-weight: 700; color: #667eea; }
+        .stat-label { font-size: 0.85rem; color: #666; }
+        .log-entry {
+            border-left: 4px solid #667eea;
+            background: #fafafa;
+            border-radius: 0 8px 8px 0;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+        .log-entry-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .log-file { font-weight: 600; color: #333; }
+        .log-line {
+            background: #1a1a1a;
+            color: #e0e0e0;
+            padding: 12px;
+            border-radius: 6px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9rem;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+        .log-context { margin-top: 10px; }
+        .context-label { font-size: 0.85rem; color: #888; margin-bottom: 5px; }
+        .context-lines {
+            background: #f0f0f0;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.85rem;
+            white-space: pre-wrap;
+            word-break: break-all;
+            color: #555;
+        }
+        .empty-state { text-align: center; padding: 60px 20px; color: #999; }
+        .empty-state .icon { font-size: 4rem; margin-bottom: 15px; opacity: 0.5; }
+        .empty-state h3 { margin-bottom: 10px; color: #666; }
+        .loading { text-align: center; padding: 40px; color: #667eea; }
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @media (max-width: 768px) {
+            .form-row { flex-direction: column; }
+            .btn { width: 100%; margin-left: 0; margin-top: 10px; }
+            .btn-secondary { margin-left: 0; }
+            .result-stats { flex-direction: column; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📋 Trace日志查询</h1>
+            <p>根据traceId和日期快速定位问题日志</p>
+        </div>
+
+        <div class="search-card">
+            <form id="searchForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="traceId">Trace ID</label>
+                        <input type="text" id="traceId" placeholder="请输入traceId" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">日期</label>
+                        <input type="text" id="date" placeholder="yyyyMMdd / yesterday / today" value="today">
+                    </div>
+                    <div class="form-group">
+                        <label for="logType">日志类型</label>
+                        <select id="logType">
+                            <option value="all">全部日志</option>
+                            <option value="normal">正常日志</option>
+                            <option value="error">错误日志</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">查询</button>
+                    <button type="button" class="btn btn-secondary" id="clearBtn">清空</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="result-card" id="resultContainer" style="display: none;">
+            <div class="result-header">
+                <h2>查询结果</h2>
+                <div class="result-stats">
+                    <div class="stat-item">
+                        <div class="stat-value" id="totalMatches">0</div>
+                        <div class="stat-label">匹配记录</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="totalFiles">0</div>
+                        <div class="stat-label">搜索文件</div>
+                    </div>
+                </div>
+            </div>
+            <div id="logEntries"></div>
+        </div>
+
+        <div id="loading" class="loading" style="display: none;">
+            <div class="loading-spinner"></div>
+            <p>正在查询日志...</p>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = '/api/trace/logs';
+
+        document.getElementById('searchForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const traceId = document.getElementById('traceId').value.trim();
+            const date = document.getElementById('date').value.trim();
+            const logType = document.getElementById('logType').value;
+            if (!traceId) { alert('请输入traceId'); return; }
+            await searchLogs(traceId, date, logType);
+        });
+
+        document.getElementById('clearBtn').addEventListener('click', () => {
+            document.getElementById('traceId').value = '';
+            document.getElementById('date').value = 'today';
+            document.getElementById('logType').value = 'all';
+            document.getElementById('resultContainer').style.display = 'none';
+            document.getElementById('logEntries').innerHTML = '';
+        });
+
+        async function searchLogs(traceId, date, logType) {
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('resultContainer').style.display = 'none';
+            try {
+                const response = await fetch(`${API_BASE}/query`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ traceId, date, logType })
+                });
+                const data = await response.json();
+                displayResults(data);
+            } catch (error) {
+                console.error('查询失败:', error);
+                alert('查询失败，请稍后重试');
+            } finally {
+                document.getElementById('loading').style.display = 'none';
+            }
+        }
+
+        function displayResults(data) {
+            document.getElementById('totalMatches').textContent = data.totalMatches;
+            document.getElementById('totalFiles').textContent = data.totalFiles;
+            const entriesContainer = document.getElementById('logEntries');
+            
+            if (data.entries && data.entries.length > 0) {
+                entriesContainer.innerHTML = data.entries.map(entry => `
+                    <div class="log-entry">
+                        <div class="log-entry-header">
+                            <span class="log-file">📄 ${entry.fileName}</span>
+                            <span>行号: ${entry.lineNumber}</span>
+                        </div>
+                        <div class="log-line">${escapeHtml(entry.content)}</div>
+                        ${entry.contextBefore && entry.contextBefore.length > 0 ? `
+                            <div class="log-context">
+                                <div class="context-label">📋 前置上下文</div>
+                                <div class="context-lines">${entry.contextBefore.map((line, i) => `${entry.lineNumber - entry.contextBefore.length + i}: ${escapeHtml(line)}`).join('\n')}</div>
+                            </div>
+                        ` : ''}
+                        ${entry.contextAfter && entry.contextAfter.length > 0 ? `
+                            <div class="log-context">
+                                <div class="context-label">📝 后置上下文</div>
+                                <div class="context-lines">${entry.contextAfter.map((line, i) => `${entry.lineNumber + 1 + i}: ${escapeHtml(line)}`).join('\n')}</div>
+                            </div>
+                        ` : ''}
+                    </div>
+                `).join('');
+            } else {
+                entriesContainer.innerHTML = `
+                    <div class="empty-state">
+                        <div class="icon">🔍</div>
+                        <h3>未找到匹配的日志记录</h3>
+                        <p>请检查traceId是否正确，或尝试其他日期</p>
+                    </div>
+                `;
+            }
+            document.getElementById('resultContainer').style.display = 'block';
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const today = new Date();
+            document.getElementById('date').value = today.toISOString().split('T')[0].replace(/-/g, '');
+        });
+    </script>
+</body>
+</html>

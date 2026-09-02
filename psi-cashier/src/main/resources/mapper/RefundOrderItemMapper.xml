@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.psi.cashier.mapper.RefundOrderItemMapper">
+
+    <resultMap id="BaseResultMap" type="com.psi.cashier.entity.RefundOrderItemEntity">
+        <id column="id" property="id"/>
+        <result column="tenant_id" property="tenantId"/>
+        <result column="shop_code" property="shopCode"/>
+        <result column="pos_id" property="posId"/>
+        <result column="refund_no" property="refundNo"/>
+        <result column="biz_type" property="bizType"/>
+        <result column="sku_id" property="skuId"/>
+        <result column="sku_code" property="skuCode"/>
+        <result column="bar_code" property="barCode"/>
+        <result column="product_name" property="productName"/>
+        <result column="sale_unit_name" property="saleUnitName"/>
+        <result column="refund_quantity" property="refundQuantity"/>
+        <result column="refund_price" property="refundPrice"/>
+        <result column="subtotal" property="subtotal"/>
+        <result column="create_by" property="createBy"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_by" property="updateBy"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, tenant_id, shop_code, pos_id, refund_no, biz_type, sku_id, 
+        sku_code, bar_code, product_name, sale_unit_name, refund_quantity, 
+        refund_price, subtotal, create_by, create_time, update_by, update_time
+    </sql>
+
+    <select id="selectByRefundNo" parameterType="java.lang.String" resultMap="BaseResultMap">
+        SELECT 
+        <include refid="Base_Column_List"/>
+        FROM refund_order_item
+        WHERE refund_no = #{refundNo}
+    </select>
+
+    <select id="selectBySourceOrderNo" parameterType="java.lang.String" resultMap="BaseResultMap">
+        SELECT 
+        <include refid="Base_Column_List"/>
+        FROM refund_order_item
+        WHERE refund_no IN (
+            SELECT refund_no FROM refund_order WHERE source_order_no = #{sourceOrderNo}
+        )
+    </select>
+
+    <delete id="deleteByRefundNo" parameterType="java.lang.String">
+        DELETE FROM refund_order_item WHERE refund_no = #{refundNo}
+    </delete>
+
+</mapper>

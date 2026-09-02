@@ -1,0 +1,1 @@
+SET NAMES utf8mb4; SELECT script_name FROM sales_script_library WHERE stage_code='CONSIDERING' AND day_start=1;

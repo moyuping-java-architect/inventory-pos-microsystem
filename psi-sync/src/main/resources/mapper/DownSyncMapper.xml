@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.psi.sync.mapper.DownSyncMapper">
+
+    <select id="selectPendingDownload" resultType="com.psi.sync.entity.DownSyncEntity">
+        SELECT ds.* FROM down_sync ds
+        INNER JOIN (
+            SELECT data_uuid, MAX(data_version) as max_version
+            FROM down_sync
+            WHERE sync_status = 0
+            <if test="lastTime != null and lastTime != ''">
+                AND create_time > STR_TO_DATE(#{lastTime}, '%Y-%m-%d %H:%i:%s')
+            </if>
+            GROUP BY data_uuid
+        ) latest ON ds.data_uuid = latest.data_uuid AND ds.data_version = latest.max_version
+        WHERE ds.sync_status = 0
+        ORDER BY ds.create_time ASC
+    </select>
+
+    <update id="batchUpdateDownloadStatusByBatchUuids">
+        UPDATE down_sync
+        SET sync_status = #{syncStatus},
+            last_download_time = #{lastDownloadTime}
+        WHERE batch_uuid IN
+        <foreach collection="batchUuids" item="batchUuid" open="(" separator="," close=")">
+            #{batchUuid}
+        </foreach>
+    </update>
+
+</mapper>

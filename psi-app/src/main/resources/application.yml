@@ -1,0 +1,122 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+spring:
+  application:
+    name: psi-modular
+  profiles:
+    active: dev
+  threads:
+    virtual:
+      enabled: true
+  main:
+    allow-bean-definition-overriding: true
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration
+      - com.psi.common.mq.autoconfigure.RabbitBindingAutoConfiguration
+      - com.psi.common.mq.autoconfigure.MQAutoConfiguration
+
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/}psi_modular?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&useSSL=false
+    username: ${SPRING_DATASOURCE_USERNAME:root}
+    password: ${SPRING_DATASOURCE_PASSWORD:Psi@Db#2026#Root}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  data:
+    redis:
+      host: ${SPRING_REDIS_HOST:localhost}
+      port: 6379
+      database: 0
+      timeout: 3000ms
+
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
+    default-property-inclusion: non_null
+
+  cloud:
+    nacos:
+      discovery:
+        enabled: false
+      config:
+        enabled: false
+
+mybatis-plus:
+  mapper-locations: classpath*:mapper/**/*.xml
+  type-aliases-package: com.psi.**.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: del_flag
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+psi:
+  async:
+    enabled: true
+  tenant:
+    enabled: true
+  trace:
+    enabled: true
+  mq:
+    enabled: false
+  flow:
+    base-url: http://localhost:8080
+  sync:
+    base-url: http://localhost:8080
+  stock:
+    base-url: http://localhost:8080
+  report:
+    python:
+      base-url: http://localhost:5000
+    service:
+      stock-url: http://localhost:8080
+      purchase-url: http://localhost:8080
+      sale-url: http://localhost:8080
+      goods-url: http://localhost:8080
+
+jwt:
+  secret: psi-jwt-secret-key-for-production-use-a-strong-secret-here
+  expire: 86400000
+  refresh-expire: 604800000
+  ignore-urls:
+    - /admin/login
+    - /admin/refresh-token
+    - /actuator/**
+    - /swagger-ui/**
+    - /v3/api-docs/**
+
+logging:
+  level:
+    com.psi: info
+    org.springframework: info
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+  health:
+    nacos:
+      enabled: false
+    discovery:
+      enabled: false
+    db:
+      enabled: false
+    redis:
+      enabled: false
+    rabbit:
+      enabled: false

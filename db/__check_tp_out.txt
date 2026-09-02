@@ -1,0 +1,23 @@
+touchpoint_generate_rule 实际去重后的 touchpoint_type 数: 17
+
+  tp=CHURN                  intent=CHURNED        ch=SYSTEM
+  tp=CONTRACT_SIGNED        intent=SIGNED         ch=SYSTEM
+  tp=DEBT_OVERDUE           intent=COMPLAINT      ch=SYSTEM
+  tp=FIRST_PURCHASE         intent=BUY            ch=SYSTEM
+  tp=MEMBER_RECHARGE        intent=BUY            ch=SYSTEM
+  tp=MEMBER_REGISTERED      intent=FIRST_CONTACT  ch=SYSTEM
+  tp=MEMBER_UPGRADE         intent={newLevel}     ch=SYSTEM
+  tp=MEMBER_UPGRADE         intent=BLACK          ch=SYSTEM
+  tp=MEMBER_UPGRADE         intent=BRONZE         ch=SYSTEM
+  tp=MEMBER_UPGRADE         intent=GOLD           ch=SYSTEM
+  tp=MEMBER_UPGRADE         intent=SILVER         ch=SYSTEM
+  tp=ORDER_COMPLETED        intent=BUY            ch=SYSTEM
+  tp=ORDER_COMPLETED        intent=RENEWED        ch=SYSTEM
+  tp=PAYMENT_RECEIVED       intent=BUY            ch=SYSTEM
+  tp=PROFILE_CREATED        intent=FIRST_CONTACT  ch=SYSTEM
+  tp=SECOND_CARE            intent=NURTURE        ch=SYSTEM
+  tp=SILENT_WARNING         intent=SILENT         ch=SYSTEM
+
+
+customer_touchpoint 实际出现过的 touchpoint_type (10):
+  CONTRACT, DOC, FIRST_PURCHASE, IM, MEMBER_RECHARGE, MEMBER_REGISTERED, MEMBER_UPGRADE, ORDER_COMPLETED, PAYMENT_RECEIVED, VISIT

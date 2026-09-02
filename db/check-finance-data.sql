@@ -1,0 +1,10 @@
+SELECT '=== 应收单(带customerId) ===' AS hdr;
+SELECT id, customer_id, customer_code, total_amount, paid_amount, remain_amount FROM finance_receivable WHERE customer_id IS NOT NULL LIMIT 5;
+SELECT '=== 客户表 ===' AS hdr;
+SELECT id, customer_name, customer_code FROM customer LIMIT 5;
+SELECT '=== 旅程模板(全部) ===' AS hdr;
+SELECT journey_code, journey_name, subject_type, is_default, enabled FROM customer_journey_template;
+SELECT '=== 阶段匹配 PAYMENT_RECEIVED? ===' AS hdr;
+SELECT journey_code, stage_code, stage_name, match_touchpoint, match_intent FROM customer_journey_stage WHERE match_touchpoint='PAYMENT_RECEIVED';
+SELECT '=== 现有 PAYMENT_RECEIVED 触点 ===' AS hdr;
+SELECT COUNT(*) AS cnt FROM customer_touchpoint WHERE touchpoint_type='PAYMENT_RECEIVED';

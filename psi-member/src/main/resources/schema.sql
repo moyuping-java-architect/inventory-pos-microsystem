@@ -1,0 +1,97 @@
+CREATE TABLE IF NOT EXISTS `member_level` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `level_name` varchar(50) NOT NULL COMMENT '等级名称',
+  `level` int NOT NULL DEFAULT 1 COMMENT '等级值',
+  `discount` decimal(5,2) DEFAULT NULL COMMENT '折扣(%)',
+  `min_consume` decimal(12,2) DEFAULT NULL COMMENT '升级所需最低消费',
+  `min_points` int DEFAULT NULL COMMENT '升级所需最低积分',
+  `point_rate` decimal(5,2) DEFAULT 1.00 COMMENT '积分倍率',
+  `level_icon` varchar(255) DEFAULT NULL COMMENT '等级图标',
+  `description` varchar(500) DEFAULT NULL COMMENT '描述',
+  `sort_order` int DEFAULT 0 COMMENT '排序',
+  `status` tinyint DEFAULT 1 COMMENT '状态 1启用 0禁用',
+  `del_flag` tinyint DEFAULT 0 COMMENT '删除标记',
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  `create_by` bigint DEFAULT NULL COMMENT '创建人',
+  `update_by` bigint DEFAULT NULL COMMENT '更新人',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uk_level` (`level`, `del_flag`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='会员等级表';
+
+CREATE TABLE IF NOT EXISTS `member_info` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `member_no` varchar(32) NOT NULL COMMENT '会员编号',
+  `member_name` varchar(100) NOT NULL COMMENT '会员姓名',
+  `phone` varchar(20) DEFAULT NULL COMMENT '手机号',
+  `email` varchar(100) DEFAULT NULL COMMENT '邮箱',
+  `gender` tinyint DEFAULT 0 COMMENT '性别 0未知 1男 2女',
+  `birthday` date DEFAULT NULL COMMENT '生日',
+  `level_id` bigint DEFAULT NULL COMMENT '等级ID',
+  `level_name` varchar(50) DEFAULT NULL COMMENT '等级名称',
+  `balance` decimal(12,2) DEFAULT 0.00 COMMENT '储值余额',
+  `points` int DEFAULT 0 COMMENT '积分',
+  `total_consume` decimal(12,2) DEFAULT 0.00 COMMENT '累计消费',
+  `total_orders` int DEFAULT 0 COMMENT '累计订单数',
+  `address` varchar(500) DEFAULT NULL COMMENT '地址',
+  `remark` varchar(500) DEFAULT NULL COMMENT '备注',
+  `status` tinyint DEFAULT 1 COMMENT '状态 1正常 0冻结',
+  `register_time` datetime DEFAULT NULL COMMENT '注册时间',
+  `last_consume_time` datetime DEFAULT NULL COMMENT '最后消费时间',
+  `tenant_id` bigint DEFAULT NULL COMMENT '租户ID',
+  `shop_id` bigint DEFAULT NULL COMMENT '门店ID',
+  `del_flag` tinyint DEFAULT 0 COMMENT '删除标记',
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  `create_by` bigint DEFAULT NULL COMMENT '创建人',
+  `update_by` bigint DEFAULT NULL COMMENT '更新人',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uk_member_no` (`member_no`, `del_flag`),
+  KEY `idx_phone` (`phone`),
+  KEY `idx_level_id` (`level_id`),
+  KEY `idx_tenant_id` (`tenant_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='会员信息表';
+
+CREATE TABLE IF NOT EXISTS `member_balance_log` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `member_id` bigint NOT NULL COMMENT '会员ID',
+  `member_no` varchar(32) DEFAULT NULL COMMENT '会员编号',
+  `type` tinyint NOT NULL COMMENT '类型 1充值 2消费 3退款',
+  `amount` decimal(12,2) NOT NULL COMMENT '变动金额',
+  `before_balance` decimal(12,2) DEFAULT NULL COMMENT '变动前余额',
+  `after_balance` decimal(12,2) DEFAULT NULL COMMENT '变动后余额',
+  `source_no` varchar(64) DEFAULT NULL COMMENT '来源单号',
+  `source_type` varchar(32) DEFAULT NULL COMMENT '来源类型',
+  `remark` varchar(500) DEFAULT NULL COMMENT '备注',
+  `tenant_id` bigint DEFAULT NULL COMMENT '租户ID',
+  `del_flag` tinyint DEFAULT 0 COMMENT '删除标记',
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  PRIMARY KEY (`id`),
+  KEY `idx_member_id` (`member_id`),
+  KEY `idx_source_no` (`source_no`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='会员储值流水表';
+
+CREATE TABLE IF NOT EXISTS `member_point_log` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `member_id` bigint NOT NULL COMMENT '会员ID',
+  `member_no` varchar(32) DEFAULT NULL COMMENT '会员编号',
+  `type` tinyint NOT NULL COMMENT '类型 1获得 2消耗',
+  `points` int NOT NULL COMMENT '变动积分',
+  `before_points` int DEFAULT NULL COMMENT '变动前积分',
+  `after_points` int DEFAULT NULL COMMENT '变动后积分',
+  `source_no` varchar(64) DEFAULT NULL COMMENT '来源单号',
+  `source_type` varchar(32) DEFAULT NULL COMMENT '来源类型',
+  `remark` varchar(500) DEFAULT NULL COMMENT '备注',
+  `tenant_id` bigint DEFAULT NULL COMMENT '租户ID',
+  `del_flag` tinyint DEFAULT 0 COMMENT '删除标记',
+  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  PRIMARY KEY (`id`),
+  KEY `idx_member_id` (`member_id`),
+  KEY `idx_source_no` (`source_no`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='会员积分流水表';
+
+INSERT INTO `member_level` (`level_name`, `level`, `discount`, `min_consume`, `min_points`, `point_rate`, `description`, `sort_order`) VALUES
+('普通会员', 1, 100.00, 0.00, 0, 1.00, '注册即成为普通会员', 1),
+('银卡会员', 2, 95.00, 1000.00, 1000, 1.50, '累计消费1000或积分达到1000', 2),
+('金卡会员', 3, 90.00, 5000.00, 5000, 2.00, '累计消费5000或积分达到5000', 3),
+('钻石会员', 4, 85.00, 20000.00, 20000, 3.00, '累计消费20000或积分达到20000', 4);

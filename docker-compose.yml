@@ -1,0 +1,130 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: psi-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: "Psi@Db#2026#Root"
+      MYSQL_DATABASE: psi_modular
+      MYSQL_CHARSET: utf8mb4
+      MYSQL_COLLATION: utf8mb4_unicode_ci
+    volumes:
+      - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - mysql-data:/var/lib/mysql
+    ports:
+      - "3307:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-pPsi@Db#2026#Root"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    networks:
+      - psi-network
+
+  redis:
+    image: redis:7-alpine
+    container_name: psi-redis
+    volumes:
+      - redis-data:/data
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - psi-network
+
+  psi-app:
+    build:
+      context: ./psi-app
+      dockerfile: Dockerfile
+    container_name: psi-app
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+      SPRING_DATASOURCE_URL: jdbc:mysql://psi-mysql:3306/psi_modular?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&useSSL=false
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: "Psi@Db#2026#Root"
+      SPRING_REDIS_HOST: psi-redis
+      SPRING_REDIS_PORT: 6379
+      SPRING_AUTOCONFIGURE_EXCLUDE: org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration,com.psi.common.mq.autoconfigure.RabbitBindingAutoConfiguration,com.psi.common.mq.autoconfigure.MQAutoConfiguration
+      PSI_MQ_ENABLED: false
+      MANAGEMENT_HEALTH_NACOS_ENABLED: "false"
+      MANAGEMENT_HEALTH_DISCOVERY_ENABLED: "false"
+      MANAGEMENT_HEALTH_DB_ENABLED: "false"
+      MANAGEMENT_HEALTH_REDIS_ENABLED: "false"
+      MANAGEMENT_HEALTH_RABBIT_ENABLED: "false"
+      PSI_FLOW_BASE_URL: http://psi-app:8080
+      PSI_SYNC_BASE_URL: http://psi-app:8080
+      PSI_STOCK_BASE_URL: http://psi-app:8080
+    ports:
+      - "8080:8080"
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:8080/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 120s
+    networks:
+      - psi-network
+
+  psi-cashier:
+    build:
+      context: ./psi-cashier
+      dockerfile: Dockerfile
+    container_name: psi-cashier
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+      SPRING_MAIN_ALLOW_BEAN_DEFINITION_OVERRIDING: "true"
+      PSI_SYNC_BASE_URL: http://psi-app:8080
+      PSI_DB_PATH: /app/data/myp.db
+    ports:
+      - "8088:8088"
+    volumes:
+      - cashier-data:/app/data
+    depends_on:
+      mysql:
+        condition: service_healthy
+      psi-app:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:8088/"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+    networks:
+      - psi-network
+
+  psi-frontend:
+    build:
+      context: ./psi-frontend
+      dockerfile: Dockerfile
+    container_name: psi-frontend
+    ports:
+      - "80:80"
+      # - "443:443"  # 启用 HTTPS 时取消注释
+    # volumes:
+    #   - ./ssl:/etc/nginx/ssl:ro  # 启用 HTTPS 时挂载证书目录
+    depends_on:
+      psi-app:
+        condition: service_started
+    networks:
+      - psi-network
+
+volumes:
+  mysql-data:
+  redis-data:
+  cashier-data:
+
+networks:
+  psi-network:
+    driver: bridge

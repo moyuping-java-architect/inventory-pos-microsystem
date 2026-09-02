@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.psi.system.mapper.ShopInfoMapper">
+
+    <resultMap id="ShopWithDeptNamesResultMap" type="com.psi.system.entity.ShopInfo">
+        <id column="id" property="id"/>
+        <result column="shop_name" property="shopName"/>
+        <result column="shop_code" property="shopCode"/>
+        <result column="address" property="address"/>
+        <result column="phone" property="phone"/>
+        <result column="manager" property="manager"/>
+        <result column="dept_names" property="deptNames"/>
+        <result column="status" property="status"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+
+    <select id="selectShopPageWithDeptNames" resultMap="ShopWithDeptNamesResultMap">
+        SELECT 
+            s.id,
+            s.shop_name,
+            s.shop_code,
+            s.address,
+            s.phone,
+            s.manager,
+            s.status,
+            s.create_time,
+            s.update_time,
+            (SELECT GROUP_CONCAT(d.dept_name SEPARATOR ', ') 
+             FROM sys_dept d 
+             WHERE d.shop_id = s.id AND d.del_flag = 0) AS dept_names
+        FROM shop_info s
+        WHERE s.del_flag = 0
+        <if test="ew != null">
+            ${ew.customSqlSegment}
+        </if>
+    </select>
+
+</mapper>
