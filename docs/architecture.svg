@@ -9,7 +9,7 @@
   </defs>
   <rect x="0" y="0" width="680" height="482" fill="#1E1E1E"/>
   <text x="340" y="32" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D3D1C7">PSI 微服务平台 · 系统架构</text>
-  <text x="340" y="50" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11" fill="#888780">12+ Java 微服务 + 1 Go 服务 · 648 API · 11 业务域</text>
+  <text x="340" y="50" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11" fill="#888780">12+ Java 微服务 + 1 Go 服务 · ~600 API · 11 业务域</text>
 
   <rect x="40" y="64" width="600" height="56" rx="12" fill="#2C2C2A" stroke="#5F5E5A" stroke-width="0.5"/>
   <text x="50" y="80" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11" fill="#888780">Clients</text>
