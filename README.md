@@ -13,9 +13,9 @@ This is not a demo or a tutorial project. It's a **production system** designed 
 | Metric | Value |
 |--------|-------|
 | Microservices | 12 Java + 1 Go |
-| API Endpoints | 648 |
+| API Endpoints | ~600 (94 controllers) |
 | Database Entities | 120+ |
-| Maven Modules | 24 |
+| Maven Modules | 22 |
 | MQ Consumers | 30+ |
 | Codebase | 84K+ lines Java, 17K+ lines Vue |
 | Business Domains | 11 (procurement, sales, inventory, POS, finance, workflow, etc.) |
